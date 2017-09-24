@@ -23,15 +23,21 @@ public class GradeBook {
 
     public void determineClassAverage() {
         Scanner input = new Scanner(System.in);
-        int total = 0, gradeCounter = 1, grade, average;
-        while (gradeCounter <= 10) {
-            System.out.print("Enter grade: ");
-            grade = input.nextInt();
+        System.out.print("Enter grade or -1 to quit: ");
+        int total = 0, gradeCounter = 0, grade = input.nextInt();
+        double average;
+        while (grade != -1) {
             total += grade;
             gradeCounter++;
+            System.out.print("Enter grade or -1 to quit: ");
+            grade = input.nextInt();
         }
-        average = total / 10;
-        System.out.printf("\nTotal of all 10 grades is %d\n", total);
-        System.out.printf("Class average is %d\n", average);
+        if (gradeCounter != 0) {
+            average = (double) total / gradeCounter;
+            System.out.printf("\nTotal of all %d grades is %d\n", gradeCounter, total);
+            System.out.printf("Class average is %.2f\n", average);
+        } else {
+            System.out.println("No grades were entered");
+        }
     }
 }
