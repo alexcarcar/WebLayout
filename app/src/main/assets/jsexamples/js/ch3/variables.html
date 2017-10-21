@@ -8,6 +8,7 @@
 <a href="../../jsexamples.html">GO BACK</a>
 <br/> &nbsp; <br/>
 <label>Keywords</label>: data, data types, variables, constants, literals
+<h1>Summary</h1>
 <ul>
     <li><label>Variables</label> can change at any time. Prior to ES6 <code>var</code> was used
         instead of <code>let</code>.
@@ -21,6 +22,57 @@
             <li><code>const PI=3.14159265358, E=2.718281828459;</code></li>
         </ul>
     </li>
+    <li><label>Identifiers</label> are the names of variables, constants, and functions.
+        <ul>
+            <li>Must start with letter, $, or _. Begin with a lower case letter usually except for
+                classes.
+            </li>
+            <li>Can contain letters, numbers, $, and _</li>
+            <li>Can contain unicode letters but cannot be a reserved word</li>
+            <li><label>Camel Case</label>: <code>thisIsAnExample</code></li>
+            <li><label>Snake Case</label>: <code>ANOTHER_EXAMPLE</code></li>
+        </ul>
+    </li>
+    <li><label>Literals</label> are values assigned to variables and constants. There are <label>string
+        literals</label> (i.e. "lobby") and <label>numeric literals</label> (i.e. 3.1415).
+    </li>
+    <li>There are 6 <label>primitive types</label>: <code>Number, String, Boolean, Null, Undefined,
+        and Symbol,</code>which are immutable.
+    </li>
+    <li>In addition to primitive types, there are <label>objects</label>. Some build in objects
+        include: <code>Array, Date, RegExp, Map and WeakMap, and Set and WeakSet.</code></li>
+</ul>
+<h1>Strings</h1>
+<ul>
+    <li>A <label>string</label> is simply text data. We can <label>escape</label> special characters
+        with a back slash: <code>"This is \"test\""</code></li>
+    <li>Another way to perform <label>string concatenation</label> in E6 and is called<label>string
+        templates</label> or <label>string interpolation:</label><br/>
+        <code>let currentTemp = 19.5;</code><br/>
+        <code>const message = `The current temperature is ${currentTemp}\u00b0C`;</code>
+    </li>
+</ul>
+<h1>Objects</h1>
+Unlike the immutable primitive types, which only ever represent one value, objects can represent
+multiple or complex values, and can change over their lifetime. In essence, an object is a <label>container</label>
+surrounded by {curly braces}.
+<ul>
+    <li>The contents of an object are called <label>properties</label> (or <label>members</label>)
+    </li>
+    <li>Property <label>names (or keys)</label> must be strings or symbols, and
+        <label>values</label> can be any type (including other objects).
+    </li>
+    <li>Add invalid identifiers using <label>computed member access</label> operators: <code>obj["not
+        an identifier"] = 3;</code></li>
+    <li>Objects can also contain <label>functions:</label> <code>obj.speak = function() {return
+        "Meow!";};</code></li>
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="33_VariablesAndConstants.js">Page 33: Variables and Constants</a></li>
+    <li><a href="39_Numbers.js">Page 39: Numbers</a></li>
+    <li><a href="43_Strings.js">Page 43: Strings</a></li>
+    <li><a href="46_Objects.js">Page 46: Objects</a></li>
 </ul>
 </body>
 </html>

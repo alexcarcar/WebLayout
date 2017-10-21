@@ -1,19 +1,34 @@
 code {
-	color: blue;
-	font-weight: bolder;
+	color: #008;
 	font-family: monospace;
 	font-size: 14pt;
+	padding: 10px;
+	font-weight: bold;
+}
+
+li {
+	margin-top: 20px;
 }
 
 body {
 	font-size: 14pt;
-	font-family: cursive;
+	font-family: arial;
+	background-color: #eef;
 }
 
 label {
-	color: brown;
+	color: #006;
 	font-weight: bolder;
-	font-family: cursive;
+	font-family: arial;
 	font-size: 14pt;
 	background-color: yellow;
+	padding: 3px;
+}
+
+h1 {
+	font-family: arial;
+	color: #006;
+	background-color: #ccc;
+	padding: 5px;
+	font-size: 16pt;
 }
