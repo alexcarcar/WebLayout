@@ -45,3 +45,22 @@ console.log(s.toUpperCase());
 const c = "hello";
 s.rating = 3;
 console.log(s.rating);
+
+/*
+Objects (page 46)
+=================
+undefined 'yellow'
+3 'yellow'
+8 { color: 'yellow', 'not an identifier': 3 }
+{"color":"yellow","not an identifier":3}
+{ name: 'Sam', age: 4 } { name: 'Sam', age: 4 } { name: 'Sam',
+  classification: { creature: 'Human', country: 'USA' } }
+USA
+USA
+USA
+USA
+Meow!
+{ name: 'Sam' }
+HELLO
+undefined
+*/
