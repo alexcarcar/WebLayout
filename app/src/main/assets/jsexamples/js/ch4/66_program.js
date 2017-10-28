@@ -23,6 +23,31 @@ while (funds>1 && funds<100) {
 		bets.heart = totalBet
 	} else {
 		// distribute total bet
-		
+		let remaining = totalBet;
+		do {
+			let bet = rand(1, remaining);
+			let face = randFace();
+			bets[face] += bet;
+			remaining -= bet;
+		} while(remaining > 0);
+		funds -= totalBet;
+		console.log('\tbets: ' + Object.keys(bets).map(face => `${face}: ${bets[face]} pence`).join(', ') + ` (total: ${totalBet} pence)`);
+
+		// roll dice
+		const hand = [];
+		for (let roll=0; roll<3; roll++) {
+			hand.push(randFace());
+		}
+		console.log(`\thand: ${hand.join(', ')}`);
+
+		// collect winnings
+		let winnings = 0;
+		for (let die=0; die<hand.length; die++) {
+			let face = hand[die];
+			if(bets[face]>0) winnings += bets[face];
+		}
+		funds += winnings;
+		console.log(`\twinnings: ${winnings}`);
 	}
+	console.log(`\tending funds: ${funds}`);
 }
