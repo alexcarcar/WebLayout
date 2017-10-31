@@ -51,3 +51,60 @@ while (funds>1 && funds<100) {
 	}
 	console.log(`\tending funds: ${funds}`);
 }
+
+/*
+round 1:
+	starting funds: 50p
+	bets: crown: 2 pence, anchor: 1 pence, heart: 3 pence, spade: 13 pence, club: 0 pence, diamond: 0 pence (total: 19 pence)
+	hand: anchor, crown, heart
+	winnings: 6
+	ending funds: 37
+round 2:
+	starting funds: 37p
+	bets: crown: 1 pence, anchor: 1 pence, heart: 0 pence, spade: 0 pence, club: 0 pence, diamond: 32 pence (total: 34 pence)
+	hand: diamond, diamond, heart
+	winnings: 64
+	ending funds: 67
+round 3:
+	starting funds: 67p
+	bets: crown: 40 pence, anchor: 4 pence, heart: 0 pence, spade: 0 pence, club: 0 pence, diamond: 6 pence (total: 50 pence)
+	hand: spade, club, anchor
+	winnings: 4
+	ending funds: 21
+round 4:
+	starting funds: 21p
+	bets: crown: 0 pence, anchor: 1 pence, heart: 1 pence, spade: 0 pence, club: 0 pence, diamond: 0 pence (total: 2 pence)
+	hand: anchor, club, spade
+	winnings: 1
+	ending funds: 20
+round 5:
+	starting funds: 20p
+	bets: crown: 0 pence, anchor: 6 pence, heart: 4 pence, spade: 0 pence, club: 0 pence, diamond: 0 pence (total: 10 pence)
+	hand: spade, club, heart
+	winnings: 4
+	ending funds: 14
+round 6:
+	starting funds: 14p
+	bets: crown: 0 pence, anchor: 0 pence, heart: 0 pence, spade: 1 pence, club: 0 pence, diamond: 4 pence (total: 5 pence)
+	hand: diamond, crown, crown
+	winnings: 4
+	ending funds: 13
+round 7:
+	starting funds: 13p
+	bets: crown: 0 pence, anchor: 2 pence, heart: 0 pence, spade: 0 pence, club: 0 pence, diamond: 11 pence (total: 13 pence)
+	hand: anchor, anchor, spade
+	winnings: 4
+	ending funds: 4
+round 8:
+	starting funds: 4p
+	bets: crown: 0 pence, anchor: 0 pence, heart: 0 pence, spade: 0 pence, club: 0 pence, diamond: 1 pence (total: 1 pence)
+	hand: anchor, diamond, heart
+	winnings: 1
+	ending funds: 4
+round 9:
+	starting funds: 4p
+	bets: crown: 0 pence, anchor: 0 pence, heart: 0 pence, spade: 3 pence, club: 1 pence, diamond: 0 pence (total: 4 pence)
+	hand: diamond, club, crown
+	winnings: 1
+	ending funds: 1
+*/
