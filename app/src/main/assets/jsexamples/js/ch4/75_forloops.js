@@ -1,4 +1,4 @@
-console.log("----- for loops (p. 75) ");
+console.log("----- for loops (p. 75)");
 
 const player = {name: 'Alex', rank: 'Midshipman', age: 25};
 for (let prop in player) {
