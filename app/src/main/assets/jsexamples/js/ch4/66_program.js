@@ -1,4 +1,4 @@
-// return a random integer in the range [m,n] (inclusive)
+// return a random integer in the range [m,n] inclusive
 function rand(m, n) {
 	return m + Math.floor((n-m+1)*Math.random());
 }
