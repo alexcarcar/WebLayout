@@ -25,14 +25,34 @@ object and array operators
     </li>
     <li><code>Operator precedence</code> is the order JavaScript evaluates an expression.</li>
 </ul>
+
 <h1>Operator, Identifier, and Literial Expressions</h1>
 <ul>
     <li>Most expressions (like multiplication) are <label>operator expressions.</label> They contain
         an <label>operator (*, +, -, /)</label> and two <label>operands.</label></li>
+    <li>An <label>identifier expression</label> (variable and constant names) represent the values
+        behind them.
+    </li>
+    <li>Similarly, <label>literal expressions</label> are themselves the values which are returned.
+    </li>
 </ul>
+
+<h1>Comparison Operators</h1>
+<ul>
+    <li>Two values are <label>strictly equal (===)</label> if they refer to the same object (or for
+        primative types have the same type and value.) Or <label>strictly inequal (!==).</label>
+    </li>
+    <li>Two values are <label>abstractly (or loosely) equal (==)</label> if they refer to the same
+        object or if they can be coerced into having the same value. Or not <label>(!=).</label>
+        Strict equality is preferred because confusion surrounds <label>null, undefined, empty
+            string, and 0.</label></li>
+    <li>Other <label>relational operators</label> include <label>&lt;, &gt;, &lt;=, &gt;=.</label>
+</ul>
+
 <h1>Code</h1>
 <ul>
     <li><a href="80_simpleExpressions.js">Page 80: Simple Expressions</a></li>
+    <li><a href="86_comparisons.js">Page 86: Comparison Operators</a></li>
 </ul>
 </body>
 </html>
