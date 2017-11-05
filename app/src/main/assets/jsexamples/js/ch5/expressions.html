@@ -23,7 +23,13 @@ object and array operators
     <li><code>x = 3 * 5;</code> is an <label>assignment expression</label> that assigns the value 15
         to the variable x.
     </li>
-    <li><code>Operator precedence</code> is the order JavaScript evaluates an expression.</li>
+    <li><label>Operator precedence</label> is the order JavaScript evaluates an expression.</li>
+    <li>The <label>lvalue</label> in an assignment is the left side of the assignment and must be a
+        variable able to hold a value.
+    </li>
+    <li>The <label>spread operator (...)</label> takes all the remaining elements when
+        deconstructing arrays
+    </li>
 </ul>
 
 <h1>Operator, Identifier, and Literial Expressions</h1>
@@ -49,10 +55,78 @@ object and array operators
     <li>Other <label>relational operators</label> include <label>&lt;, &gt;, &lt;=, &gt;=.</label>
 </ul>
 
+<h1>Truthy and Falsy Values</h1>
+<ul>
+    <li>The following are considered <label>falsy</label> in JavaScript: <code>undefined, null,
+        false, 0, NaN, ''</code></li>
+    <li>Everything else is considered <label>truthy</label> including: an object with <code>valueOf()==false,</code>an
+        empty array, strings containing white space <code>" ",</code> the string
+        <code>"false"</code></li>
+    <li>If you want an empty array to be false, use <code>arr.length</code>(since 0 evaluates to
+        false.)
+    </li>
+</ul>
+
+<h1>Short-Circuit Evaluation</h1>
+<ul>
+    <li>JavaScript uses <label>short-circuit evaluation</label>. For example, when evaluating <code>(A
+        || B)</code> and A is true then B is not evaluated.
+    </li>
+    <li>Short-curcuit evaluation has<label>side effects.</label> For example,<code>x++</code> is not
+        always performed in <code>A||x++;</code></li>
+    <li>The <label>comma operator</label>, evaluates two expressions and returns the value of the
+        second expression.
+    </li>
+</ul>
+
+<h1>Object and array operators</h1>
+<table cellpadding="3">
+    <thead>
+    <th>Operator</th>
+    <th>Description</th>
+    <th>Chapter</th>
+    </thead>
+    <tr>
+        <td><code>.</code></td>
+        <td>Member access</td>
+        <td>Chapter 3</td>
+    </tr>
+    <tr>
+        <td><code>[]</code></td>
+        <td>Computed member access</td>
+        <td>Chapter 3</td>
+    </tr>
+    <tr>
+        <td><code>in</code></td>
+        <td>Property existence operator</td>
+        <td>Chapter 9</td>
+    </tr>
+    <tr>
+        <td><code>new</code></td>
+        <td>Object instantiation operator</td>
+        <td>Chapter 9</td>
+    </tr>
+    <tr>
+        <td><code>instanceof</code></td>
+        <td>Prototype chain test operator</td>
+        <td>Chapter 9</td>
+    </tr>
+    <tr>
+        <td><code>...</code></td>
+        <td>Spread operator</td>
+        <td>Chapter 6, 8</td>
+    </tr>
+    <tr>
+        <td><code>delete</code></td>
+        <td>Delete operator</td>
+        <td>Chapter 3</td>
+    </tr>
+</table>
 <h1>Code</h1>
 <ul>
     <li><a href="80_simpleExpressions.js">Page 80: Simple Expressions</a></li>
     <li><a href="86_comparisons.js">Page 86: Comparison Operators</a></li>
+    <li><a href="95_typeofDeconstruct.js">Page 95: "typeof" and Deconstruction</a></li>
 </ul>
 </body>
 </html>
