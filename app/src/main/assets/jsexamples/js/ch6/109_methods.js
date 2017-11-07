@@ -59,3 +59,14 @@ const oArrow = {
 	}
 }
 console.log(oArrow.greetBackwards());
+
+/*
+=== methods (p 109)
+Woof!
+bark bark
+My name is George!
+true 'My name is undefined!'
+eiluJ si eman ym ,olleH
+hello! Hello, George! 11
+worrA si eman ym ,olleH
+*/
