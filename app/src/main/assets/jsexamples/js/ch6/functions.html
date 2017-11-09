@@ -61,12 +61,25 @@ functions, arrow notation, fat arrow, call, apply, bind
     <li>If the function takes a single argument, you can omit the parentheses</li>
     <li>If the function body is a single expression, you can omit curly braces and return</li>
 </ul>
+<h1>call, apply, and bind</h1>
+<ul>
+    <li>JavaScript allows you to specify how <label>this</label> is bound.</li>
+    <li><label>call</label> dispatches a function with a specified <label>this</label>
+        (object):<code>function.call(object);</code></li>
+    <li><label>call</label> can be dispatched with multiple arugments:<code>function.call(object,
+        arg1, arg2, ...);</code></li>
+    <li><label>apply</label> is similar to call except arguments are in an array:<code>function.apply(object,
+        [arg1, arg2, ...]);</code></li>
+    <li><label>bind</label> allows you to permanently bind an object to a function:<code>const
+        updateObject = update.bind(object);</code></li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="103_basicFunctions.js">Page 103: Basic Functions</a></li>
     <li><a href="108_destructuring.js">Page 108: Function Signatures and Destructuring Arguments</a>
     </li>
     <li><a href="109_methods.js">Page 109: Methods</a></li>
+    <li><a href="115_callApplyBind.js">Page 115: call, apply, and bind</a></li>
 </ul>
 </body>
 </html>
