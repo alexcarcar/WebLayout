@@ -16,6 +16,40 @@ hoisting, temporal dead zone, TDZ, typeof, strict mode, implicit globals, use st
     <li><label>scope</label> determines when and where variables, constants, and arguments are
         considered to be defined
     </li>
+    <li><label>formal arguments</label> inside a function body become <label>actual
+        arguments</label> when the function is called
+    </li>
+    <li><label>declaring</label> a variable annouces its existence by giving it an
+        <label>identifier</label></li>
+    <li><label>defining</label> a variable means declaring the variable and giving it a value</li>
+    <li>In JavaScript, all variables are given a value when the are declared (if not explicitly,
+        then implicitly as <code>undefined)</code></li>
+</ul>
+<h1>Scope Versus Existence</h1>
+<ul>
+    <li><label>Scope</label> or <label>visibility</label> refers to identifiers that are currently
+        visible and accessible by the currently executing part of the program called the <label>executing
+            context.</label></li>
+    <li><label>Existence</label> refer to identifiers that are allocated (or <label>reserved</label>)
+        in memory
+    </li>
+    <li>When something ceases to exist, JavaScript eventually reclaims the memory using <label>garbage
+        collection.</label></li>
+</ul>
+<h1>Lexical Versus Dynamic Scoping</h1>
+<ul>
+    <li><label>lexical structure</label> is the linear structure of a JavaScript program, from top
+        to buttom.
+    </li>
+    <li>scoping in JavaScript is <label>lexical,</label> meaning we can determine what variables are
+        in scope by looking at the source code
+    </li>
+    <li><label>lexical scoping</label> means whatever variables are in scope where you
+        <label>define</label> a function from (as opposed to when you <label>call</label> it) are in
+        scope of the function.
+    </li>
+    <li>Lexical scoping applies to <label>global scope, block scope,</label> and <label>function
+        scope</label></li>
 </ul>
 
 <h1>Code</h1>
