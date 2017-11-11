@@ -51,10 +51,63 @@ hoisting, temporal dead zone, TDZ, typeof, strict mode, implicit globals, use st
     <li>Lexical scoping applies to <label>global scope, block scope,</label> and <label>function
         scope</label></li>
 </ul>
-
+<h1>Global Scope, Block Scope</h1>
+<ul>
+    <li>Scope is <label>hierarchical.</label> The scope you are implicitly in when you start a
+        program is called the <label>global scope</label></li>
+    <li>Anything declared in the global scope is called a <label>global</label></li>
+    <li>A <label>block</label> is a list of statements surrounded by curly braces</li>
+    <li><label>block scope</label> refers to any variables defined only in the block</li>
+    <li><label>standalone block</label> are blocks that are not a part of other control flow
+        statements
+    </li>
+    <li><label>variable masking,</label> sometimes called <label>shadowing,</label> occurs when an
+        inner block has the same variable as an outer block
+    </li>
+    <li>all variables in the <label>scope chain</label> are in scope (as long as they are not
+        masked)
+    </li>
+</ul>
+<h1>Functions, Closures, and Lexical Scope</h1>
+<ul>
+    <li>A <label>closure</label> is closing a scope around a function</li>
+</ul>
+<h1>Immediately Invoked Function Expressions</h1>
+<ul>
+    <li>An <label>IIFE (immediately invoked function expression)</label> declares a function and
+        runs it immediately:<br/><code>
+            (function() {<br/>
+            &nbsp; &nbsp; &nbsp;// this is the IIFE body<br/>
+            &nbsp;})();<br/></code></li>
+</ul>
+<h1>Function Scope and Hoisting</h1>
+<ul>
+    <li>variables declared with <label>var</label> have <label>function scope</label> that are
+        available everywhere in the current scope, even before they are declared
+    </li>
+    <li>variables declared with <label>let</label> do not exist until you declare them</li>
+    <li>variables declared with <label>var</label> are <label>hoisted</label> to the top of the
+        current scope
+    </li>
+    <li>like variables defined with var, functions are are <label>hoisted</label> to the top of
+        their scope
+    </li>
+    <li><label>temporal dead zone (TDZ)</label> is the area of the scope before a <label>let</label>
+        variable is declared
+    </li>
+    <li>in ES5, if a variable is used without declaring it, it is assumed to be an <label>implicit
+        variable</label></li>
+    <li>JavaScript introduced <label>strict mode</label> to prevent implicit variables:<br/><code>(function()
+        {<br/>
+        &nbsp; &nbsp; 'use strict';<br/>
+        &nbsp; &nbsp; // code goes here<br/>
+        &nbsp;})();<br/></code></li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="117_scope.js">Page 117: Basic Scope</a></li>
+    <li><a href="121_variableMasking.js">Page 121: Variable Masking</a></li>
+    <li><a href="123_closures.js">Page 123: Closures</a></li>
 </ul>
 </body>
 </html>
