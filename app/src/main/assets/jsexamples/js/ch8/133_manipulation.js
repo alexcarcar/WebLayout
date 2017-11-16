@@ -5,7 +5,7 @@ console.log(arr.push("e")); // returns the size of the new array: 4
 console.log(arr);
 console.log(arr.pop()); // return e
 
-// Example 2: treating the array as a "queue" using shift (pop from front) , unshift (push to front)
+// Example 2: treating the array as a "queue" using shift (pop from front), unshift (push to front)
 arr.unshift("a"); // returns 4
 console.log(arr); // a, b, c, d
 console.log(arr.shift()); // a
