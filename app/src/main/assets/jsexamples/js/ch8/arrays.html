@@ -35,10 +35,37 @@ reduce, join, concat, sort
     <li><label>fill</label> (ES6) allows you to fill any number of elements with a fixed value</li>
     <li><label>reverse</label> and <label>sort</label> reverses and sorts the order of an array</li>
 </ul>
+<h1>Array Searching</h1>
+<ul>
+    <li><label>indexOf</label> finds the index of the first element that strictly equals what you
+        are looking for, <label>lastIndexOf</label> finds the last index. If nothing is found, both
+        functions return <label>-1.</label></li>
+    <li><label>findIndex</label> allows you to pass a function that defines a match</li>
+    <li><label>find</label> finds a element and returns the element, instead of the index</li>
+    <li><label>some</label> is <label>true</label> or <label>false</label> if there exists an
+        element with the search criteria
+    </li>
+    <li><label>every</label> is <label>true</label> or <label>false</label> if all elements
+        satisfies a certian criteria
+    </li>
+</ul>
+<h1>Array Operations: map and filter</h1>
+<ul>
+    <li><label>map</label> transforms the elements in the array (as a copy)</li>
+    <li><label>filter</label> returns a copy of an array with unwanted elements removed</li>
+    <li><label>reduce</label> transforms an entire array into a single value, takes an <label>accumulator</label>
+        and <label>element</label> argument
+    </li>
+    <li><label>map, filter,</label> and <label>reduce</label> do not invoke the function for
+        elements that have never been assigned or have been deleted
+    </li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="131_arrays.js">Page 131: Basic Arrays</a></li>
     <li><a href="133_manipulation.js">Page 133: Array Manipulation</a></li>
+    <li><a href="136_arraySearching.js">Page 136: Array Searching</a></li>
+    <li><a href="138_mapFilter.js">Page 138: Map and Filter</a></li>
 </ul>
 </body>
 </html>
