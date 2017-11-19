@@ -26,10 +26,36 @@ object, multiple inheritance, collisions, interface, mixin
     <li><label>Dynamic properties</label> or <label>accessor properties</label> can be used to
         validate data types
     </li>
+    <li>Classes are functions, <label>class</label> is just syntactic sugar</li>
+</ul>
+<h1>The Prototype</h1>
+<ul>
+    <li>Methods available for instances of class are called <label>prototype</label> methods, for
+        example:<code>Car.prototype.shift</code>or<code>Car#shift</code></li>
+    <li>JavaScript performs <label>dynamic dispatching</label> using the <label>prototype
+        chain.</label></li>
+    <li>Every function has a special property called the
+        <label>prototype:</label><code>f.prototype</code></li>
+    <li>By convention, <label>object constructors</label> (aka <label>classes)</label> are always
+        names with a capital letter, for example:<code>Car.</code></li>
+    <li>A newly created object has access to it's constructor's <label>prototype</label> object in
+        the <label>__proto__</label> property.
+    </li>
+    <li>When you attempt to access a property or method on an object, if it doesn't exist,
+        JavaScript checks the object's prototype.
+    </li>
+</ul>
+<h1>Static Methods</h1>
+<ul>
+    <li>In addition to the <label>instance methods,</label> there are also <label>static
+        methods</label> (or <label>class methods</label>) which are not bound to any instance.
+    </li>
+    <li>In a static method, <label>this</label> is bound to the class itself.</li>
 </ul>
 <h1>Code</h1>
 <ul>
     <li><a href="148_basicObjects.js">Page 148: Basic Objects and Classes</a></li>
+    <li><a href="153_moreClasses.js">Page 153: More on Classes</a></li>
 </ul>
 </body>
 </html>
