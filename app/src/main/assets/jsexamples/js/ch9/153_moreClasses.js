@@ -74,3 +74,18 @@ const similar = Auto.areSimilar;
 const same = Auto.areSame;
 console.log(similar(auto1, auto2), similar(auto2, auto3)); // false true
 console.log(same(auto2, auto3), same(auto2, auto2)); // false true
+/*
+=== ES5 functions and ES6 classes
+Honda Accord P
+function function
+=== prototype examples (p 154)
+true 'D'
+Invalid gear: d
+true
+false false
+D
+=== Static Methods
+0 1 2
+false true
+false true
+*/
