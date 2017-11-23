@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exceptions and Error Handling</title>
+    <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<a href="../../jsexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: exception handling, exception, error, anticipated errors, unanticipated
+errors (exceptions), Error object, try...catch, throw, call stack, unhandled exception, uncaught
+exception, try...catch...finally
+<h1>Definitions</h1>
+<ul>
+    <li><label>Exception handling</label> is a mechanism to deal with errors in a controlled fashion
+    </li>
+    <li>To create and instance of <label>Error</label> use:<code>const err = new Error('Error
+        message!');</code></li>
+    <li>Exception handling is accomplished with a <label>try...catch</label> statement</li>
+    <li>To <label>throw</label> or <label>raise</label> errors use:<code>throw new Error('Error
+        message!');</code></li>
+</ul>
+<h1>Exception Handling and the Call Stack</h1>
+<p>A typical program will call functions, and those functions will call other functions, and so on.
+    The JavaScript interpreter keeps track of all this in the <label>Call Stack.</label></p>
+<ul>
+    <li>The nesting of functions that are not done is called the <label>call stack</label></li>
+    <li>When an error is <label>caught</label> the <label>call stack</label> provides useful
+        information in diagnosing the problem
+    </li>
+    <li>In most implementations of JavaScript the <label>Error</label> object containes a property
+        <label>stack</label> which contains a string representation of the stack.
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="170_error.js">Page 170: The Error Object</a></li>
+    <li><a href="172_callStack.js">Page 172: The Call Stack</a></li>
+</ul>
+</body>
+</html>
