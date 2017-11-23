@@ -52,10 +52,43 @@ object, multiple inheritance, collisions, interface, mixin
     </li>
     <li>In a static method, <label>this</label> is bound to the class itself.</li>
 </ul>
+<h1>Inheritance</h1>
+<ul>
+    <li>When you create an instance of a class, the instance <label>inherits</label> functionality
+        in the class's <label>prototype</label> (or <label>prototype chain)</label></li>
+    <li>The keyword <label>extends</label> defines an inhertance relationship that creates creates
+        <label>class hierarchies</label></li>
+</ul>
+<h1>Polymorphism</h1>
+<ul>
+    <li><label>polymorphism</label> treats instances of not only their class but potentially other
+        super classes
+    </li>
+    <li>JavaScript employs a form of <label>duck typing</label>, "if it walks like a duck, and
+        quacks like a duck...it's probably a duck"
+    </li>
+    <li>The <label>instanceof</label> operator tells if an object is an isntance of a given class
+    </li>
+    <li>All objects in JavaScript are instances of the root class <label>Object</label></li>
+    <li><label>Object.keys</label> includes only properties on the prototype</li>
+</ul>
+<h1>Multiple Inheritance, Mixins, and Interfaces</h1>
+<ul>
+    <li>Some OO languages supports <label>multiple inhertiance</label>, where one class can have two
+        direct superclasses (but this has the risk of <label>collisions</label>)
+    </li>
+    <li>For example, a car might inherit both vehicles and "insurable"</li>
+    <li>The concept of an <label>interface</label> is an alternate mechanism to deal with multiple
+        inheritance
+    </li>
+    <li>A <label>mixin</label> refers to functionality that's "mixed in" as needed</li>
+
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="148_basicObjects.js">Page 148: Basic Objects and Classes</a></li>
     <li><a href="153_moreClasses.js">Page 153: More on Classes</a></li>
+    <li><a href="156_inheritancePolymorphism.js">Page 156: Inheritance and Polymorphism</a></li>
 </ul>
 </body>
 </html>
