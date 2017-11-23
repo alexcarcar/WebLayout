@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maps and Sets</title>
+    <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<a href="../../jsexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: maps, sets, key, value, duplicates, weak maps, weak sets
+<h1>Definitions</h1>
+<ul>
+    <li><label>Maps</label> are similar to <label>objects</label> in that they can map a
+        <label>key</label> to a <label>value</label></li>
+    <li><label>Sets</label> are similar to <label>arrays</label> except that duplicates are not
+        allowed
+    </li>
+</ul>
+<h1>Maps</h1>
+<ul>
+    <li>Prior to ES6, when you needed to map <label>keys</label> to <label>values</label>, you would
+        turn to <label>objects,</label> but this has many drawbacks:
+        <ol>
+            <li>The <label>prototypal nature</label> of objects means there could be unintended
+                mappings
+            </li>
+            <li>No easy way to know how many mappings there are in an object</li>
+            <li><label>Keys</label> must be <label>strings</label> or <label>symbols</label>,
+                preventing you from mapping objects to values
+            </li>
+            <li><label>Objects</label> do not guarantee the order of their properties</li>
+        </ol>
+    </li>
+    <li>The <label>Map</label> object address these deficiencies: <code>const myMap = new
+        Map();</code></li>
+</ul>
+<h1>Map Methods and Properties</h1>
+<ul>
+    <li>You can assign <label>key-value pairs</label> using the <label>set()</label> method: <code>myMap.set(key,
+        value);</code></li>
+    <li>The <label>get()</label> method retrieves the value for a <label>key</label>: <code>myMap.get(key);</code>
+    </li>
+    <li>The <label>size</label> property returns the number of mappings: <code>myMap.size;</code>
+    </li>
+    <li>The <label>has()</label> method returns if a map has a key: <code>myMap.has(key);</code>
+    </li>
+    <li>Use <label>keys()</label> to the keys, <label>values()</label> to get the values, and
+        <label>entries()</label> to get an array of the <label>key-value pairs</label>
+</ul>
+<h1>Weak Maps</h1>
+<ul>
+    <li>A <label>WeakMap</label> is identical to a <label>Map</label> except: its keys must be
+        objects, keys can be garbage collected, and it cannot be iterated or cleared
+    </li>
+</ul>
+<h1>Sets and Weak Sets</h1>
+<ul>
+    <li>A <label>Set</label> is a collection of data where duplicates are not allowed: <code>const
+        mySet = new Set();</code></li>
+    <li>Use<label>mySet.add("value")</label> to add elements, <label>mySet.size</label> to retrieve
+        the size , and <label>mySet.delete("value")</label> to delete an element.
+    </li>
+    <li>A <label>WeakSet</label> can only contain objects, can be garbage collected, but cannot be
+        iterated (making them very rare)
+    </li>
+    <li><label>WeakSet</label> can be used to determine if an object is or is not in a set:<code>myWeakSet.has(object);</code>
+    </li>
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="164_maps.js">Page 164: Creating and Using Maps</a></li>
+    <li><a href="165_weakmap.js">Page 165: Using WeakMaps to Store Private Keys</a></li>
+    <li><a href="166_set.js">Page 166: Sets and Weak Sets</a></li>
+</ul>
+</body>
+</html>
