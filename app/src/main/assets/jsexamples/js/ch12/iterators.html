@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exceptions and Error Handling</title>
+    <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<a href="../../jsexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: iterators, generators, iterator protocol, yield, two-way communication
+<h1>Definitions</h1>
+<ul>
+    <li>An <label>iterator</label> is analogous to a bookmark (helping you keep track of where you
+        are)
+    </li>
+    <li>An <label>array</label> is an example of an <label>iterable object</label>:<code>const it =
+        myArray.entries();</code></li>
+    <li>An iterators <label>next()</label> method returns an object with two properties: <label>value</label>
+        and <label>done</label></li>
+</ul>
+<h1>The Iteration Protocol</h1>
+<ul>
+    <li>The <label>iterator protocol</label> enables any object to be <label>iterable</label>:<code>[Symbol.iterator](){return
+        this.messages.entries();}</code></li>
+    <li>Create an object method <label>[Symbol.iterator]()</label> that returns an object with two
+        properties: <label>value</label> and <label>done</label></li>
+</ul>
+<h1>Generators</h1>
+<ul>
+    <li><label>Generators</label> are functions that use an <label>iterator</label> to control their
+        execution
+    </li>
+    <li>A generator function can <label>yield</label> control back to the caller</li>
+    <li>When a <label>generator</label> is called it returns an <label>iterator</label> that gets
+        executed when it's <label>next()</label> method is called
+    </li>
+    <li>An asterisk signifies a generator: <label>function*</label> that can use the keyword <label>yield</label>
+        in addition to <label>return</label></li>
+    <li>Calling <label>return</label> will result in <label>done</label> being <label>true</label>
+    </li>
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="175_iterators.js">Page 175: Iterators</a></li>
+    <li><a href="177_iterationProtocol.js">Page 177: Iteration Protocol</a></li>
+    <li><a href="180_generator.js">Page 180: Generators</a></li>
+</ul>
+</body>
+</html>
