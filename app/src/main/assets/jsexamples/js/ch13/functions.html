@@ -28,10 +28,39 @@ IIFE, asynchronous code, pipeline, recursion, stopping condition
     <li><label>Block-scoped variables</label> (variables declared with <label>let</label>) solve the
         hassle of requiring a function to create a new <label>scope</label></li>
 </ul>
+<h1>Function Variables</h1>
+<ul>
+    <li>A function is <label>active</label> when it is invoked, but <label>passive</label> and is
+        like any other variable otherwise
+    </li>
+    <li>An <label>alias</label> can be created to point to a function: <code>const f =
+        originalFn;</code></li>
+    <li>Aliasing is used in node for <label>namespacing</label>: <code>const Money =
+        require('./math-money.js');</code></li>
+</ul>
+<h1>Functions in an Array</h1>
+<ul>
+    <li>Functions in an array can form a <label>pipeline</label> which is a set of individual steps
+    </li>
+</ul>
+<h1>Passing a Function into a Function</h1>
+<ul>
+    <li>A common way to achieve <label>asynchronous execution</label> is to pass a
+        <label>callback</label> function: <code>function(x,y,cb){...}</code></li>
+</ul>
+<h1>Return a Function from a Function</h1>
+<ul>
+    <li><label>Currying</label> named after mathematical <label>Haskell Curry</label> is a technique
+        that a function with multiple arguments is converted to a function with a single argument
+    </li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="180_subroutines.js">Page 180: Subroutines</a></li>
     <li><a href="189_asynchronous.js">Page 187: IIFEs and Asynchronous Code</a></li>
+    <li><a href="192_functionVariables.js">Page 192: Function Variables</a> (<a
+            href="math-money.js">math-money.js</a>)
+    </li>
 </ul>
 </body>
 </html>
