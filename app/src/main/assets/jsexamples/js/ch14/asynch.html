@@ -12,11 +12,97 @@ clearInterval, error-first callbacks, settled, events, promise chaining, unsettl
 generators, generator runners
 <h1>Definitions</h1>
 <ul>
-    <li></li>
+    <li>Running one thing at a time is called <label>single-threaded</label></li>
+    <li><label>Preemptive multitasking</label> simulates multitasking by doing a little of multiple
+        tasks
+    </li>
+    <li>JavaScript has had three "eras" of <label>asynchronous</label> execution:
+        <label>callback</label> era, <label>promise</label> era, and <label>generator</label> era
+    </li>
+    <li><label>Asynchronous</label> execution is for: user input, network requests
+        (<label>Ajax</label> calls), filesystem operations, and timed-delays (an alarm, for example)
+    </li>
+</ul>
+<h1>Callbacks</h1>
+<ul>
+    <li>A <label>callback</label> is a function that will be invoked at some point in the future
+    </li>
+    <li><label>setTimeout</label> delays execution of some function "a <label>callback</label>"
+        after some number of milliseconds:<code>setTimeout(f, 1000);</code></li>
+    <li><label>callback</label> functions normally use <label>anonymous functions</label>:<code>setTimeout(function(){...},
+        1000);</code></li>
+</ul>
+<h2>setInterval and clearInterval</h2>
+<ul>
+    <li><label>setInterval</label> runs a callback at a specified interval forever, or until <label>clearInterval</label>
+        is called
+    </li>
+    <li><label>setTimout</label>, <label>setInterval</label>, and <label>clearInterval</label> are
+        all defined on the global object (<label>window</label> in a browser, and
+        <label>global</label> in Node)
+    </li>
+</ul>
+<h1>Scope and Asynchronous Execution</h1>
+<ul>
+    <li>Every time you invoke a function, you create a <label>closure</label>: all of the variables
+        that are created inside the function (including the arguments) exist as long as something
+        can access them.
+    </li>
+    <li>A variable defined using <label>let</label> in a block such as a for loop are called <label>block-scoped</label>:<code>for(let
+        i=0; i<5;i++){...}</code></li>
+    <li>Be mindful of the <label>scope</label> your <label>callbacks</label> are declared in: they
+        will have access to everything in that <label>scope (closure)</label></li>
+</ul>
+<h2>Error-First Callbacks</h2>
+<ul>
+    <li>The <label>error-first callbacks</label> convention uses the first argument in a callback to
+        receive an error object
+    </li>
+</ul>
+<h1>Promises</h1>
+<ul>
+    <li>When you call a promise-based asynchronous function, it returns a <label>Promise</label>
+        instance
+    </li>
+    <li>Once a <label>Promise</label> has been either <label>fulfilled</label> or
+        <label>rejected</label> it is considered <label>settled</label></li>
+    <li>To create a <label>Promise</label> create an instance with a <label>resolve</label> and
+        <label>reject callback</label> function:<code>new Promise(function(resolve,
+            reject){...});</code></li>
+    <li>The <label>.then(resolve,reject)</label> handler executes the <label>Promise</label>:<code>countDown(5).then(function(){...},function(){...});</code>
+    </li>
+    <li>The <label>Promise</label> can be broken into two handlers <label>then</label> and <label>catch</label>:<code>const
+        p = promise; p.then(function(){}); p.catch(function(err){});</code>
+</ul>
+<h2>Events</h2>
+<ul>
+    <li>An <label>event emitter</label> broadcasts events, and anyone who wishes to listen (or
+        "<label>subscribe</label>") to those events may do so
+    </li>
+    <li>To emit an event use <label>.emit('eventName',args...)</label> to listen to an event use
+        <label>.on('eventName')</label></li>
+</ul>
+<h2>Promise Chaining</h2>
+<ul>
+    <li>One advantage of promises is that they can be <label>chained</label>:<code>c.go().then(launch).then(...).catch(...);</code>
+    </li>
+    <li>If there's an error anywhere in the <label>chain</label>, the chain will stop and fall
+        through to the <label>catch</label> handler
+    </li>
 </ul>
 <h1>Code</h1>
 <ul>
-    <li><a href="">Page 200: Callbacks</a></li>
+    <li><a href="200_callbacks.js">Page 200: Callbacks</a></li>
+    <li><a href="202_scopeAsynch.js">Page 202,</a> <a href="203_scopeAsynch.js">Page 203: Scope and
+        Asynchronous Execution</a></li>
+    <li><a href="204_errorFirst.js">Page 204: Error-First Callbacks</a></li>
+    <li><a href="204_callbackHell.js">Page 204,</a> <a href="205_callbackHell.js">Page 205: Callback
+        Hell</a></li>
+    <li><a href="206_usingPromises.js">Page 206,</a> <a href="207_usingPromises.js">Page 207: Using
+        Promises</a></li>
+    <li><a href="208_events.js">Page 208</a>, <a href="209_events.js">Page 209</a>, <a
+            href="210_events.js">Page 210: Events</a></li>
+    <li><a href="210_chaining.js">Page 210: Promise Chaining</a></li>
 </ul>
 </body>
 </html>
