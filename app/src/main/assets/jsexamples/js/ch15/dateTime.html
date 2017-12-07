@@ -11,11 +11,24 @@
 Universal Time (UTC), Greenwich Mean Time (GMT)
 <h1>Definitions</h1>
 <ul>
-    <li></li>
+    <li>The JavaScript <label>Date</label> object has no way to specify what time zone it should be
+        in
+    </li>
+</ul>
+<h1>Moment.js</h1>
+<ul>
+    <li>With <label>Node</label> install <label>Moment.js</label> with:<code>npm install --save
+        moment-timezone</code></li>
+    <li>Use the <label>require</label> keyword to include <label>moment-timezone</label>:<code>const
+        moment = require('moment-timezone');</code></li>
+    <li>Use <label>moment.tz</label> to construct <label>Date</label> instances of using a specific
+        time zone
+    </li>
 </ul>
 <h1>Code</h1>
 <ul>
     <li><a href="220_dateTime.js">Page 220: Date and Time Basics</a></li>
+    <li><a href="222_moment.js">Page 222: Moment.js</a></li>
 </ul>
 </body>
 </html>
