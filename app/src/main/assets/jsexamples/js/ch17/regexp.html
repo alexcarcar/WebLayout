@@ -12,10 +12,122 @@
 <ul>
     <li><label>Regular expressions</label> provide sophisticated string matching functionality</li>
     <li>The <label>String.prototype</label> provides basic substring matching and replacing methods: <label>startsWith</label>, <label>endsWith</label>, <label>includes</label>, <label>indexOf</label>, <label>replace</label> and <label>toLowerCase</label></li>
+    <li>To construct a regular expression: <code>const re1 = /going/;</code></li>
+    <li>Or another way use the <label>object constructor</label>:<code>const re2 =
+        RegExp("going");</code></li>
+</ul>
+<h1>Searching with Regular Expressions</h1>
+<ul>
+    <li>The following matches all words three letters or longer (case
+        insensitive):<code>/\w{3,}/ig</code></li>
+    <li>Use <label>match</label> returns an array of matches:<code>input.match(re);</code></li>
+    <li><label>search</label> returns the index of the first match:<code>input.search(re);</code>
+    </li>
+    <li><label>test</label> returns if at least one match exists:<code>re.test(input);</code></li>
+    <li><label>exec</label> is an <label>iterator</label> of the matches:<code>re.exec(input)</code>
+    </li>
+</ul>
+<h1>Input Consumption</h1>
+<ul>
+    <li>A <label>regex</label> is a pattern for <label>consuming</label> input strings</li>
+</ul>
+<h2>Alternation</h2>
+<ul>
+    <li>The vertical bar <label>(|)</label> is a regex <label>metacharacter</label> that signals
+        alternation
+    </li>
+    <li>The <label>ig</label> signifies <label>i (ignore case)</label> and <label>g (global)</label>
+    </li>
+    <li>Angle brackets <label>&lt; &gt;</label> are not regex megacharacters</li>
+</ul>
+<h2>Parsing and Limitations</h2>
+<ul>
+    <li><label>Parsing</label> means to completely break something down into its component parts
+    </li>
+    <li><label>Regexes</label> are capable of parsing <label>regular</label> languages only</li>
+    <li><label>Regexes</label> are extremely limited when it comes to matching <label>hierarchical
+        structures</label></li>
+</ul>
+<h1>Character Sets</h1>
+<ul>
+    <li><label>Character sets</label> provide a compact way to represent alternation of a <label>single
+        character</label></li>
+    <li><label>Character sets</label> can be combined with <label>repetition</label> to represent
+        multiple characters
+    </li>
+</ul>
+<h2>Named Character Sets</h2>
+<ul>
+    <li><code>\d</code> <label>[0-9]</label> -- a single digit</li>
+    <li><code>\D</code> <label>[^0-9]</label> -- not a digit</li>
+    <li><code>\s</code> <label>[ \t\v\n\r]</label> -- tabs, spaces, and vertical tabs</li>
+    <li><code>\S</code> <label>[^ \t\v\n\r]</label> -- not tabs, spaces, and vertical tabs</li>
+    <li><code>\w</code> <label>[a-zA-Z_]</label> -- word "character" with no dash or periods</li>
+    <li><code>\W</code> <label>[^a-zA-Z_]</label> -- not a word "character" with dash or period</li>
+</ul>
+<h1>Repetition</h1>
+<ul>
+    <li><label>Repetition</label> metacharacters allow you to specify how many times something
+        matches
+    </li>
+    <li>The <label>+</label> following the character group signals that the <label>preceding
+        element</label> should match <label>one or more times</label>:<code>/[0-9]+/</code></li>
+    <li>The repetition metacharacters are <label>modifiers</label> that modify <label>what comes
+        before them</label></li>
+</ul>
+<h2>Repetition Modifiers</h2>
+<ul>
+    <li><label>{n}</label> Exactly n:<code>/\d{5}/</code> matches only five-digit numbers (such as a
+        zip code)
+    </li>
+    <li><label>{n,}</label> At least n:<code>/\d{5,}/</code> matches five-digit numbers or longer
+    </li>
+    <li><label>{n,m}</label> At least n, at most m:<code>/\d{2,5}/</code> matches numbers that are
+        at least 2 and at most 5 digits
+    </li>
+    <li><label>?</label> Zero or one. Equivalent to <label>{0,1}</label>:<code>/[a-z]\d?/i</code>
+        matches letter followed by an optional digit
+    </li>
+    <li><label>*</label> Zero or more (called a <i>Klene star</i> or <i>Klene closure</i>):<code>/[a-z]\d*/i</code>
+        matches a letter followed by an optional multiple digit number
+    </li>
+    <li><label>+</label> One or more:<code>/[a-z]\d+/i</code> matches a letter followed by a
+        required number, possibly containing multiple digits
+    </li>
+</ul>
+<h1>Miscellaneous</h1>
+<ul>
+    <li>The period <label>.</label> is special character that means match anything (except new
+        lines)
+    </li>
+    <li>Any special character can be escaped with a backslash:<code>\( \. \*</code></li>
+    <li><label>[\s\S]</label> matches everything (whitespace or non-whitespace including new lines)
+    </li>
+</ul>
+<h2>Grouping</h2>
+<ul>
+    <li><label>Grouping</label> allows us to construct <label>subexpressions</label>, which can be
+        treated as a single unit
+    </li>
+    <li><label>Captured groups</label> are specified using
+        parenthesis:<code>(&lt;subexpression&gt;)</code></li>
+    <li><label>Non-captured groups</label> are specified
+        using:<code>(?:&lt;subexpression&gt;)</code></li>
+</ul>
+<h2>Lazy Matches, Greedy Matches</h2>
+<ul>
+    <li>By default, regular expressions are <label>greedy</label>, meaning they will match as much
+        as possible before stopping
+    </li>
+    <li>Add a <label>question mark (?)</label> after repetition metacharacters to make the
+        expression <label>lazy</label>:<code>/(.*?)/</code></li>
 </ul>
 <h1>Code</h1>
 <ul>
-    <li><a href="238_string.js">Page 238: String Methods</li>
+    <li><a href="238_string.js">Page 238: String Methods</a></li>
+    <li><a href="239_regularBasics.js">Page 239: Regular Expression Basics</a></li>
+    <li><a href="243_characterSets.js">Page 243: Character Sets</a></li>
+    <li><a href="245_repetition.js">Page 245: Repetition</a></li>
 </ul>
 </body>
 </html>
