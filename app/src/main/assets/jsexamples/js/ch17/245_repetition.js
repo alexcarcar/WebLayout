@@ -23,3 +23,9 @@ const greedy = "Regex pros know the difference between\n" +
 	"<i>greedy</i> and <i>lazy</i> matching.";
 console.log(greedy.replace(/<i>(.*)<\/i>/ig, '<strong>$1</strong>'));
 console.log(greedy.replace(/<i>(.*?)<\/i>/ig, '<strong>$1</strong>'));
+
+console.log("=== Backreferences (p 249)");
+const promo = "Opening for XAAX is the dynamic GOOG! At the box office now!";
+console.log(promo.match(/(?:[A-Z]){4}/g));
+const html2 = `<img alt='A "simple" example.'><img alt="Don't abuse it!">`;
+console.log(html2.match(/<img alt=(?:['"]).*?/g));
