@@ -104,6 +104,10 @@
     <li><label>[\s\S]</label> matches everything (whitespace or non-whitespace including new lines)
     </li>
 </ul>
+<h2>Backreferences</h2>
+<ul>
+    <li>Grouping enables <label>backreferences</label> using: <code>\1\2</code></li>
+</ul>
 <h2>Grouping</h2>
 <ul>
     <li><label>Grouping</label> allows us to construct <label>subexpressions</label>, which can be
@@ -122,9 +126,16 @@
     <li>Add a <label>question mark (?)</label> after repetition metacharacters to make the
         expression <label>lazy</label>:<code>/(.*?)/</code></li>
 </ul>
-<h2>Backreferences</h2>
+<h2>Anchoring</h2>
 <ul>
-    <li>Grouping enables <label>backreferences</label> using: <code>\1\2</code></li>
+    <li>The anchor <label>^</label> matches the beginning of the line</li>
+    <li>The anchor <label>$</label> matches the end of the line</li>
+    <li>Use the multiline option to handle new lines:<code>/\w+$/mg</code></li>
+    <li>The <label>word boundary matches</label> include: <label>\b</label> and <label>\B</label></li>
+</ul>
+<h2>Lookaheads</h2>
+<ul>
+    <li><label>Lookaheads</label> -- like <label>anchor</label> and <label>word boundary</label> metacharacters -- don't consume input</li>
 </ul>
 <h1>Code</h1>
 <ul>
