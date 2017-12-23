@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Simple HTML</title>
+    <style type="text/css">
+		.callout {
+			border: solid 1px #ff0080;
+			margin: 2px 4px;
+			padding: 2px 6px;
+		}
+		.code {
+			background: #ccc;
+			margin: 1px 2px;
+			padding: 1px 4px;
+			font-family: monospace;
+		}
+
+    </style>
+</head>
+<body>
+<a href="browser.html">[GO BACK]</a>
+<header>
+    <h1>Simple HTML</h1>
+</header>
+<div id="content">
+    <p>This is a <i>simple</i> HTML file.</p>
+    <div class="callout">
+        <p>This is as fancy as we'll get!</p>
+    </div>
+    <p>IDs (such as <span class="code">#content</span>)
+        are unique (there can only be one per page).</p>
+    <p>Classes (such as <span class="code">.callout</span>
+        can be used on many elements.)</p>
+    <div id="callout" class="callout fancy">
+        <p>A single HTML element can have multiple classes.</p>
+    </div>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+function printDOM(node, prefix) {
+	console.log(prefix + node.nodeName);
+	for (let i=0; i<node.childNodes.length; i++) {
+		printDOM(node.childNodes[i], prefix + '\t');
+	}
+}
+document.writeln("<h1>Content Node (innerText)</h1>")
+const contentNode = document.getElementById('content');
+document.writeln(contentNode.innerText);
+
+document.writeln("<h1>Callouts</h1>");
+const callouts = document.getElementsByClassName('callout');
+for (var callout in callouts) {
+	let htmlCallout = callouts[callout].innerText;
+	if (typeof htmlCallout !== "undefined") {
+		document.writeln(htmlCallout+"<br/>");
+	}
+}
+const calloutBySelectors = document.querySelectorAll('.callout');
+for (var callout in callouts) {
+	let htmlCallout = callouts[callout].innerText;
+	if (typeof htmlCallout !== "undefined") {
+		document.writeln("<b>"+htmlCallout+"</b><br/>");
+	}
+}
+
+document.writeln("<h1>Paragraphs</h1>")
+const paragraphs = document.getElementsByTagName('p');
+for (var p in paragraphs) {
+	let htmlParagraph = paragraphs[p].innerText;
+	if (typeof htmlParagraph !== "undefined") {
+		document.writeln(htmlParagraph+"<br/>");
+	}
+}
+
+</script>

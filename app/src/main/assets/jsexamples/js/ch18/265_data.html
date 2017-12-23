@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Data Attributes</title>
+    <style type="text/css">
+		.callout {
+			border: solid 1px #ff0080;
+			margin: 2px 4px;
+			padding: 2px 6px;
+		}
+		.code {
+			background: #ccc;
+			margin: 1px 2px;
+			padding: 1px 4px;
+			font-family: monospace;
+		}
+		.highlight {
+			background: #ff0;
+			font-style: italic;
+		}
+
+    </style>
+</head>
+<body>
+<a href="browser.html">[GO BACK]</a>
+<header>
+    <h1>Data Attributes</h1>
+</header>
+<div id="content">
+    <p>This is a <i>simple</i> HTML file.</p>
+    <div class="callout">
+        <p>This is as fancy as we'll get!</p>
+    </div>
+    <p>IDs (such as <span class="code">#content</span>)
+        are unique (there can only be one per page).</p>
+    <p>Classes (such as <span class="code">.callout</span>
+        can be used on many elements.)</p>
+    <div id="callout" class="callout fancy">
+        <p>A single HTML element can have multiple classes.</p>
+    </div>
+</div>
+<br/>
+<button data-action="highlight" data-containing="unique">
+    Highlight paragraphs containing "unique"
+</button>
+<button data-action="highlight" data-containing="such">
+    Highlight paragraphs containing "such"
+</button>
+<button data-action="removeHighlights">
+    Remove highlights
+</button>
+</body>
+</html>
+<script type="text/javascript">
+	document.write("<h1>Highlight Actions</h1>");
+	const highlightActions = document.querySelectorAll('[data-action="highlight"');
+	for (let a of highlightActions) {
+		document.write(a.dataset.action + " " + a.dataset.containing+"<br/>");
+		a.dataset.caseSensitive = "true"; // adding new data attributes
+	}
+
+	for (let a of highlightActions) {
+		document.write(a.dataset.caseSensitive + " " + a.dataset.containing +"<br/>");
+
+	}
+
+	function highlightParas(containing) {
+		if (typeof containing === 'string') {
+			containing = new RegExp(`\\b${containing}\\b`, 'i');
+		}
+		const paras = document.getElementsByTagName('p');
+		for (let p of paras) {
+			if (!containing.test(p.textContent)) continue;
+			p.classList.add('highlight');
+		}
+	}
+
+	function removeParHighlights() {
+		const paras = document.querySelectorAll('p.highlight');
+		for (let p of paras) {
+			p.classList.remove('highlight');
+		}
+	}
+
+
+</script>

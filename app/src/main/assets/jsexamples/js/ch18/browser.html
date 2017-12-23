@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript in the Browser</title>
+    <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<a href="../../jsexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: ES5, ES6, JavaScript engine, HTTP, HTTPS, evergreen, transcompilation, DOM,
+document object model, DOM tree, nodes, child nodes, root node, document, html, head, body, Node
+class, parentNode, childNodes, nodeName, nodeType, traverse, depth-first, pre-order traversal,
+TreeWalker, createTreeWalker, direct parent, direct child, descendant, getElementById,
+getElementsByClassName, getElementsByTagName, HTMLCollection, CSS selectors, querySelectorAll,
+createElement, insertBefore, appendChild, data attributes, events, capturing, bubbling, AJAX,
+asynchronous JavaScript and XML, cross-origin resouce sharing (CORS),
+<h1>Definitions</h1>
+<ul>
+    <li>The <label>Document Object Model (DOM)</label> is a tree with <label>nodes</label></li>
+    <li>The <label>root node</label> is <label>document</label> consisting of single child element
+        <label>html</label></li>
+    <li>The <label>html</label> element consists of two nodes: <label>head</label> and
+        <label>body</label></li>
+    <li>Every node in the DOM is an instance of the <label>Node</label> class, with properties
+        <label>parentNode, childNode, nodeType,</label> and <label>nodeName</label></li>
+</ul>
+<h1>Data Attributes</h1>
+<ul>
+    <li><label>HTML5</label> introduced <label>data attributes</label>, which allow you to add
+        arbitrary data to HTML elements:<code>data-action="highlight"
+            data-containing="unique"</code></li>
+</ul>
+<h1>Events</h1>
+<ul>
+    <li>The <label>DOM API</label> describes almost <label>200 events,</label> and each browser
+        further implements nonstandard events
+    </li>
+    <li>Every element has the method <label>addEventListener</label> that specifies a function when
+        an event occurs: <code>a.addEventListener('click', evt => { evt.preventDefault(); ...
+            });</code></li>
+    <li>That function takes one <label>Event</label> argument that specifies: <label>clientX,
+        clientY, target</label>...
+    </li>
+</ul>
+<h2>Default Handlers and "preventDefault"</h2>
+<ul>
+    <li>The <label>event model</label> is designed to allow multiple handlers to handle the same
+        event, with many events having <label>default handlers</label>, for instance <label>&lt;a&gt;</label>
+        click requests a new page to be loaded
+    </li>
+    <li>To prevent this behavior, use: <code>evt.preventDefault()</code></li>
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="259_simple.html">Page 259: Simple HTML</a></li>
+    <li><a href="263_modify.html">Page 263: Manipulating DOM Elements</a></li>
+    <li><a href="265_data.html">Page 265: Data Attributes</a></li>
+</ul>
+</body>
+</html>

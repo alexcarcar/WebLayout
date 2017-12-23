@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Manipulating DOM Elements</title>
+    <style type="text/css">
+		.callout {
+			border: solid 1px #ff0080;
+			margin: 2px 4px;
+			padding: 2px 6px;
+		}
+		.code {
+			background: #ccc;
+			margin: 1px 2px;
+			padding: 1px 4px;
+			font-family: monospace;
+		}
+		.highlight {
+			background: #ff0;
+			font-style: italic;
+		}
+
+    </style>
+</head>
+<body>
+<a href="browser.html">[GO BACK]</a>
+<header>
+    <h1>Manipulating DOM Elements</h1>
+</header>
+<div id="content">
+    <button onclick="dom1()">Manipulation #1</button>
+    <p>This is a <i>simple</i> HTML file.</p>
+    <div class="callout">
+        <p>This is as fancy as we'll get!</p>
+    </div>
+    <p>IDs (such as <span class="code">#content</span>)
+        are unique (there can only be one per page).</p>
+    <p>Classes (such as <span class="code">.callout</span>
+        can be used on many elements.)</p>
+    <div id="callout" class="callout fancy">
+        <p>A single HTML element can have multiple classes.</p>
+    </div>
+</div>
+<br/>
+<button onclick="dom2()">Manipulation #2</button>
+<button onclick="highlightParas('unique')">Hi-lite 'unique'</button>
+<button onclick="removeParHighlights()">Remove Hi-lite</button>
+</body>
+</html>
+<script type="text/javascript">
+	function dom1() {
+		const para1 = document.getElementsByTagName('p')[0];
+		alert("para1.textContent = " + para1.textContent + "\n"+
+			"para1.innerHTML = " + para1.innerHTML);
+		para1.textContent = "Modified HTML file";
+		alert("para1.textContent = " + para1.textContent + "\n"+
+			"para1.innerHTML = " + para1.innerHTML);
+		para1.innerHTML = "<b>Modified</b> HTML file";
+		alert("para1.textContent = " + para1.textContent + "\n"+
+			"para1.innerHTML = " + para1.innerHTML);
+	}
+
+	function dom2() {
+		const p1 = document.createElement('p');
+		const p2 = document.createElement('p');
+		p1.textContent = "I was created dynamically!";
+		p2.textContent = "I was also created dynamically!";
+		const parent = document.getElementById('content');
+		const firstChild = parent.childNodes[0];
+		parent.insertBefore(p1, firstChild);
+		parent.appendChild(p2);
+	}
+
+	function highlightParas(containing) {
+		if (typeof containing === 'string') {
+			containing = new RegExp(`\\b${containing}\\b`, 'i');
+		}
+		const paras = document.getElementsByTagName('p');
+		for (let p of paras) {
+			if (!containing.test(p.textContent)) continue;
+			p.classList.add('highlight');
+		}
+	}
+
+	function removeParHighlights() {
+		const paras = document.querySelectorAll('p.highlight');
+		for (let p of paras) {
+			p.classList.remove('highlight');
+		}
+	}
+
+
+</script>
