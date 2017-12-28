@@ -50,11 +50,60 @@ asynchronous JavaScript and XML, cross-origin resouce sharing (CORS),
     </li>
     <li>To prevent this behavior, use: <code>evt.preventDefault()</code></li>
 </ul>
+<h2>Event Capturing and Bubbling</h2>
+<ul>
+    <li>Because HTML is <label>hierarchical</label>, events can be handled in multiple places.</li>
+    <li>One option is to start at the <label>most distant ancestor,</label> this is called <label>capturing.</label>
+    </li>
+    <li>The other option, <label>bubbling,</label> is to start where the <label>event
+        occured</label>, and <label>walk</label> up the hierarchy so all ancestors have a chance to
+        respond.
+    </li>
+    <li>Each <label>event handler</label> can do one of three things:
+        <ol>
+            <li>Cancel the event with <label>preventDefault(),</label> which sets the <label>defaultPrevented</label>
+                property to true, but continues to propogate
+            </li>
+            <li>Call <label>stopPropagation,</label> which stops propagation past the current
+                element (all handlers for the current element will be called)
+            </li>
+            <li>Call <label>stopImmediatePropagation</label>, will prevent all propagation,
+                including handlers on the current element
+            </li>
+        </ol>
+    </li>
+</ul>
+<h2>Event Categories</h2>
+<ul>
+    <li><strong>Drag events:</strong> <code>dragstart, drag, dragend, dragstop, drop</code></li>
+    <li><strong>Focus events:</strong> <code>focus, blur, change</code></li>
+    <li><strong>Form events:</strong> <code>submit</code></li>
+    <li><strong>Input device events:</strong> <code>click, mousedown, move, mouseup, mouseenter,
+        mouseleave, mouseover, mousewheel, keydown, keypress, keyup</code></li>
+    <li><strong>Media events:</strong> <code>pause, play</code></li>
+    <li><strong>Progress events:</strong> <code>load, error</code></li>
+    <li><strong>Touch events:</strong> <code>touches, pinch, swipe</code></li>
+</ul>
+<h1>AJAX</h1>
+<ul>
+    <li><label>AJAX</label>, an acronym for <label>Asynchronous JavaScript and XML</label>, allows
+        elements be refreshed from the server without reloading the entire page
+    </li>
+    <li><label>AJAX</label> leverages <label>XMLHttpRequest</label> and <label>Web 2.0</label>
+        technology introduced in the early 2000s
+    </li>
+    <li>We will create a simple <label>server</label> in <label>Node.js</label> to expose an Ajax
+        <label>endpoint</label> (see <a href="ajaxServer.js">ajaxServer.js</a>)
+    </li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li><a href="259_simple.html">Page 259: Simple HTML</a></li>
     <li><a href="263_modify.html">Page 263: Manipulating DOM Elements</a></li>
     <li><a href="265_data.html">Page 265: Data Attributes</a></li>
+    <li><a href="267_bubble.html">Page 267: Event Capturing and Bubbling</a></li>
+    <li><a href="ajaxServer.js">Page 272: Ajax Server</a>, <a href="273_ajax.html">Ajax Caller</a>
+    </li>
 </ul>
 </body>
 </html>

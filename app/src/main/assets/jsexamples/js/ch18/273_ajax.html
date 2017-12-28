@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<a href="browser.html">[GO BACK]</a><br/><br/>
+<ul class="serverInfo">
+    <li>platform: <span data-replace="platform"></span></li>
+    <li>nodeVersion: <span data-replace="nodeVersion"></span></li>
+    <li>uptime: <span data-replace="uptime"></span></li>
+</ul>
+<div>
+</div>
+<script type="text/javascript;version=1.8">
+		function refreshServerInfo() {
+			const req = new XMLHttpRequest();
+			req.addEventListener('load', function() {
+				// TODO: put these values into HTML
+				console.log(this.responseText);
+				const data = JSON.parse(this.responseText);
+				const serverInfo = document.querySelector('.serverInfo');
+				Object.keys(data).forEach(p => {
+					const replacements = document.querySelectorAll(`[data-replace="${p}"`);
+					for (let r of replacements) {
+						r.textContent = data[p];
+					}
+				});
+			});
+			req.open('GET', 'http://localhost:7070', true);
+			req.send();
+			setInterval(refreshServerInfo, 3000);
+		}
+		refreshServerInfo();
+		// {"platform":"win32","nodeVersion":"v6.11.0","uptime":708}
+
+</script>
+</body>
+</html>

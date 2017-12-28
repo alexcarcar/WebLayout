@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Propagation</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<a href="browser.html">[GO BACK]</a><br/><br/>
+<div>
+    <button>Click Me!</button>
+</div>
+<script type="text/javascript">
+		// this creates an event handler and returns it
+		function logEvent(handlerName, type, cancel, stop, stopImmediate) {
+			// this is the actual event handler
+			return function(evt) {
+				if (cancel) evt.preventDefault();
+				if (stop) evt.stopPropagation();
+				if (stopImmediate) evt.stopImmediatePropagation();
+				console.log(`${type}: ${handlerName}` + (evt.defaultPrevented ? ' (cancelled)':''));
+			}
+		}
+
+		// this adds an event logger to an element
+		function addEventLogger(elt, type, action) {
+			const capture = type === 'capture';
+			elt.addEventListener('click', 
+				logEvent(elt.tagName, type, action==='cancel', action==='stop', action==='stop!'),
+				capture);
+		}
+
+		const body = document.querySelector('body');
+		const div = document.querySelector('div');
+		const button = document.querySelector('button');
+
+		/* TRIAL 1
+		addEventLogger(body, 'capture');
+		addEventLogger(body, 'bubble');
+		addEventLogger(div, 'capture');
+		addEventLogger(div, 'bubble');
+		addEventLogger(button, 'capture');
+		addEventLogger(button, 'bubble');
+		
+		capture: BODY
+		capture: DIV
+		capture: BUTTON
+		bubble: BUTTON
+		bubble: DIV
+		bubble: BODY */
+
+		/* TRIAL 2
+		addEventLogger(body, 'capture');
+		addEventLogger(body, 'bubble');
+		addEventLogger(div, 'capture', 'cancel');
+		addEventLogger(div, 'bubble');
+		addEventLogger(button, 'capture');
+		addEventLogger(button, 'bubble');
+
+		capture: BODY
+		capture: DIV (cancelled)
+		capture: BUTTON (cancelled)
+		bubble: BUTTON (cancelled)
+		bubble: DIV (cancelled)
+		bubble: BODY (cancelled) */
+
+		/* TRIAL 3
+		addEventLogger(body, 'capture');
+		addEventLogger(body, 'bubble');
+		addEventLogger(div, 'capture', 'cancel');
+		addEventLogger(div, 'bubble');
+		addEventLogger(button, 'capture', 'stop');
+		addEventLogger(button, 'bubble');
+
+		capture: BODY
+		capture: DIV (cancelled)
+		capture: BUTTON (cancelled)
+		bubble: BUTTON (cancelled)
+		*/
+
+		/* TRIAL 4 */
+		addEventLogger(body, 'capture');
+		addEventLogger(body, 'bubble');
+		addEventLogger(div, 'capture', 'cancel');
+		addEventLogger(div, 'bubble');
+		addEventLogger(button, 'capture', 'stop!');
+		addEventLogger(button, 'bubble');
+
+		/*
+		capture: BODY
+		capture: DIV (cancelled)
+		capture: BUTTON (cancelled)
+		*/
+
+
+</script>
+</body>
+</html>

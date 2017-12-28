@@ -54,7 +54,7 @@
 </html>
 <script type="text/javascript">
 	document.write("<h1>Highlight Actions</h1>");
-	const highlightActions = document.querySelectorAll('[data-action="highlight"');
+	const highlightActions = document.querySelectorAll('[data-action="highlight"]');
 	for (let a of highlightActions) {
 		document.write(a.dataset.action + " " + a.dataset.containing+"<br/>");
 		a.dataset.caseSensitive = "true"; // adding new data attributes
@@ -62,7 +62,18 @@
 
 	for (let a of highlightActions) {
 		document.write(a.dataset.caseSensitive + " " + a.dataset.containing +"<br/>");
+		a.addEventListener('click', evt => {
+			evt.preventDefault();
+			highlightParas(a.dataset.containing);
+		});
+	}
 
+	const removeHighlightActions = document.querySelectorAll('[data-action="removeHighlights"]');
+	for (let a of removeHighlightActions) {
+		a.addEventListener('click', evt => {
+			evt.preventDefault();
+			removeParHighlights();
+		});
 	}
 
 	function highlightParas(containing) {
@@ -82,6 +93,5 @@
 			p.classList.remove('highlight');
 		}
 	}
-
 
 </script>
