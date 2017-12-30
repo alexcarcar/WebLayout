@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Examples</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <meta charset="utf-8">
+</head>
+<body>
+<a href="jquery.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p class="highlight">Paragraph 3</p>
+<p class="highlight">Paragraph 4</p>
+<p class="highlight">Paragraph 5</p>
+<p>Paragraph 6</p>
+<p>Paragraph 7</p>
+<br/>
+<button onclick="filterOdd()">Filter Odd</button>
+<button onclick="notHighlight()">Not Highlight</button>
+<button onclick="findCode()">Find Code</button>
+<button onclick="unwrapObjects()">Unwrapping Objects</button>
+
+<script type="text/javascript">
+
+	function filterOdd() {
+		$('p')
+		.filter(':odd')
+		.append('<sup>*</sup>')
+		.css('color', 'red');
+	}
+
+	function notHighlight() {
+		$('p')
+		.after('<hr>')
+		.not('.highlight')
+		.css('margin-left', '20px');
+	}
+
+	function findCode() {
+		$('.highlight')
+		.css('font-size', '30px');
+	}
+
+	function unwrapObjects() {
+		const para2 = $('p').get(1); // get second element
+		const paras = $('p').get(); // array of all <p> elements
+		alert(para2.innerHTML + "\n\n" + paras.length);
+	}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <link rel="stylesheet" type="text/css" href="../common.css">
+</head>
+<body>
+<a href="../../jsexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: DOM, Ajax, DOM API, idiosyncracies, dollar sign, jQuery, $, ready, CSS
+selector
+<h1>Definitions</h1>
+<ul>
+    <li><label>jQuery</label> is a popular library for manipulating the <label>DOM</label> and
+        executing <label>Ajax</label> requests
+    </li>
+</ul>
+<h1>Waiting for the DOM to Load</h1>
+<ul>
+    <li>To wait for the <label>DOM</label> to be loaded, you can use:<code>$(document).ready(function(){...});</code>
+    </li>
+    <li>A shorter way to wait for the <label>DOM</label>, you can
+        use:<code>$(function(){...});</code></li>
+</ul>
+<h1>jQuery-Wrapped DOM Elements</h1>
+<ul>
+    <li>Use <label>jQuery-wrapped DOM elements</label> to manipulate the DOM in jQuery</li>
+    <li>Calling jQuery with a <label>CSS selector</label> returns a jQuery object with the matches,
+        which is similar to <label>document.querySelectorAll</label>:<code>$('p');</code></li>
+    <li>Calling jQuery with <label>HTML</label> creates a new DOM element:<code>const $newPara = $('&lt;p>New
+        paragraph&lt;/p>');</code></li>
+</ul>
+<h1>eq, filter, not, find...</h1>
+<ul>
+    <li>We can select a subset of elements inside a <label>jQuery chain</label> using modifiers:
+        <code>eq, filter, not, find</code></li>
+    <li><label>find</label> returns the set of <label>descendant</label> elements that match a given
+        query, whereas <label>filter</label> filters the existing set
+    </li>
+</ul>
+<h1>Code</h1>
+<ul>
+    <li><a href="276_examples.html">Page 276: Examples of jQuery #1</a></li>
+    <li><a href="279_examples.html">Page 279: Examples of jQuery #2</a></li>
+    <li><a href="280_ajax.html">Page 280: AJAX with jQuery</a></li>
+</ul>
+</body>
+</html>

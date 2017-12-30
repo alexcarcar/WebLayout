@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example with jQuery</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<a href="jquery.html">[GO BACK]</a><br/><br/>
+<ul class="serverInfo">
+    <li>platform: <span data-replace="platform"></span></li>
+    <li>nodeVersion: <span data-replace="nodeVersion"></span></li>
+    <li>uptime: <span data-replace="uptime"></span></li>
+</ul>
+<div>
+</div>
+<script type="text/javascript;version=1.8">
+	function refreshServerInfo() {
+		const $serverInfo = $('.serverInfo');
+		$.get('http://localhost:7070').then(
+			// successful return
+			function (data) {
+				Object.keys(data).forEach(p => {
+					$(`[data-replace="${p}"`).text(data[p]);
+				});
+				setTimeout(refreshServerInfo, 2000);
+			},
+			function(jqXHR, textStatus, err) {
+				console.error(err);
+				$serverInfo.addClass('error').html('Error connecting to server.');
+			}
+		);
+	}
+
+	$(function(){
+		refreshServerInfo();
+	});
+
+</script>
+</body>
+</html>

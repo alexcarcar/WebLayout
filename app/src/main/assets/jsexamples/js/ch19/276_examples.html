@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Examples</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<a href="jquery.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<h1>jQuery Examples</h1>
+<h2>$(document).ready(function(){...});</h2>
+<div id="someDiv"></div>
+<h2>$(function(){...});</h2>
+<div id="anotherDiv"></div>
+<h1>jQuery-Wrapped DOM Elements</h1>
+<p>Paragraph 1</p>
+<p>Paragraph 2</p>
+<p>Paragraph 3</p>
+<div id="removeThis"><b>Remove</b> This</div>
+<br/>
+<div id="parDetails"></div>
+<br/>
+<button onclick="replaceParagraphs()">Replace all paragraphs</button>
+<button onclick="replaceParagraphs2()">Replace #2</button>
+<button onclick="replaceParagraphs3()">Replace #3</button>
+<button onclick="removeThis()">Remove "This"</button>
+<button onclick="appendAsterisk()">Append *</button>
+<br/>
+<button onclick="addLines()">Add Lines</button>
+<button onclick="removeLines()">Remove Lines</button>
+<button onclick="reverseInsert()">Complex Insert</button>
+<button onclick="colorOddRed()">Color Odd Red</button>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#someDiv').text("The document is ready!");
+	});
+
+	$(function() {
+		$('#anotherDiv').text("Here is a shorter method");
+	});
+
+	const $paras = $('p');
+	const parDetails = "Number of paragraphs: " + $paras.length + "<br/>"
+	+ "Type of paragraphs: " + typeof $paras + "<br/>"
+	+ "Instance of $: " + ($paras instanceof $) + "<br/>"
+	+ "Instance of jQuery: " + ($paras instanceof jQuery) + "<br/>";
+	$('#parDetails').html(parDetails);
+
+	function replaceParagraphs() {
+		$('p').text('ALL PARAGRAPHS REPLACED');
+	}
+
+	function replaceParagraphs2() {
+		$('p').html('<i>ALL</i> PARAGRAPHS REPLACED');
+	}
+
+	function replaceParagraphs3() {
+		$('p').eq(2).html('<i>THIRD</i> PARAGRAPH REPLACED');
+	}
+
+	function removeThis() {
+		$('#removeThis').remove();
+	}
+
+	function appendAsterisk() {
+		$('p').append('<sup>*</sup>')
+	}
+
+	function addLines() {
+		$('p').before('<hr/>').after('<hr/>');
+	}
+
+	function removeLines() {
+		$('hr').remove();
+	}
+
+	function reverseInsert() {
+		$('<sup>*</sup>').appendTo('p'); // = $('p').append('<sup>*</sup>')
+		$('<hr>').insertBefore('p'); // = $('p').before('<hr>')
+		$('<hr>').insertAfter('p'); // = $('p').after('<hr>')
+	}
+
+	function colorOddRed() {
+		$('p:odd').css('color','red');
+	}
+
+
+</script>
+</body>
+</html>
