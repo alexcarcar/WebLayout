@@ -93,6 +93,25 @@ exist code, operating system, child processes, streams, piping, web servers
     <li>For example, when you import <label>debug</label>, it takes a string as a log prefix: <code><br/>const
         debug = require('debug')('main');<br/>debug("starting");</code></li>
 </ul>
+<h1>Filesystem Access</h1>
+<ul>
+    <li>To create a file use <label>require('fs')</label> and <label>fs.writeFile(file,string,f(err))</label>
+    </li>
+    <li>To read a file use:<code>fs.readFile(file,f(err,data));</code></li>
+    <li>To read <label>utf8 "text"</label> use:<code>fs.readFile(file,{encoding:'utf8'},f(err,data));</code>
+    </li>
+</ul>
+<h1>Process</h1>
+<ul>
+    <li>Every <label>Node</label> program has access to a variable <label>process</label> that
+        allows it get information about--and control--its own execution
+    </li>
+    <li>For instance if a <label>fatal error</label> execution can stop
+        using:<code>process.exit</code></li>
+    <li>An <label>exit code</label> can be used to pass information to callers:<code>process.exit(2);</code>
+    </li>
+    <li>To get array of <label>command-line arguments</label> use:<code>process.argv</code>
+</ul>
 <h1>Code</h1>
 <ul>
     <li>Page 282:
@@ -103,6 +122,9 @@ exist code, operating system, child processes, streams, piping, web servers
     </li>
     <li>Page 287: Custom Debug IIF <a href="287_app.js">app.js</a> (<a href="myDebugLogger.js">myDebugLogger.js</a>)
     </li>
+    <li>Page 289: <a href="289_files.js">Reading and Writing Files</a></li>
+    <li>Page 292: <a href="292_exitCodes.js">Process Exit Codes</a></li>
+    <li>Page 292: <a href="292_arguments.js">Process Arguments (Find # of Lines in Files)</a></li>
 </ul>
 </body>
 </html>
