@@ -43,4 +43,16 @@ try {Object.defineProperty(log, 'log', {enumerable:false});} catch (e) {console.
 console.log(log);
 
 console.log("\n=== Extensible (p 307)");
+const log2 = new Logger("First Mate's Log");
+console.log("Is non extensible?", Object.isExtensible(log2));
+Object.preventExtensions(log2);
+console.log("Is non extensible?", Object.isExtensible(log2));
+log2.name = "First Mate's Boring Log"; // OK
+log2.add("Another boring day at sea..."); // OK
+try {log2.newProp = 'test'} catch (e) {console.log(e.message);}
+log2.name = "test"; // OK
+delete log2.name; // OK
+Object.defineProperty(log2, 'log', {enumerable:false}); // OK
+console.log(log2, log2.log);
+
 
