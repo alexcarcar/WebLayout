@@ -28,10 +28,21 @@ writable, enumerable, configurable, freeze, isFrozen, proxies
     <li>Objects properties also have <label>attributes</label> to control how the properties behave
     </li>
 </ul>
+<h1>Protecting Objects</h1>
+<ul>
+    <li><label>Freezing</label> prevents any changes to an object:<code>Object.freeze,
+        Object.isFrozen</code></li>
+    <li><label>Sealing</label> prevents addition of new properties, removal, or reconfiguration of
+        existing properties:<code>Object.seal, Object.isSealed</code></li>
+    <li><label>Nonextensible</label> only prevents new properties from being added (properties can
+        be deleted and reconfigured):<code>Object.preventExtension, Object.isExtensible</code></li>
+</ul>
 <h1>Code</h1>
 <ul>
     <li>Page 301: <a href="301_access.js">Accessor Properties: Getters and Setters</a></li>
     <li>Page 303: <a href="303_attributes.js">Object Property Attributes</a></li>
+    <li>Page 306: <a href="306_freeze.js">Protecting Objects: Freezing, Sealing, and Preventing
+        Extension</a></li>
 </ul>
 </body>
 </html>
