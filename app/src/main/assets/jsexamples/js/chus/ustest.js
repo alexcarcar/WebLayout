@@ -239,7 +239,7 @@ answer: `
     the President
 
 `},
-{question: "What does the Presidentr's Cabinet do?",
+{question: "What does the President's Cabinet do?",
 answer: `
 
     advises the President
