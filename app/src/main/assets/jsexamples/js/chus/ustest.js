@@ -176,7 +176,7 @@ answer: `
 {question: "Why do some states have more Representatives than other states?",
 answer: `
 
-    (because of) the stater's population
+    (because of) the state's population
     (because) they have more people
     (because) some states have more people
 
