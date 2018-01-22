@@ -138,10 +138,10 @@ answer: `
     six (6)
 
 `},
-{question: "Who is one of your stater's U.S. Senators now?*",
+{question: "Who is one of your state's U.S. Senators now?*",
 answer: `
 
-    Answers will vary. [District of Columbia residents and residents of U.S. territories should answer that D.C. (or the territory where the applicant lives) has no U.S. Senators.]
+    Kamala Harris (D), Dianne Feinstein (D). [District of Columbia residents and residents of U.S. territories should answer that D.C. (or the territory where the applicant lives) has no U.S. Senators.]
 
 `},
 {question: "The House of Representatives has how many voting members?",
@@ -159,7 +159,12 @@ answer: `
 {question: "Name your U.S. Representative.",
 answer: `
 
-    Answers will vary. [Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) Representatives in Congress.]
+11th	Mark DeSaulnier (Concord)	Democratic
+12th	Nancy Pelosi (San Francisco)	Democratic
+13th	Barbara Lee (Oakland)	Democratic
+14th	Jackie Speier (Hillsborough)	Democratic
+
+[Residents of territories with nonvoting Delegates or Resident Commissioners may provide the name of that Delegate or Commissioner. Also acceptable is any statement that the territory has no (voting) Representatives in Congress.]
 
 `},
 {question: "Who does a U.S. Senator represent?",
@@ -310,13 +315,13 @@ answer: `
 {question: "Who is the Governor of your state now?",
 answer: `
 
-    Answers will vary. [District of Columbia residents should answer that D.C. does not have a Governor.]
+    Jerry Brown [District of Columbia residents should answer that D.C. does not have a Governor.]
 
 `},
 {question: "What is the capital of your state?*",
 answer: `
 
-    Answers will vary. [District of Columbia residents should answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.]
+    Sacremento [District of Columbia residents should answer that D.C. is not a state and does not have a capital. Residents of U.S. territories should name the capital of the territory.]
 
 `},
 {question: "What are the two major political parties in the United States?*",
