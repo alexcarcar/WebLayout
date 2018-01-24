@@ -349,7 +349,7 @@ C: Rights and Responsibilities
 answer: `
 
     Citizens eighteen (18) and older (can vote).
-    You donr't have to pay (a poll tax) to vote.
+    You don't have to pay (a poll tax) to vote.
     Any citizen can vote. (Women and men can vote.)
     A male citizen of any race (can vote).
 
@@ -465,7 +465,7 @@ answer: `
 
     because of high taxes (taxation without representation)
     because the British army stayed in their houses (boarding, quartering)
-    because they didnr't have self-government
+    because they didn't have self-government
 
 `},
 {question: "Who wrote the Declaration of Independence?",
