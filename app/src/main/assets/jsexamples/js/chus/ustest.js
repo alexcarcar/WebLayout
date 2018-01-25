@@ -526,7 +526,7 @@ answer: `
     U.S. diplomat
     oldest member of the Constitutional Convention
     first Postmaster General of the United States
-    writer of \"Poor Richardr's Almanac\"
+    writer of \"Poor Richard's Almanac\"
     started the first free libraries
 
 `},
@@ -572,7 +572,7 @@ answer: `
 
     slavery
     economic reasons
-    statesr' rights
+    states' rights
 
 `},
 {question: "What was one important thing that Abraham Lincoln did?*",
@@ -798,9 +798,9 @@ answer: `
 {question: "Name two national U.S. holidays.",
 answer: `
 
-    New Yearr's Day
+    New Year's Day
     Martin Luther King, Jr. Day
-    Presidentsr' Day
+    Presidents' Day
     Memorial Day
     Independence Day
     Labor Day
