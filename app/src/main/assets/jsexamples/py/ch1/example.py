@@ -7,10 +7,8 @@ print (hours, 'h')
 print (miles/hours, "mph")
 exit()
 
-/*
-% python example.py
-hello world
-(6.211180124223602, 'mi')
-(0.725, 'h')
-(8.567144998929106, 'mph')
-*/
+# % python example.py
+# hello world
+# (6.211180124223602, 'mi')
+# (0.725, 'h')
+# (8.567144998929106, 'mph')
