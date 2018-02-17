@@ -8,4 +8,4 @@ def square(t, size):
 
 bob = Turtle()
 square(bob, 50)
-# wait_for_user()
+wait_for_user()

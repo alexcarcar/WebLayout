@@ -10,13 +10,54 @@
 <label>Keywords</label>: package, modules, import, from, TurtleWorld, instance, encapsulation,
 generalization, keyword arguments, interface design, refactoring, development plan, docstring,
 debugging, preconditions, postconditions
+<h1>Definitions</h1>
+<ul>
+    <li>A <label>package</label> is a collection of modules. An <label>instance</label> is a member
+        in a set.
+    </li>
+    <li>A <label>for</label> is called a <label>loop</label> because the flow of execution runs
+        through the body and then loops back to the top.
+    </li>
+    <li>Wrapping a piece of code up in a function is called <label>encapsulation.</label></li>
+    <li>Adding a parameter to a function is called <label>generalization</label> because it makes
+        the function more general.
+    </li>
+    <li><label>Keyword arguments</label> add parameter names in the function call, for
+        example:<code>polygon(bob, n=7, length=70)</code></li>
+    <li>The <label>interface</label> of a function is a summary of how it is used: what are the
+        parameters? What does the function do? And what is the return value?
+    </li>
+    <li>Rearranging a program to improve function interfaces and facilitate code reuse is called
+        <label>refactoring</label></li>
+    <li>A <label>development plan</label> is a process for writing programs</li>
+    <li>A <label>docstring</label> is a string at the beginning of a function that explains the
+        interface:<br/><br/><code>def polygon(t, n, length):</code><br/>&nbsp; &nbsp; &nbsp;<code>"""Draws
+            an n sided polygon"""</code><br/></li>
+    <li><label>Preconditions</label> are requirements supposed to be true before a function starts
+        executing
+    </li>
+    <li><label>Postcondtions</label> include the intended effect of a function and any side effects
+    </li>
+</ul>
 <h1>Code</h1>
 <ul>
-    <li><a href="mypolygon.py">Page 37: mypolygon.py</a></li>
+    <li><a href="mypolygon.py">Page 37: mypolygon.py</a>
+        <br/>&nbsp;<br/><img src="mypolygon.png"></li>
+    <li><a href="refactor.py">Page 43: refactor.py</a>
+        <br/>&nbsp;<br/><img src="refactor.png"></li>
 </ul>
 <h1>Exercises</h1>
 <ol>
-    <li><a href="square.py">square.py</a></li>
+    <li><a href="square.py">square.py</a> - Draw a square of size 50
+        <br/>&nbsp;<br/><img src="square.png"></li>
+    <li><a href="squareLength.py">squareLength.py</a> - Draw squares with various lengths
+        <br/>&nbsp;<br/><img src="squareLength.png"></li>
+    <li><a href="polygon.py">polygon.py</a> - Draw n sided polygons
+        <br/>&nbsp;<br/><img src="polygon.png"></li>
+    <li><a href="circle.py">circle.py</a> - Draw a circle using n sided polygons
+        <br/>&nbsp;<br/><img src="circle.png"></li>
+    <li><a href="arc.py">arc.py</a> - Draw an arc using a percentage of a circle
+        <br/>&nbsp;<br/><img src="arc.png"></li>
 </ol>
 </body>
 </html>
