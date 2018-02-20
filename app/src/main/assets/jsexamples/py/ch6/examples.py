@@ -91,4 +91,11 @@ def protected_factorial(n):
 		print 'Factorial is not defined for negative integers.'
 		return None
 	else:
-		return factorial(n):
+		return factorial(n)
+print protected_factorial(-3)
+# Factorial is not defined for negative integers.
+# None
+print protected_factorial(3.2)
+# Factorial is only defined for integers.
+# None
+	
