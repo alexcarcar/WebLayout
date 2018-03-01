@@ -27,7 +27,7 @@ public class Solution {
             total += (list.get(i) * weights.get(i));
         }
         double average = (double) total / (double) weight;
-        System.out.println(average);
+        System.out.printf("%.1f\n",average);
     }
 }
 /*
