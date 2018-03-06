@@ -74,3 +74,55 @@ print chop(t)
 print t
 # None
 # ['b', 'c']
+
+# Exercise 10-6 (p 118)
+def is_sorted(t):
+	first = True
+	last = ""
+	for x in t:
+		if first:
+			first = False
+		elif x < last:
+			return False
+		last = x
+	return True
+print is_sorted([1, 2, 2]) # True
+print is_sorted(['b', 'a']) # False
+print is_sorted([]) # True
+print is_sorted([1]) # True
+
+# Exercise 10-7 (p 118)
+def is_anagram(w1, w2):
+	if not len(w1) == len(w2):
+		return False
+	word1 = list(w1)
+	word1.sort()
+	word1 = ''.join(word1)
+
+	word2 = list(w2)
+	word2.sort()
+	word2 = ''.join(word2)
+	return word1 == word2
+print is_anagram("apple", "leapp") # True
+print is_anagram("bat", "tab") # True
+print is_anagram("bus", "sub") # True
+print is_anagram("ask", "nop") # False
+
+# Exercise 10-8.1 (p 118)
+def has_duplicates(t):
+	s = sorted(t)
+	first = True
+	last = ""
+	for x in s:
+		if first:
+			first = False
+		elif x == last:
+			return True
+		last = x
+	return False
+print has_duplicates([1, 2, 4, 1, 2]) # True
+print has_duplicates([4, 5, 3, 2, 1]) # False
+
+# Exercise 10-8.2 (p 118)
+import random
+print random.randint(365)
