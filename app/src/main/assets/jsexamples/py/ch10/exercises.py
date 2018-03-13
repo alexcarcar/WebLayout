@@ -5,7 +5,8 @@ def nested_sum(nests):
 		total += sum(nest)
 	return total
 
-print nested_sum([[1,2,3], [4], [5, 6]]) # 21
+print nested_sum([[1,2,3], [4], [5, 6]])
+# 21
 
 def capitalize_all(t):
 	res = []
@@ -125,4 +126,8 @@ print has_duplicates([4, 5, 3, 2, 1]) # False
 
 # Exercise 10-8.2 (p 118)
 import random
-print random.randint(365)
+birthdays = []
+for i in range(23):
+	birthdays.append(random.randint(1, 365))
+print birthdays
+print "has duplicates? " + str(has_duplicates(birthdays))
