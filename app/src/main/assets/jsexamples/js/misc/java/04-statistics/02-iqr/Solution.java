@@ -15,7 +15,7 @@ Sample Output
 */
 public class Solution {
 
-	static int getMedian(ArrayList<Integer> list, int i, int j) {
+	static double getMedian(ArrayList<Integer> list, int i, int j) {
 		int n = j - i + 1;
 		int k = (i+j)/2;
 		boolean odd = n%2 == 1;
@@ -29,24 +29,31 @@ public class Solution {
     public static void main(String[] args) {
     	Scanner in = new Scanner(System.in);
     	int n = in.nextInt();
-    	ArrayList<Integer> list = new ArrayList<>();
     	ArrayList<Integer> x = new ArrayList<>();
+    	ArrayList<Integer> list = new ArrayList<>();
+
     	for (int i=0; i<n; i++) {
     		x.add(in.nextInt());
     	}
+    	int nData = 0;
     	for (int i=0; i<n; i++) {
-    		f.add(in.nextInt());
+    		int freq = in.nextInt();
+    		int value = x.get(i);
+    		for (int j=0; j<freq; j++) {
+    			list.add(value);
+			}
+    		nData += freq;
     	}
     	Collections.sort(list);
     	n = list.size();
+    	double a, b;
     	if (n%2==1) {
-	    	System.out.println(getMedian(list,0,n/2-1));
-	    	System.out.println(getMedian(list,0,n-1));
-	    	System.out.println(getMedian(list,n/2+1,n-1));    		
+	    	a = getMedian(list,0,n/2-1);
+	    	b = getMedian(list,n/2+1,n-1);
     	} else {
-	    	System.out.println(getMedian(list,0,n/2-1));
-	    	System.out.println(getMedian(list,0,n-1));
-	    	System.out.println(getMedian(list,n/2,n-1));    		
+	    	a = getMedian(list,0,n/2-1);
+	    	b = getMedian(list,n/2,n-1);
     	}
+    	System.out.printf("%.1f", b-a);
     }
 }
