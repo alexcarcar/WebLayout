@@ -131,3 +131,23 @@ for i in range(23):
 	birthdays.append(random.randint(1, 365))
 print birthdays
 print "has duplicates? " + str(has_duplicates(birthdays))
+
+#[185, 181, 248, 83, 172, 74, 176, 131, 83, 191, 29, 304, 313, 250, 337, 254, 298
+#, 86, 27, 359, 218, 263, 285]
+#has duplicates? True
+
+# Exercise 10-9 (p 118)
+def remove_duplicates(t):
+	s = sorted(t)
+	newT = []
+	first = True
+	last = ""
+	for x in s:
+		if first:
+			first = False
+		elif x == last:
+			continue
+		last = x
+		newT.append(x)
+	return newT
+print remove_duplicates([1, 2, 4, 1, 2]) # [1, 2, 4]
