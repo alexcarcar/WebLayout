@@ -1,0 +1,4 @@
+This is an example text file.  In the exercise, we
+read this file.  Break each line into words.  Strip
+whitespace and punctuation from words, and converts
+them to lowercase.
