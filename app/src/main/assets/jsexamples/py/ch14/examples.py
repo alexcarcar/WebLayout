@@ -82,3 +82,61 @@ db.close()
 # Photo of John Cleese.
 # Photo of John Cleese doing a silly walk.
 # cleese.png
+
+# Picking (p 164)
+import pickle
+t = [1,2,3]
+s = pickle.dumps(t)
+print # (lp0 I1 aI2 aI3 a.
+t2 = pickle.loads(s)
+print t2 # [1, 2, 3]
+print t == t2, t is t2 # True False
+
+# Pipes (p 165)
+cmd = 'dir /b'
+fp = os.popen(cmd)
+res = fp.read()
+stat = fp.close()
+print stat # None
+print res
+# anagrams.db
+# anagram_db.py
+# anagram_sets.py
+# anagram_sets.pyc
+# captions.db
+# examples.py
+# exercises.py
+# index.html
+# output.txt
+# output2.txt
+
+filename = 'output.txt'
+cmd = 'md5sum ' + filename
+fp = os.popen(cmd)
+res = fp.read()
+stat = fp.close()
+print res, stat
+# 9a1158154dfa42caddbd0694a4e9bdc8 *output.txt
+# None
+
+# Writing Modules (p 166)
+import wc # 7
+print wc # <module 'wc' from 'C:\py\ch14\wc.pyc'>
+print wc.linecount('examples.py') # 125
+print __name__ # __main__
+
+# Debugging (p 167)
+s = '1 2\t 3\n 4'
+print s
+# 1 2      3
+#  4
+print repr(s) # '1 2\t 3\n 4'
+
+import urllib
+conn = urllib.urlopen('http://thinkpython.com/secret.html')
+for line in conn:
+	print line.strip()
+# <title>Secret exercise</title>
+#
+# <h1>Secret Think Python Exercise</h3>...
+
