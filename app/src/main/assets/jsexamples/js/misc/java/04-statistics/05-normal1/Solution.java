@@ -19,6 +19,19 @@ that a car can be assembled at this plant in:
 */
 public class Solution {
 
+    static double getNormalProbabilityAtZ(double z) {
+        return Math.exp(-Math.pow(z, 2) / 2) / Math.sqrt(2 * Math.PI);
+    }
+
+    static double getAreaUnderNormalCurve(double z1, double z2) {
+        double area = 0.0;
+        final int rectangles = 100000; // more rectangles = more precise, less rectangles = quicker execution
+        final double width = (z2 - z1) / rectangles;
+        for(int i = 0; i < rectangles; i++)
+            area += width * getNormalProbabilityAtZ(width * i + z1);
+        return area;
+    }
+
     static double z(double m, double s, double x) {
         return (x - m)/s;
     }
@@ -33,8 +46,11 @@ public class Solution {
 
         // Problem 1 less than x
         double z = z(m, s, x);
-        Math.
-        System.out.printf("%.3f\n", problem1(l,k));
-        System.out.printf("%.3f\n", problem2(l,k));
+
+        System.out.printf("%.3f\n", getAreaUnderNormalCurve(-100, z));
+
+        double z1 = z(m, s, x1);
+        double z2 = z(m, s, x2);
+        System.out.printf("%.3f\n", getAreaUnderNormalCurve(z1, z2));
     }
 }
