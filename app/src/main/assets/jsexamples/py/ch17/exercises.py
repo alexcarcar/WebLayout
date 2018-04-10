@@ -43,3 +43,15 @@ print p + p2 # (5.1415, 5.1818)
 # Exercise 17-5
 print p + (5, 7) # (7, 10)
 print (3, 3) + p # (5, 6)
+
+p = Point(3, 4)
+print p.__dict__ # {'y': 4, 'x': 3}
+
+def print_attributes(obj):
+	for attr in obj.__dict__:
+		print attr, getattr(obj, attr)
+print_attributes(p)
+# y 4
+# x 3
+
+

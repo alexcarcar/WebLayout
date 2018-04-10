@@ -91,3 +91,22 @@ print start + 1337 # 10:07:17
 # try: print 1337 + start
 # except Exception as e: print e # unsupported operand type(s) for +: 'int' and 'Time'
 print 1337 + start # 10:07:17
+
+# Polymorphism (p 196)
+def histogram(s):
+	d = dict()
+	for c in s:
+		if c not in d:
+			d[c] = 1
+		else:
+			d[c] += 1
+	return d
+t = ['spam', 'egg', 'spam', 'spam', 'bacon', 'spam']
+print histogram(t) # {'bacon': 1, 'egg': 1, 'spam': 4}
+
+t1 = Time(7, 43)
+t2 = Time(7, 41)
+t3 = Time(7, 37)
+total = sum([t1, t2, t3])
+print total # 23:01:00
+
