@@ -166,13 +166,13 @@ public class Solution {
         int n = in.nextInt(); // # of of feature sets
 
         double[][] X = new double[n][m + 1];
-        double[] Y = new double[n];
+        double[][] Y = new double[n][1];
         for (int i = 0; i < n; i++) {
             X[i][0] = 1;
             for (int j = 0; j < m; j++) {
                 X[i][j + 1] = in.nextDouble();
             }
-            Y[i] = in.nextDouble();
+            Y[i][0] = in.nextDouble();
         }
         double[][] Xt = transpose(X);
         double[][] XtX = multiply(Xt, X);
@@ -180,20 +180,17 @@ public class Solution {
         double[][] inv_XtX_Xt = multiply(inv_XtX, Xt);
         double[][] B = multiply(inv_XtX_Xt, Y);
 
-        System.out.println(Arrays.deepToString(B).replace(']', '\n'));
-
         int q = in.nextInt(); // # of queries
-        double[][] b = new double[q][m];
+        double[][] Q = new double[q][m+1];
         for (int i = 0; i < q; i++) {
-            for (int j = 0; j < m; j++) {
-                b[i][j] = in.nextDouble();
+            Q[i][0] = 1;
+            for (int j = 1; j <= m; j++) {
+                Q[i][j] = in.nextDouble();
             }
         }
-
-        System.out.println(X.length);
-        System.out.println(Y.length);
-        System.out.println(b.length);
-
-        //System.out.printf("%.2f", solve(X, Y, 80));
+        double[][] results = multiply(Q, B);
+        for (int i=0; i<results.length; i++) {
+        	System.out.printf("%.2f\n", results[i][0]);
+        }
     }
 }
