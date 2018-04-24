@@ -37,9 +37,98 @@ char, boolean, true, false, scope, main(), for, operator, casting, expressions
 </ul>
 <h1>Chapter 2 Self Test (p 62)</h1>
 <ol>
-    <li><h2></h2>
+    <li><h2>Why does Java strictly specify the range and behavior of its primitive types?</h2>
         <ul>
-            <li></li>
+            <li>Because of Java's <label>portability</label> requirement, Java is uncompromising on
+                this account.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What is Java's character type, and how does it differ from the character type used by
+        some other programming languages?</h2>
+        <ul>
+            <li>In Java, characters are not <label>8-bit</label> quantities like they are in many
+                other computer languages.
+            </li>
+            <li>Instead, <label>char</label> in Java is an unsigned <label>16-bit</label> that
+                represents a <label>unicode</label> character.
+            </li>
+        </ul>
+    </li>
+    <li><h2>A <b>boolean</b> value can have any value you like because any non-zero value is true.
+        True or false?</h2>
+        <ul>
+            <li>False, the <label>boolean</label> type represents true/false values.</li>
+            <li>Java defines the values true and false using the reserved words <label>true</label>
+                and <label>false.</label></li>
+        </ul>
+    </li>
+    <li><h2>Given this output,<tt><br/>&nbsp;One<br/>&nbsp;Two<br/>&nbsp;Three<br/></tt>using a
+        single string, the <b>println()</b> statement that produced it.</h2>
+        <ul>
+            <li><code>System.out.println("One\nTwo\nThree");</code></li>
+        </ul>
+    </li>
+    <li><h2>What is wrong with this fragment?<br/>
+        <tt>
+            for(i=0;i<10;i++){<br/>
+            &nbsp; int sum;<br/>
+            &nbsp; sum = sum + i;<br/>
+            }<br/>
+            System.out.println("Sum is: " + sum);
+        </tt></h2>
+        <ul>
+            <li><label>sum</label> is initialized on each iteration</li>
+            <li><label>sum</label> is printed outside the <label>scope</label> where it is not
+                defined
+            </li>
+        </ul>
+    </li>
+    <li><h2>Explain the difference between the prefix and postfix forms of the increment
+        operator.</h2>
+        <ul>
+            <li>In <label>prefix form</label> the variable is incremented before it is assigned
+                (i.e. y = 11): <code>x = 10; y = ++x;</code></li>
+            <li>In <label>postfix</label> the variable is incremented after it is assigned (i.e. y =
+                10): <code>x = 10; y = x++;</code></li>
+        </ul>
+    </li>
+    <li><h2>Show how a short-circuit AND can be used to prevent a divide-by-zero error.</h2>
+        <ul>
+            <li><code>if (a != 0 &amp;&amp; b/a == 1) {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>In an expression, what type are <b>byte</b> and <b>short</b> promoted to?</h2>
+        <ul>
+            <li>A <label>widening conversion</label> takes place if assigned to a destination type
+                that is larger (i.e. <label>int</label>)
+            </li>
+        </ul>
+    </li>
+    <li><h2>In general, when is a cast needed?</h2>
+        <ul>
+            <li>A cast is an instruction to the compiler to explicitly convert one type into
+                another:<code>(target-type) expression;</code></li>
+        </ul>
+    </li>
+    <li><h2>Write a program that finds all prime numbers between 2 and 100.</h2>
+        <ul>
+            <li><a href="Prime.java">Prime.java</a></li>
+        </ul>
+    </li>
+    <li><h2>Does the use of redundant parentheses affect program performance?</h2>
+        <ul>
+            <li>Use of redundant or additional parentheses will not cause errors or slow down the
+                execution of the expression.
+            </li>
+        </ul>
+    </li>
+    <li><h2>Does a block define a scope?</h2>
+        <ul>
+            <li>A block defines a <label>scope.</label></li>
+            <li>A <label>scope</label> determines what objects are visible to other parts of your
+                program.
+            </li>
         </ul>
     </li>
 </ol>

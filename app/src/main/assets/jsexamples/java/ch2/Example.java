@@ -172,6 +172,44 @@ class Example {
 		// if statement executed: 1
 	}
 
+	// A promotion surprise!
+	static void promoDemo() {
+		int b;
+		int i;
+
+		b=10;
+		i=b*b; // OK, no cast needed
+
+		b=10;
+		b=(byte)(b*b); // cast needed!!
+		System.out.println("i and b: " +i+ " " +b); 
+		// i and b: 100 100
+	}
+
+	// Using a cast.
+	static void useCast() {
+		int i;
+		for (i=0; i<5; i++) {
+			System.out.println(i+" / 3: "+i/3);
+			System.out.println(i+" / 3 with fractions: "+(double)i/3);
+			System.out.println();
+		}
+		// 0 / 3: 0
+		// 0 / 3 with fractions: 0.0
+
+		// 1 / 3: 0
+		// 1 / 3 with fractions: 0.3333333333333333
+
+		// 2 / 3: 0
+		// 2 / 3 with fractions: 0.6666666666666666
+
+		// 3 / 3: 1
+		// 3 / 3 with fractions: 1.0
+
+		// 4 / 3: 1
+		// 4 / 3 with fractions: 1.3333333333333333
+	}
+
 	public static void main(String[] args) {
 		// Java's Primitive Types
 		cubicInchesInCubicMile(); // Integers: byte, short, int, long
@@ -189,5 +227,6 @@ class Example {
 
 		strDemo(); dynInit(); scopeDemo(); varInitDemo();
 		modDemo(); relLogOps(); sCops(); sideEffects();
+		promoDemo(); useCast();
 	}
 }
