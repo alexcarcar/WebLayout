@@ -15,15 +15,87 @@
 <h1>Try This</h1>
 <ul>
     <li>Page 75: <a href="TryThis3_1.java">TryThis3_1.java</a> (Help Menu)</li>
-    <li>Page 87: <a href="TryThis3_2.java">TryThis3_2.java</a> (Help Menu 2)</li>
 </ul>
 <h1>Chapter 3 Self Test (p 102)</h1>
 <ol>
-    <li><h2>Q</h2>
-        <ul>
-            <li>A</li>
-        </ul>
+    <li><h2>Write a program that reads characters from the keyboard until a period is received. Have the program count the number of spaces. Report the total at the end of the program.</h2>
+    	<ul><li><a href="CountSpaces.java">CountSpaces.java</a></li></ul>
     </li>
+    <li><h2>Show the general from of the <b>if-else-if</b> ladder.</h2>
+    	<code>
+    		if(condition)<br/>
+    		&nbsp; statement;<br/>
+    		else if(condition)<br/>
+    		&nbsp; statement;<br/>
+    		...<br/>
+    		else<br/>
+    		&nbsp; statement;
+    	</code>
+    </li>
+    <li><h2>Given the following code, to what <b>if</b> does the last <b>else</b> associate?</h2>
+    	<code>
+    		if(x < 10)<br/>
+    		&nbsp; <label>if(y > 100) {</label><br/>
+    		&nbsp; &nbsp; if(!done) x = z;<br/>
+    		&nbsp; &nbsp; else y = z;<br/>
+    		&nbsp; }<br/>
+    		&nbsp;else System.out.println("error"); // what if?
+    	</code>
+    </li>
+    <li><h2>Show the <b>for</b> statement for a loop that counts from 1000 to 0 by -2.</h2>
+    	<code>for(int i=1000; i>=0; i-=2)</code>
+    </li>
+    <li><h2>Is the following fragment valid?</h2>
+    	<code>for(int i = 0; i < num; i++)<br/>
+    		&nbsp; &nbsp; sum += i;<br/>
+    		&nbsp;count = i;
+    	</code>
+    	<ul><li>No, the variable <b>i</b> is used outside the scope of the <b>for</b> loop.</li></ul>
+    </li>
+    <li><h2>Explain what <b>break</b> does.  Be sure to explain both of its forms.</h2>
+    	<ul>
+    		<li>To break out of the current inner loop:<code>break;</code></li>
+    		<li>To break out of a nested loop using a label:<code>break label;</code></li>
+    	</ul>
+    </li>
+    <li><h2>In the following gragment, after the <b>break</b> statement executes, what is displayed?</h2>
+    	<code>for(i = 0; i < 10; i++) {<br/>
+    	&nbsp; while(running) {<br/>
+    	&nbsp; &nbsp; if(x < y) break;<br/>
+    	&nbsp; &nbsp; // ...<br/>
+    	&nbsp; }</br/>
+    	&nbsp; System.out.println("<label>after while</label>");<br/>
+    	&nbsp;}</br/>
+    	&nbsp;System.out.println("after for");
+ 	   </code>
+    </li>
+    <li><h2>What does the following fragment print?</h2>
+    	<code>
+    	for(int i = 0; i < 10; i++) {<br/>
+    	&nbsp; &nbsp;System.out.print(i + " ");<br/>
+    	&nbsp; &nbsp;if((i%2) == 0) continue;<br/>
+    	&nbsp; &nbsp;System.out.println();<br/>
+    	&nbsp;}<br/>&nbsp;<br/>
+		&nbsp;// 0 1<br/>
+		&nbsp;// 2 3<br/>
+		&nbsp;// 4 5<br/>
+		&nbsp;// 6 7<br/>
+		&nbsp;// 8 9<br/>
+    	</code>
+    </li>
+    <li><h2>Write a program that uses a <b>for</b> loop to generate and display the progression 1, 2, 4, 8, 16, 32, and so on.</h2>
+    	<ul><li><a href="PowersOf2.java">PowersOf2.java</a></li></ul>
+    </li>
+    <li><h2>Write a program that converts lower case letters to upper case (using the fact ASCII upper case equals lower case - 32.)</h2>
+    	<ul><li><a href="Upper.java">Upper.java</a></li></ul>
+    </li>
+    <li><h2>What is an infinite loop?</h2>
+    	<ul><li>An <label>infinite loop</label> is a loop that never terminates.</li></ul>
+    </li>
+    <li><h2>When using <b>break</b> with a label, must the label be on a block that contains the <b>break</b>?</h2>
+    	<ul><li>Yes, a <b>break</b> to any label must defined in an enclosing block.</li></ul>
+    </li>
+</ol>
 </ol>
 </body>
 </html>
