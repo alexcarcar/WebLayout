@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 4: Introducing Classes, Objects, and Methods</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: return, new, this, class, main(), println(), for, void, int, double, true,
+false, boolean, contructors, objects, instances, members, instance variables, object.member, refer,
+copy, value, name, parameter-list, arguments, class-var, garbage collection, hides
+<h1>Examples</h1>
+<ul>
+    <li>Page 108-: <a href="Example.java">Example.java</a></li>
+</ul>
+<h1>Try This</h1>
+<ul>
+    <li>Page 124: <a href="HelpClassDemo.java">HelpClassDemo.java</a></li>
+</ul>
+<h1>Chapter 4 Self Test (p 133)</h1>
+<ol>
+    <li><h2>What is the difference between a class and an object?</h2>
+        <ul>
+            <li>A class is a template that defines the form of an object.</li>
+            <li>Java uses a class specification to construct <b>objects.</b></li>
+            <li>Objects are <b>instances</b> of a class.</li>
+        </ul>
+    </li>
+    <li><h2>How is a class defined?</h2>
+        <ul>
+            <li>A class is created by using the keyword <label>class</label>:<br/>
+                <code><br/>
+                    class <i>classname</i> {<br/>
+                    &nbsp; // declare instance variables<br/>
+                    &nbsp; <i>type var1;</i><br/>
+                    &nbsp; <i>type var2;</i><br/>
+                    &nbsp; // ...<br/>
+                    &nbsp; <i>type varN;</i><br/>
+                    <br/>
+                    &nbsp; // declare methods<br/>
+                    &nbsp; <i>type method1(parameters)</i> {<br/>
+                    &nbsp; &nbsp; // body of method<br/>
+                    &nbsp; }<br/>
+                    &nbsp; <i>type method2(parameters)</i> {<br/>
+                    &nbsp; &nbsp; // body of method<br/>
+                    &nbsp; }<br/>
+                    &nbsp; // ...<br/>
+                    &nbsp; <i>type methodN(parameters)</i> {<br/>
+                    &nbsp; &nbsp; // body of method<br/>
+                    &nbsp; }<br/>
+                    }<br/>
+                </code></li>
+        </ul>
+    </li>
+    <li><h2>What does each object have its own copy of?</h2>
+        <ul>
+            <li>Each object has its own copy of <b>instance variables</b>.</li>
+        </ul>
+    </li>
+    <li><h2>Using two separate statements, show how to declare an object called <b>counter</b> of a
+        class called <b>MyCounter</b>.</h2>
+        <ul>
+            <li><code>MyCounter counter;</code></li>
+            <li><code>counter = new MyCounter();</code></li>
+        </ul>
+    </li>
+    <li><h2>Show how a method called <b>myMeth()</b> is declared if it has a return type of <b>double</b>
+        and has two <b>int</b> parameters called <b>a</b> and <b>b</b>.</h2>
+        <ul>
+            <li><code>double myMeth(int a, int b) {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>How must a method return if it returns a value?</h2>
+        <ul>
+            <li><code>return <i>value</i>;</code></li>
+        </ul>
+    </li>
+    <li><h2>What name does a constructor have?</h2>
+        <ul>
+            <li>The constructor has the same name as its class: <code>MyClass() {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>What does <b>new</b> do?</h2>
+        <ul>
+            <li>The <label>new</label> operator dynamically allocates (that is, allocates at run
+                time) memory for an object and returns a reference to it.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What is garbage collection, and how does it work?</h2>
+        <ul>
+            <li>Java's garbage collection system reclaims objects automatically--occuring
+                transparently, behind the scenes, without any programming intervention.
+            </li>
+            <li>When no references to an object exist, that object is assumed to be no longer
+                needed, and the memory occupied by the object is released.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What is <b>this</b>?</h2>
+        <ul>
+            <li><label>this.val</label> refers to an object's (instance) copy of <b>val</b>.</li>
+        </ul>
+    </li>
+    <li><h2>Can a constructor have one or more parameters?</h2>
+        <ul>
+            <li>Yes, constructors can accept one or more parameter-listters.</li>
+        </ul>
+    </li>
+    <li><h2>If a method returns no value, what must its return type be?</h2>
+        <ul>
+            <li><code>void</code></li>
+        </ul>
+    </li>
+</ol>
+</ol>
+</body>
+</html>
