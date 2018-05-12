@@ -358,6 +358,243 @@ class Example {
         // Index of last occurence of One: 14
     }
 
+    static void stringArrays() {
+        String strs[] = {"This", "is", "a", "test."};
+        System.out.println("Original array: ");
+        for (String s : strs)
+            System.out.print(s + " ");
+        System.out.println();
+        // change a string
+        strs[1] = "was";
+        strs[3] = "test, too!";
+        for (String s : strs)
+            System.out.print(s + " ");
+        System.out.println();
+        // This is a test.
+        // This was a test, too!
+    }
+
+    static void substring() {
+        String orgstr = "Java makes the Web move.";
+        String substr = orgstr.substring(5, 18);
+        System.out.println("orgstr: " + orgstr);
+        System.out.println("substr: " + substr);
+        // orgstr: Java makes the Web move.
+        // substr: makes the Web
+    }
+
+    static void stringSwitch() {
+        String command = "cancel";
+        switch (command) {
+            case "connect":
+                System.out.println("Connecting");
+                break;
+            case "cancel":
+                System.out.println("Canceling");
+                break;
+            case "disconnect":
+                System.out.println("Disconnecting");
+                break;
+            default:
+                System.out.println("Command Error!");
+                break;
+        }
+        // Canceling
+    }
+
+    static void clDemo(String[] args) {
+        System.out.println("There are " + args.length + " command line arguments.");
+        System.out.print("They are:");
+        for (int i = 0; i < args.length; i++) {
+            System.out.print(" " + args[i]);
+        }
+        System.out.println();
+        // There are 3 command line arguments.
+        // They are: one two three
+    }
+
+    static void phone(String[] args) {
+        String numbers[][] = {
+                {"Tom", "555-3322"},
+                {"Mary", "555-8976"},
+                {"Jon", "555-1037"},
+                {"Rachel", "555-1400"}
+        };
+        int i;
+        if (args.length != 1)
+            System.out.println("Usage: java Example <name>");
+        else {
+            for (i = 0; i < numbers.length; i++) {
+                if (numbers[i][0].equals(args[0])) {
+                    System.out.println(numbers[i][0] + ": " + numbers[i][1]);
+                    break;
+                }
+            }
+            if (i == numbers.length)
+                System.out.println("Name not found.");
+        }
+        // java Example Mary
+        // Mary: 555-8976
+    }
+
+    static void upCase() {
+        char ch;
+        for (int i = 0; i < 10; i++) {
+            ch = (char) ('a' + i);
+            System.out.print(ch);
+            // This statement turns off the 6th bit.
+            ch = (char) ((int) ch & 65503);
+            System.out.print(ch + " ");
+        }
+        System.out.println();
+        // aA bB cC dD eE fF gG hH iI jJ
+    }
+
+    static void showBits() {
+        int t;
+        byte val;
+
+        val = 123;
+        for (t = 128; t > 0; t = t / 2) {
+            if ((val & t) != 0) System.out.print("1 ");
+            else System.out.print("0 ");
+        }
+        System.out.println();
+        /* 64+32+16+8+2+1 = 96+27 = 110+13 = 123 */
+        // 0 1 1 1 1 0 1 1
+    }
+
+    static void lowCase() {
+        char ch;
+        for (int i = 0; i < 10; i++) {
+            ch = (char) ('A' + i);
+            System.out.print(ch);
+            // This statement turns on the 6th bit (= 2^(6-1) = 2^5 = 32)
+            ch = (char) ((int) ch | 32); // ch is now lowercase
+            System.out.print(ch + " ");
+        }
+        System.out.println();
+        // Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj
+    }
+
+    static void encode() {
+        String msg = "This is a test";
+        String encmsg = "";
+        String decmsg = "";
+        int key = 88;
+
+        System.out.println("Original message: " + msg);
+
+        for (int i = 0; i < msg.length(); i++)
+            encmsg = encmsg + (char) (msg.charAt(i) ^ key);
+        System.out.println("Encoded message: " + encmsg);
+
+        for (int i = 0; i < msg.length(); i++)
+            decmsg = decmsg + (char) (encmsg.charAt(i) ^ key);
+        System.out.println("Decoded message: " + decmsg);
+        // Original message: This is a test
+        // Encoded message: 01+x1+x9x,=+,
+        // Decoded message: This is a test
+    }
+
+    // Demonstrate the bitwise NOT. (p 170)
+    static void notDemo() {
+        byte b = -34;
+        for (int t = 128; t > 0; t = t / 2) {
+            if ((b & t) != 0) System.out.print("1 ");
+            else System.out.print("0 ");
+        }
+        System.out.println();
+
+        // reverse all bits
+        b = (byte) ~b;
+
+        for (int t = 128; t > 0; t = t / 2) {
+            if ((b & t) != 0) System.out.print("1 ");
+            else System.out.print("0 ");
+        }
+        System.out.println();
+        // 1 1 0 1 1 1 1 0
+        // 0 0 1 0 0 0 0 1
+    }
+
+    static void shiftDemo() {
+        int val = 1;
+        for (int i = 0; i < 8; i++) {
+            for (int t = 128; t > 0; t = t / 2) {
+                if ((val & t) != 0) System.out.print("1 ");
+                else System.out.print("0 ");
+            }
+            System.out.println();
+            val = val << 1; // left shift
+        }
+        System.out.println();
+
+        val = 128;
+        for (int i = 0; i < 8; i++) {
+            for (int t = 128; t > 0; t = t / 2) {
+                if ((val & t) != 0) System.out.print("1 ");
+                else System.out.print("0 ");
+            }
+            System.out.println();
+            val = val >> 1; // right shift
+        }
+        System.out.println();
+        // 0 0 0 0 0 0 0 1
+        // 0 0 0 0 0 0 1 0
+        // 0 0 0 0 0 1 0 0
+        // 0 0 0 0 1 0 0 0
+        // 0 0 0 1 0 0 0 0
+        // 0 0 1 0 0 0 0 0
+        // 0 1 0 0 0 0 0 0
+        // 1 0 0 0 0 0 0 0
+
+        // 1 0 0 0 0 0 0 0
+        // 0 1 0 0 0 0 0 0
+        // 0 0 1 0 0 0 0 0
+        // 0 0 0 1 0 0 0 0
+        // 0 0 0 0 1 0 0 0
+        // 0 0 0 0 0 1 0 0
+        // 0 0 0 0 0 0 1 0
+        // 0 0 0 0 0 0 0 1
+    }
+
+    static void noZeroDiv() {
+        int result;
+        for (int i = -5; i < 6; i++) {
+            result = i != 0 ? 100 / i : 0;
+            if (i != 0) {
+                System.out.println("100 / " + i + " is " + result);
+            }
+        }
+        // 100 / -5 is -20
+        // 100 / -4 is -25
+        // 100 / -3 is -33
+        // 100 / -2 is -50
+        // 100 / -1 is -100
+        // 100 / 1 is 100
+        // 100 / 2 is 50
+        // 100 / 3 is 33
+        // 100 / 4 is 25
+        // 100 / 5 is 20
+    }
+
+    static void noZeroDiv2() {
+        for (int i = -5; i < 6; i++)
+            if (i != 0 ? true : false)
+                System.out.println("100 / " + i + " is " + 100 / i);
+        // 100 / -5 is -20
+        // 100 / -4 is -25
+        // 100 / -3 is -33
+        // 100 / -2 is -50
+        // 100 / -1 is -100
+        // 100 / 1 is 100
+        // 100 / 2 is 50
+        // 100 / 3 is 33
+        // 100 / 4 is 25
+        // 100 / 5 is 20
+    }
+
     public static void main(String[] args) {
         arrayDemo();
         minMax();
@@ -374,5 +611,28 @@ class Example {
         search();
         stringDemo();
         strOps();
+        stringArrays();
+        substring();
+        stringSwitch();
+        clDemo(args);
+        phone(args);
+        upCase();
+        showBits();
+        lowCase();
+        encode();
+        notDemo();
+        shiftDemo();
+        noZeroDiv();
+        noZeroDiv2();
+
+        System.out.println("I like Java".length()); // 11
+        System.out.println("I like Java".charAt(2)); // l
+
+        boolean a = true;
+        boolean b = false;
+        System.out.println(a&b);
+        a = true;
+        b = true;
+        System.out.println(a&b);
     }
 }

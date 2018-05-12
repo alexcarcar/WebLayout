@@ -18,12 +18,105 @@ command-line arguments, bitwise operators, shift operators, two's complement, te
 <ul>
     <li>5-1 (p 141): <a href="Bubble.java">Bubble.java</a></li>
     <li>5-2 (p 151): <a href="QDemo.java">QDemo.java</a></li>
+    <li>5-3 (p 175): <a href="ShowBitsDemo.java">ShowBitsDemo.java</a></li>
 </ul>
 <h1>Chapter 5 Self Test (p 178)</h1>
 <ol>
-    <li><h2>Q</h2>
+    <li><h2>Show two ways to declare a one-dimensional array of 12 doubles.</h2>
         <ul>
-            <li>A</li>
+            <li><code>double d[] = new double[12];</code></li>
+            <li><code>double[] d = new double[12];</code></li>
+        </ul>
+    </li>
+    <li><h2>Show how to initialize a one-dimensional array of integers to the values 1 through
+        5.</h2>
+        <ul>
+            <li><code>int i[] = {1, 2, 3, 4, 5};</code></li>
+        </ul>
+    </li>
+    <li><h2>Write a program that uses an array to find the average of 10 double values. Use any 10
+        values you like.</h2>
+        <ul>
+            <li><a href="FindAverage.java">FindAverage.java</a></li>
+        </ul>
+    </li>
+    <li><h2>Change the sort in Try This 5-1 so that it sorts an array of strings. Demonstrate that
+        it works.</h2>
+        <ul>
+            <li><a href="BubbleStrings.java">BubbleStrings.java</a></li>
+        </ul>
+    </li>
+    <li><h2>What is the difference between the <b>String</b> methods of <b>indexOf()</b> and <b>lastIndexOf()</b>?
+    </h2>
+        <ul>
+            <li><code>str.indexOf(str2)</code>finds the first index of <code>str2</code> in <code>str</code>
+            </li>
+            <li><code>str.lastIndexOf(str2)</code>finds the last index of <code>str2</code> in
+                <code>str</code></li>
+        </ul>
+    </li>
+    <li><h2>Since all strings are objects of type <b>String</b>, show how you can call the <b>length()</b>
+        and <b>charAt()</b> methods on this string literal: "I like Java".</h2>
+        <ul>
+            <li><code>System.out.println("I like Java".length()); // 11</code></li>
+            <li><code>System.out.println("I like Java".charAt(2)); // l</code></li>
+        </ul>
+    </li>
+    <li><h2>Expanding on the <b>Encode</b> cipher class, modify it so that it uses an
+        eight-character stringas the key.</h2>
+        <ul>
+            <li><a href="Encode.java">Encode.java</a></li>
+        </ul>
+    </li>
+    <li><h2>Can bitwise operators be appled to the <b>double</b> type?</h2>
+        <ul>
+            <li>Bitwise operations cannot be used on boolean, float, or double, or class types.</li>
+        </ul>
+    </li>
+    <li><h2>Show how this sequence can be rewritten using the <b>?</b> operator.</h2>
+        <ul>
+            <li><code>if (x < 0) y = 10; else y = 20;</code></li>
+            <li><code>y = (x < 0) ? 10: 20;</code></li>
+        </ul>
+    </li>
+    <li><h2>In the following fragment, is the <b>&amp;</b> a bitwise or logical operator? Why?</h2>
+        <ul>
+            <li><code>boolean a, b; ... if (a &amp; b) ...</code></li>
+            <li><code>a &amp b</code> acts like a <label>logical operator</label> because both a and
+                b must be true for the if statement to be true
+            </li>
+        </ul>
+    </li>
+    <li><h2>Is it an error to overrun the end of an array? Is it an error to index an array with a
+        negative value?</h2>
+        <ul>
+            <li>Array boundries are strictly enforced in Java; it is a run-time error to overrun or
+                underrun the end of an array.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What is the unsigned right-shift operator?</h2>
+        <ul>
+            <li>If you don't want to preserve the sign bit when shifting right, you can use an
+                unsigned right shift <code>>>></code> that always brings in a 0 on the left.
+            </li>
+        </ul>
+    </li>
+    <li><h2>Rewrite the <b>MinMax</b> class shown earlier in this chapter so that it uses a for-each
+        style for loop</h2>
+        <ul>
+            <li><a href="MinMax.java">MinMax.java</a></li>
+        </ul>
+    </li>
+    <li><h2>Can the <b>for</b> loops that perform sorting in the <b>Bubble</b> class be converted
+        into for-each loops? If not, why not?</h2>
+        <ul>
+            <li>No, because the elements in a for-each loop are immutable.</li>
+        </ul>
+    </li>
+    <li><h2>Can a <b>String</b> control a <b>switch</b> statement?</h2>
+        <ul>
+            <li>Yes, starting in <b>JDK 7</b>, Strings can control switch statements.</li>
         </ul>
     </li>
 </ol>
