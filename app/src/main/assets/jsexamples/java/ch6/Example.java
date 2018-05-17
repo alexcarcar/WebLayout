@@ -319,6 +319,59 @@ class VarArgs {
 	}
 }
 
+// Use varargs with standard arguments.
+class VarArgs2 {
+	// Here, msg is a normal parameter and v is a varargs parameter.
+	static void vaTest(String msg, int ... v) {
+		System.out.println(msg + v.length);
+		System.out.println("Contents: ");
+		for (int i=0; i<v.length; i++) {
+			System.out.println(" arg "+i+": "+v[i]);
+		}
+		System.out.println();
+	}
+}
+
+// Varargs and overloadding
+class VarArgs3 {
+	static void vaTest(int ... v) {
+		System.out.println("vaTest(int...): "+
+			"Number of args: "+v.length);
+		System.out.println("Contents: ");
+		for (int i=0; i<v.length; i++) {
+			System.out.println(" arg "+i+": "+v[i]);
+		}
+		System.out.println();
+	}
+
+	static void vaTest(boolean ... v) {
+		System.out.println("vaTest(boolean...): "+
+			"Number of args: "+v.length);
+		System.out.println("Contents: ");
+		for (int i=0; i<v.length; i++) {
+			System.out.println(" arg "+i+": "+v[i]);
+		}
+		System.out.println();
+	}
+
+	static void vaTest(String msg, int ... v) {
+		System.out.println("vaTest(int...): "+
+			msg+v.length);
+		System.out.println("Contents: ");
+		for (int i=0; i<v.length; i++) {
+			System.out.println(" arg "+i+": "+v[i]);
+		}
+		System.out.println();
+	}
+}
+
+// Varargs, overloading, and ambiguity. (p 221)
+class VarArgs4 {
+	// Use an int vararg parameter.
+	static void vaTest(int ... v) {}
+	static void vaTest(boolean ... v) {}
+}
+
 class Example {
     static void accessDemo() {
         MyClass ob = new MyClass();
@@ -570,6 +623,72 @@ class Example {
 		// Average: 5.125
     }
 
+    static void varArgsTest() {
+        VarArgs.vaTest(10);
+		// Number of args: 1
+		// Contents:
+		//  arg 0: 10
+        VarArgs.vaTest(1,2,3);
+		// Number of args: 3
+		// Contents:
+		//  arg 0: 1
+		//  arg 1: 2
+		//  arg 2: 3
+        VarArgs.vaTest();
+		// Number of args: 0
+		// Contents:
+    }
+
+    static void varArgsTest2() {
+    	VarArgs2.vaTest("One varargs:", 10);
+    	VarArgs2.vaTest("Three varargs:", 1,2,3);
+    	VarArgs2.vaTest("No varargs:");
+		// One varargs:1
+		// Contents:
+		//  arg 0: 10
+
+		// Three varargs:3
+		// Contents:
+		//  arg 0: 1
+		//  arg 1: 2
+		//  arg 2: 3
+
+		// No varargs:0
+		// Contents:
+    }
+
+    static void varArgsTest3() {
+    	VarArgs3.vaTest(1, 2, 3);
+    	VarArgs3.vaTest("Testing: ", 10, 20);
+    	VarArgs3.vaTest(true, false, false);
+
+		// vaTest(int...): Number of args: 3
+		// Contents:
+		//  arg 0: 1
+		//  arg 1: 2
+		//  arg 2: 3
+
+		// vaTest(int...): Testing: 2
+		// Contents:
+		//  arg 0: 10
+		//  arg 1: 20
+
+		// vaTest(boolean...): Number of args: 3
+		// Contents:
+		//  arg 0: true
+		//  arg 1: false
+		//  arg 2: false
+    }
+
+    static void varArgsTest4() {
+    	VarArgs4.vaTest(1, 2, 3); // OK
+    	VarArgs4.vaTest(true, false, false); // OK
+  		// VarArgs4.vaTest(); // Error: Ambiguous!
+		// Example.java:686: error: reference to vaTest is ambiguous
+		//   both method vaTest(int...) in VarArgs4 and
+		//   method vaTest(boolean...) in VarArgs4 match
+    }
+
     public static void main(String[] args) {
         accessDemo();
         fsDemo();
@@ -626,18 +745,9 @@ class Example {
 		// 8 in binary: 00001000 
 		// 9 in binary: 00001001 
 
-        VarArgs.vaTest(10);
-		// Number of args: 1
-		// Contents:
-		//  arg 0: 10
-        VarArgs.vaTest(1,2,3);
-		// Number of args: 3
-		// Contents:
-		//  arg 0: 1
-		//  arg 1: 2
-		//  arg 2: 3
-        VarArgs.vaTest();
-		// Number of args: 0
-		// Contents:
+        varArgsTest();
+        varArgsTest2();
+        varArgsTest3();
+        varArgsTest4();
     }
 }
