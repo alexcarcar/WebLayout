@@ -25,22 +25,20 @@ class Trie {
     }
 
     public void add(String word) {
-        System.out.println("Adding " + word);
         root.addWord(word.toLowerCase());
     }
 
-    public List getWords(String prefix) {
+    public int count(String prefix) {
         TrieNode lastNode = root;
         for (int i = 0; i < prefix.length(); i++) {
             lastNode = lastNode.getNode(prefix.charAt(i));
-            if (lastNode == null) return new ArrayList();
+            if (lastNode == null) return 0;
         }
-        return lastNode.getWords();
+        return lastNode.count();
     }
 
     public void find(String prefix) {
-        System.out.println("Finding " + prefix);
-        System.out.println(getWords(prefix).size());
+        System.out.println(count(prefix));
     }
 }
 
@@ -82,29 +80,20 @@ class TrieNode {
         return children[c - 'a'];
     }
 
-    protected List getWords() {
-        List list = new ArrayList();
-
+    protected int count() {
+    	int count = 0;
         if (isWord) {
-            list.add(toString());
+        	count++;
         }
 
         if (!isLeaf) {
             for (int i = 0; i < children.length; i++) {
                 if (children[i] != null) {
-                    list.addAll(children.getWords());
+                    count += children[i].count();
                 }
             }
         }
-        return list;
-    }
-
-    public String toString() {
-        if (parent == null) {
-            return "";
-        } else {
-            return parent.toString() + new String(new char[]{character});
-        }
+        return count;
     }
 }
 
