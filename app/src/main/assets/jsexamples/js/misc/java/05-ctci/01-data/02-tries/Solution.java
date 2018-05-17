@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /*
@@ -44,15 +43,17 @@ class Trie {
 
 class TrieNode {
     private TrieNode parent;
-    private TrieNode[] children;
+    private HashMap<Character, TrieNode> children;
+    private Integer size;
     private boolean isLeaf;     //Quick way to check if any children exist
     private boolean isWord;     //Does this node represent the last character of a word
     private char character;     //The character this node represents
 
     public TrieNode() {
-        children = new TrieNode[26];
+        children = new HashMap<>();
         isLeaf = true;
         isWord = false;
+        size = null;
     }
 
     public TrieNode(char character) {
@@ -62,35 +63,38 @@ class TrieNode {
 
     protected void addWord(String word) {
         isLeaf = false;
-        int charPos = word.charAt(0) - 'a';
+        char ch = word.charAt(0);
 
-        if (children[charPos] == null) {
-            children[charPos] = new TrieNode(word.charAt(0));
-            children[charPos].parent = this;
+        if (!children.containsKey(ch)) {
+            children.put(ch, new TrieNode(ch));
+            children.get(ch).parent = this;
+        } else {
+            children.get(ch).size = null;
         }
 
         if (word.length() > 1) {
-            children[charPos].addWord(word.substring(1));
+            children.get(ch).addWord(word.substring(1));
         } else {
-            children[charPos].isWord = true;
+            children.get(ch).isWord = true;
         }
     }
 
     protected TrieNode getNode(char c) {
-        return children[c - 'a'];
+        return children.get(c);
     }
 
     protected int count() {
-    	int count = 0;
+        int count = 0;
         if (isWord) {
-        	count++;
+            count++;
         }
 
         if (!isLeaf) {
-            for (int i = 0; i < children.length; i++) {
-                if (children[i] != null) {
-                    count += children[i].count();
+            for (TrieNode child : children.values()) {
+                if (child.size == null) {
+                    child.size = child.count();
                 }
+                count += child.size;
             }
         }
         return count;
