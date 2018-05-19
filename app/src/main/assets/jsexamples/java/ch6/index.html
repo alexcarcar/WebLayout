@@ -46,64 +46,76 @@ varargs
             <li><a href="StackDemo.java">StackDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Given this class, write a method called <b>swap()</b> that exchanges the contents of the
+        objects referred to by two <b>Test</b> object references.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class Test {int a; Test(int i) {a=i;}</code></li>
+            <li><code>void swap(Test t1, Test t2){<br/>
+                &nbsp; int t = t1.a;<br/>
+                &nbsp; t1.a = t2.a;<br/>
+                &nbsp; t2.a = t;<br/>
+                }</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Is the following fragment correct?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class X {<br/>
+                &nbsp; int meth(int a, int b) { ... }<br/>
+                &nbsp; String meth(int a, int b) { ... }</code>
+            </li>
+            <li>No, it is not sufficient for two methods to differ only in return types.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Write a recursive method that displays the contents of a string backwards.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="Backwards.java">Backwards.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>If all objects of a class need to share the same variable, how must you declare that
+        variable?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Declare a variable as <b>static</b> to share the variable among all objects of a
+                class.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Why might you need to use a <b>static</b> block?</h2>
         <ul>
-            <li>Answer</li>
+            <li>When a class requires initialization before it is ready to create objects.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is an inner class?</h2>
         <ul>
-            <li>Answer</li>
+            <li>An <b>inner class</b> is a non-static class defined inside another class</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>To make a member accessible by only other members of its class, what access modifier
+        must be used?</h2>
         <ul>
-            <li>Answer</li>
+            <li>When a member of a class is specified as <b>private</b>, that member can be accessed
+                only be other members of its class.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>The name of a method plus its parameter list constitutes the method's <u>signature</u>.
+    </h2></li>
+    <li><h2>An <b>int</b> argument is passed to a method by using call-by-<u>value</u>.</h2></li>
+    <li><h2>Create a varargs method called <b>sum()</b> that sumes the <b>int</b> values passed to
+        it. Have it return the result. Demonstrate its use.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="SumTest.java">SumTest.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can a varargs method be overloaded?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Yes, you can overload a method that takes a variable-length argument.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show an example of an overloaded varargs method that is ambiguous.</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li><code>static void t(int ... v);</code></li>
+            <li><code>static void t(boolean ... v);</code></li>
+            <li><code>t(); // is ambiguous</code></li>
         </ul>
     </li>
 </ol>
