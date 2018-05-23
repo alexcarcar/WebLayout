@@ -1,9 +1,11 @@
+package alex.carcar.lib;
+
 import java.util.Arrays;
 
-class Example {
+public class MergeSort {
 
     private static void mergeSort(int[] array) {
-        mergeSort(array, new int[array.length], 0, array.length - 1);
+        MergeSort.mergeSort(array, new int[array.length], 0, array.length - 1);
     }
 
     private static void mergeSort(int[] array, int[] temp, int a, int b) {
@@ -11,9 +13,9 @@ class Example {
             return;
         }
         int x = (a + b) / 2;
-        mergeSort(array, temp, a, x); // merge the first half
-        mergeSort(array, temp, x + 1, b); // merge the second half
-        mergeHalves(array, temp, a, b); // merge the two halves
+        MergeSort.mergeSort(array, temp, a, x); // merge the first half
+        MergeSort.mergeSort(array, temp, x + 1, b); // merge the second half
+        MergeSort.mergeHalves(array, temp, a, b); // merge the two halves
     }
 
     private static void mergeHalves(int[] array, int[] temp, int a, int b) {
@@ -46,8 +48,7 @@ class Example {
         // int[] data = {4, 2, 1, 5};
         int[] data = {10, 5, 2, 7, 4, 12, 1, 8, 6, 11, 3};
         System.out.println("Before sorting: " + Arrays.toString(data));
-        mergeSort(data);
+        MergeSort.mergeSort(data);
         System.out.println("After sorting: " + Arrays.toString(data));
     }
-
 }
