@@ -4,13 +4,16 @@
 
 // A class for two-dimensional objects.
 // A multilevel hierarchy. (p 242)
-class TwoDShape {
+// Create an abstract class. (p 259)
+abstract class TwoDShape {
     private double width; // these are
     private double height; // now private
+    private String name = "none";
 
     // A default constructor. (p 235)
     TwoDShape() {
         width = height = 0.0;
+        name = "none";
     }
 
     // Parameterized constructor. (p 234)
@@ -19,18 +22,36 @@ class TwoDShape {
         height = h;
     }
 
+    // Parameterized constructor.
+    TwoDShape(double w, double h, String n) {
+        width = w;
+        height = h;
+        name = n;
+    }
+
     // Constructor with equal width and height. (p 236)
     TwoDShape(double x) {
         width = height = x;
+    }
+
+    // Constructor with equal width and height. (p 236)
+    TwoDShape(double x, String n) {
+        width = height = x;
+        name = n;
     }
 
     // Construct an object from an object.
     TwoDShape(TwoDShape ob) {
         width = ob.width;
         height = ob.height;
+        name = ob.name;
     }
 
     // Accessor methods for width and height.
+    String getName() {
+        return name;
+    }
+
     double getWidth() {
         return width;
     }
@@ -50,6 +71,8 @@ class TwoDShape {
     void showDim() {
         System.out.println("Width and height are " + width + " and " + height);
     }
+
+    abstract double area(); // Make area() into an abstract method.
 }
 
 // A subclass of TwoDShape for triangles.
@@ -80,6 +103,7 @@ class Triangle extends TwoDShape {
         style = ob.style;
     }
 
+    // Override area() for Triangle. (p 257)
     double area() {
         return getWidth() * getHeight() / 2;
     }
@@ -113,11 +137,16 @@ class Rectangle extends TwoDShape {
         super(w, h);
     }
 
+    Rectangle(double w) {
+        super(w, w);
+    }
+
     boolean isSquare() {
         if (getWidth() == getHeight()) return true;
         return false;
     }
 
+    // Override area() for Rectangle. (p 257)
     double area() {
         return getWidth() * getHeight();
     }
@@ -181,6 +210,81 @@ class Y extends X {
     Y(int i, int j) {
         super(j);
         b = i;
+    }
+}
+
+// Method overriding. (p 250)
+class A3 {
+    int i, j;
+    A3(int a, int b) {
+        i = a;
+        j = b;
+    }
+
+    // display i and j
+    void show() {
+        System.out.println("i and j: " + i + " " + j);
+    }
+}
+
+class B3 extends A3 {
+    int k;
+    B3(int a, int b, int c) {
+        super(a, b);
+        k = c;
+    }
+
+    // display k - this overrides show() in A3
+    void show() {
+        super.show(); // Use super to call the version of show() defined in A3
+        System.out.println("k: " + k);
+    }
+
+    // overload show()
+    // Because signatures differ, this show() simply overloads show() (p 252)
+    void show(String msg) {
+        System.out.println(msg + k);
+    }
+}
+
+// Demonstrate dynamic method dispatch. (p 253)
+class Sup {
+    void who() {
+        System.out.println("who() is Sup");
+    }
+}
+
+class Sub1 extends Sup {
+    void who() {
+        System.out.println("who() is Sub1");
+    }
+}
+
+class Sub2 extends Sup {
+    void who() {
+        System.out.println("who() is Sub2");
+    }
+}
+
+class ErrorMsg {
+    // Declared final constants
+    final int OUTERR = 0;
+    final int INERR = 1;
+    final int DISKERR = 2;
+    final int INDEXERR = 3;
+
+    String msgs[] = {
+        "Output Error",
+        "Input Error",
+        "Disk Full",
+        "Index Out-Of-Bounds"
+    };
+
+    String getErrorMsg(int i) {
+        if (i>=0 & i<msgs.length)
+            return msgs[i];
+        else
+            return "Invalid Error Code";
     }
 }
 
@@ -347,14 +451,98 @@ class Example {
         // Area is 48.0
     }
 
+    public static void override() {
+        A3 a3 = new A3(12, 28);
+        B3 b3 = new B3(1, 2, 3);
+        a3.show();
+        // i and j: 12 28
+        b3.show();
+        // i and j: 1 2
+        // k: 3
+        b3.show("Here is k: ");
+        // Here is k: 3
+    }
+
+    public static void dynDispDemo() {
+        Sup superOb = new Sup();
+        Sub1 subOb1 = new Sub1();
+        Sub2 subOb2 = new Sub2();
+
+        // In each case, the version of who() to call is determined at run time
+        // by the type of object being referred to.
+        Sup supRef;
+        supRef = superOb;
+        supRef.who();
+        // who() is Sup
+
+        supRef = subOb1;
+        supRef.who();
+        // who() is Sub1
+
+        supRef = subOb2;
+        supRef.who();
+        // who() is Sub2
+    }
+
+    public static void dynShapes() {
+        TwoDShape shapes[] = new TwoDShape[4];
+        shapes[0] = new Triangle("outlined", 8.0, 12.0);
+        shapes[1] = new Rectangle(10);
+        shapes[2] = new Rectangle(10, 4);
+        shapes[3] = new Triangle(7.0);
+        // shapes[4] = new TwoDShape(10, 20, "generic");
+        for (int i=0; i<shapes.length; i++) {
+            System.out.println("object is "+shapes[i].getName());
+            System.out.println("Area is "+shapes[i].area());
+            System.out.println();
+        }
+        // object is none
+        // Area is 48.0
+
+        // object is none
+        // Area is 100.0
+
+        // object is none
+        // Area is 40.0
+
+        // object is none
+        // Area is 24.5
+
+        // object is generic
+        // area() must be overriden
+        // Area is 0.0
+    }
+
+    public static void finalD() {
+        ErrorMsg err = new ErrorMsg();
+        System.out.println(err.getErrorMsg(err.OUTERR));
+        System.out.println(err.getErrorMsg(err.DISKERR));
+        // Output Error
+        // Disk Full
+    }
+
     public static void main(String[] args) {
         shapes();
         rectangleTest();
         useSuper();
         shapes6();
+        shapes7();
         orderOfConstruction();
         incompatibleRef();
         supSubRef();
-        shapes7();
+        override();
+        dynDispDemo();
+        dynShapes();
+        finalD();
     }
 }
+
+final class FinalA {
+    // ...
+}
+
+/*
+// error: cannot inherit from final FinalA
+class Broken extends FinalA {
+    // ...
+} */
