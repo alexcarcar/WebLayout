@@ -26,64 +26,105 @@ overriding, abstract classes
 </ul>
 <h1>Chapter 7 Self Test (p 266)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>Does a superclass have access to the members of a sublclass? Does a subclass have access
+        to members of a superclass?</h2>
         <ul>
-            <li>Answer</li>
+            <li>A subclass can access the members of a superclass that have not been declared as
+                <label>private.</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Create a subclass of <b>TwoDShape</b> called <b>Circle.</b> Include <b>area()</b> method
+        that computes the area of the circle and a constructor that uses <b>super</b> to initialize
+        the <b>TwoDShape</b> portion.</h2>
+        <code><br/>
+            class Circle extends TwoDShape {<br/>
+            &nbsp; Circle(double r) {<br/>
+            &nbsp; &nbsp; super(r, r);<br/>
+            &nbsp; }<br/>
+            <br/>
+            &nbsp; double area() {<br/>
+            &nbsp; &nbsp; return Math.PI * getWidth() * getWidth();<br/>
+            &nbsp; }<br/>
+            }
+        </code>
+    </li>
+    <li><h2>How do you a subclass from having access to a member of a superclass?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Declaring a member as <label>private</label> prevents access.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Describe the purpose and use of the two versions of <b>super</b> described in this
+        chapter.</h2>
         <ul>
-            <li>Answer</li>
+            <li>A subclass can call a constructor defined by its superclass: <code>super(parameter-list);</code>
+            </li>
+            <li>To refer to a superclass method or instance variable: <code>super.member;</code>
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Given the following hierarchy, in what order do the constructors for these classes
+        complete their execution execution when a <b>Gamma</b> object is instantiated?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class Alpha { ...</code></li>
+            <li><code>class Beta extends Alpha { ...</code></li>
+            <li><code>class Gamma extends Beta { ...</code></li>
+            <li>The constructors are created in the following order: <code>Alpha(), Beta(),
+                Gamma().</code>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>A superclass reference can refer to a subclass object. Explain why this is important as
+        it relates to method overriding.</h2>
         <ul>
-            <li>Answer</li>
+            <li>A reference variable of a superclass can be assigned a reference to an object of any
+                subclass derived from that superclass.
+            </li>
+            <li>When a reference to a subclass object is assigned to a superclass reference, you
+                will have access only to those parts of the object defined by the superclass.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is an abstract class?</h2>
         <ul>
-            <li>Answer</li>
+            <li>An <label>abstract class</label> determines the nature of the methods that the
+                subclasses must implement but does not, itself, provide an implementation of one or
+                more of these methods.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>How do you prevent a method from being overridden? How do you prevent a class from being
+        inherited?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>final</label> prevents overriding:<code>final void method() {...}</code></li>
+            <li><label>final</label> prevents inheritance:<code>final class A {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Explain how inheritance, method overriding, and abstract classes are used to support
+        polymorphism.</h2>
         <ul>
-            <li>Answer</li>
+            <li>Inheritance, method overriding, and abstract classes allows a general class to
+                specify methods that will be common to all of its derivatives, while allowing
+                subclasses to define the specific implementation of some or all of those methods.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What class is a superclass of every other class?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Java defines one special class called <label>Object</label> that is an implicit
+                superclass of <label>Object</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>A class that containes at least one abstract method must, itself, be declared
+        abstract.</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>True</label></li>
+            <li>False</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What keyword is used create a named constant?</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li>The keyword <label>final</label> can be applied to member variables to create a
+                named constant.
+            </li>
         </ul>
     </li>
 </ol>
