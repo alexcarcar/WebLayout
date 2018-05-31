@@ -31,7 +31,7 @@ public class Solution {
     }
 
     private static long mergeSort(int[] array, int[] temp, int a, int b) {
-        long inversions = 0;
+        long inversions = 0, k;
         if (a >= b) {
             return 0;
         }
@@ -58,12 +58,15 @@ public class Solution {
                 x++;
             } else {
                 temp[i] = array[y];
+                inversions+=(y-i);
                 y++;
-                inversions++;
             }
             i++;
         }
-        return inversions==0?0:size-inversions;
+        System.arraycopy(array, x, temp, i, (m1 - x) + 1);
+        System.arraycopy(array, y, temp, i, (b - y) + 1);
+        System.arraycopy(temp, a, array, a, size);
+        return inversions;
     }
 
     // Complete the countInversions function below.
