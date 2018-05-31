@@ -152,6 +152,16 @@ class Rectangle extends TwoDShape {
     }
 }
 
+class Circle extends TwoDShape {
+    Circle(double r) {
+        super(r, r);
+    }
+
+    double area() {
+        return Math.PI * getWidth() * getWidth();
+    }
+}
+
 // Using super to overcome name hiding. (p 238)
 class A {
     int i;
@@ -534,6 +544,12 @@ class Example {
         dynDispDemo();
         dynShapes();
         finalD();
+        
+        Circle c = new Circle(5);
+        System.out.println("Circle with radius: "+c.getWidth());
+        System.out.println("Its area is: "+c.area());
+        // Circle with radius: 5.0
+        // Its area is: 78.53981633974483
     }
 }
 

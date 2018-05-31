@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 8: Packages and Interfaces</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: protected, packages, interface, namespace, global, .class, CLASSPATH,
+private, public, modifiers, member access, import, interface, implementation, default
+implementation, access, extends, default method, extension method
+<h1>Examples - Packages</h1>
+<ul>
+    <li>Page 273-: <a href="bookpack\Book.java">bookpack\Book.java</a></li>
+    <li>Page 270-: <a href="bookpack\BookDemo.java">bookpack\BookDemo.java</a></li>
+    <li>Page 275-: <a href="bookpackext\UseBook.java">bookpackext\UseBook.java</a></li>
+    <li>Page 277-: <a href="bookpackext\ProtectDemo.java">bookpackext\ProtectDemo.java</a></li>
+</ul>
+<h1>Examples - Interfaces</h1>
+<ul>
+    <li>Page 281-: <a href="Series.java">Series.java</a></li>
+    <li>Page 281-: <a href="SeriesDemo.java">SeriesDemo.java</a></li>
+    <li>Page 290-" <a href="IConstD.java">IConstD.java</a></li>
+</ul>
+<h1>Try This 8.1</h1>
+<ul>
+    <li>Page 285: <a href="ICharQ.java">ICharQ.java</a></li>
+    <li>Page 285-: <a href="IQueueDemo.java">IQueueDemo.java</a></li>
+</ul>
+<h1>Chapter 8 Self Test (p 299)</h1>
+<ol>
+    <li><h2>Using the code from Try This 8-1, put the <b>ICharQ</b> interface and its three
+        implementations into a package called <b>qpack</b>. Keeping the queue demonstration class
+        <b>IQDemo</b> in the default package, show how to import and use the classes in <b>qpack</b>.
+    </h2>
+        <ul>
+            <li><a href="IQDemo.java">IQDemo.java</a></li>
+            <li><a href="qpack\ICharQ.java">qpack\ICharQ.java</a></li>
+            <li><a href="qpack\CircularQueue.java">qpack\CircularQueue.java</a></li>
+            <li><a href="qpack\DynQueue.java">qpack\DynQueue.java</a></li>
+            <li><a href="qpack\FixedQueue.java">qpack\FixedQueue.java</a></li>
+        </ul>
+    </li>
+    <li><h2>What is a namespace? Why is it important that Java allows you to partition the
+        namespace?</h2>
+        <ul>
+            <li>A <label>namespace</label> defines a declarative region.</li>
+            <li>As programs grow the default <label>namespace</label> becomes crowded.</li>
+            <li>A <label>package</label> allows you the <label>partition</label> the namespace, by
+                attaching the package name to each class (to avoid collisions.)
+            </li>
+        </ul>
+    </li>
+    <li><h2>Packages are stored in <u><b>its own directory.</b></u></h2></li>
+    <li><h2>Explain the difference between <b>protected</b> and default access.</h2>
+        <ul>
+            <li>A <label>default member</label> is visible within a different package, where as a
+                <label>protected member</label> is only visible within the same package.
+            </li>
+            <li>A <label>protected</label> member is available for all subclasses to use but is
+                still protected from arbitrary access by code outside its package.
+            </li>
+        </ul>
+    </li>
+    <li><h2>Explain the two ways that the members of a package can be used by other packages.</h2>
+        <ul>
+            <li>Either you must use the <label>import</label> statement: <code>import
+                package.Class;</code></li>
+            <li>Or you must use the fully qualified name when accessing or declaring the mamber:
+                <code>package.Class = new package.Class();</code></li>
+        </ul>
+    </li>
+    <li><h2>"One interface, multiple methods" is a key tenet of Java. What feature best exemplifies
+        it?</h2>
+        <ul>
+            <li>Once an <label>interface</label> is defined, one or more classes can implement the
+                interface.
+            </li>
+        </ul>
+    </li>
+    <li><h2>How many classes can implement an interface? How many interfaces can a class
+        implement?</h2>
+        <ul>
+            <li>Once an <label>interface</label> is defined, one or more classes can implement that
+                interface.
+            </li>
+            <li>Also a class can <label>implement</label> more than one interface, by separating the
+                interfaces with a comma: <code>class A implments I1, I2 ... {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>Can interfaces be extended?</h2>
+        <ul>
+            <li>Yes, one interface can inherit another by use of the keyword <label>extends</label>:
+                <code>interface B extends A {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>Create an interface for the <b>Vehicle</b> class from chapter 7. Call the interface <b>IVehicle</b>.
+    </h2>
+        <code>
+            public interface IVehicle {<br/>
+            &nbsp; &nbsp; void printRange();<br/>
+            &nbsp; &nbsp; int range();<br/>
+            &nbsp; &nbsp; double fuelneeded(int miles);<br/>
+            &nbsp;}
+        </code>
+    </li>
+    <li><h2>Variables declared in an interface are implicitly <b>static</b> and <b>final</b>. Can
+        they be shared with other parts of a program?</h2>
+        <ul>
+            <li>Yes, for example a list of constants can be shared by all classes that implement an
+                interface with the defined variables.
+            </li>
+        </ul>
+    </li>
+    <li><h2>A package is, in essence, a container for classes.</h2>
+        <ul>
+            <li><label>True</label></li>
+            <li>False</li>
+        </ul>
+    </li>
+    <li><h2>What standard Java package is automatically imported into a program?</h2>
+        <ul>
+            <li>The <code>java.lang</code> package is unique because it is imported automatically
+                into every Java program.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What keyword is used to declare a default <b>interface</b> method?</h2>
+        <ul>
+            <li>The method is preceded by the keyword <label>default</label>.</li>
+        </ul>
+    </li>
+    <li><h2>Beginning with JDK 8, is it possible to define a <b>static</b> method in an
+        <b>interface</b>?</h2>
+        <ul>
+            <li>Yes, interfaces in JDK 8 and above can define a static method.</li>
+        </ul>
+    </li>
+    <li><h2>Assume that ICharQ interface show in Try This 8-1 has been in widespread use. Now, you
+        want to add a method called <b>reset()</b>, to reset the queue to its empty, starting
+        condition. How can this be done without breaking preexisting code?</h2>
+        <ul>
+            <li><code>default void reset() {while (!get());}</code></li>
+        </ul>
+    </li>
+    <li><h2>How is a <b>static</b> method in an interface called?</h2>
+        <ul>
+            <li><code>InterfaceName.staticMethod();</code></li>
+        </ul>
+    </li>
+    <li><h2>Can an <b>interface</b> have a private method?</h2>
+        <ul>
+            <li>Beginning with JDK 9, an interface can include a private method.</li>
+        </ul>
+    </li>
+</ol>
+<h1>Packages and Member Access</h1>
+<ul>
+    <li>Visible within same class: <code>private, default, protected, public</code></li>
+    <li>Visible within same package by subclass: <code>default, protected, public</code></li>
+    <li>Visible within same package by non-subclass: <code>default, protected, public</code></li>
+    <li>Visible within different package by subclass: <code>protected, public</code></li>
+    <li>Visible within different package by non-subclass: <code>public</code></li>
+</ul>
+</body>
+</html>
