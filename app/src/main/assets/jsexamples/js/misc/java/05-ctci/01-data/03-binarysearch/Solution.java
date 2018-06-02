@@ -52,16 +52,46 @@ import java.util.Arrays;
 
 public class Solution {
 
+	public static int closestIndexWithoutGoingOver(int[] array, int x) {
+        int left = 0;
+        int right = array.length - 1;
+        return closestIndexWithoutGoingOver(array, x, left, right);
+    }
+
+	public static int closestIndexWithoutGoingOver(int[] array, int x, int left, int right) {
+        int mid = -1;
+        while (left <= right) {
+            mid = left + ((right - left) / 2);
+            if (array[mid] == x) {
+                return mid - 1;
+            } else if (x < array[mid]) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        if (mid>-1 && array[mid] >= x) mid--;
+        return mid;
+    }
+
     // Complete the solve function below.
     static void solve(int[] arr, int money) {
-    	Arrays.sort(arr);
-        System.out.print(Arrays.toString(arr));
-        System.out.println(" " + money);
+    	int n = arr.length;
+    	int[] sortedArray = Arrays.copyOf(arr, n);
+    	Arrays.sort(sortedArray);
+
+        System.out.println(Arrays.toString(sortedArray));
+        int max = closestIndexWithoutGoingOver(sortedArray, money);
+        if (max<0) return;
+        System.out.println(max + " -> " + sortedArray[max]);
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+    	int arr[] = {1, 2, 5, 6, 7, 12, 51, 90, 125, 700, 800, 5900, 55155};
+    	solve(arr, 11);
+    	/*
         int t = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
@@ -86,5 +116,6 @@ public class Solution {
         }
 
         scanner.close();
+        */
     }
 }
