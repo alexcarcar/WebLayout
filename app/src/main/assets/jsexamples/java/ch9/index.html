@@ -22,88 +22,136 @@ management, try-with-resources, multi-catch, java.lang, IOException, chained exc
 </ul>
 <h1>Try This 9.1</h1>
 <ul>
-    <li>Page 325: <a href="QExcDemo.java">QExcDemo.java</a></li>
+    <li>Page 325: <a href="QDemo.java">QDemo.java</a></li>
 </ul>
 <h1>Chapter 9 Self Test (p 329)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>What class is at the top of the exception hierarchy?</h2>
         <ul>
-            <li>Answer</li>
+            <li>All exceptions are derived from a class called <label>Throwable</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Briefly explain how to use <b>try</b> and <b>catch</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li>Program statements that you want to monitor for exceptions are contained within a
+                <label>try</label> block.
+            </li>
+            <li>If an exception occurs within the <label>try</label> block it is,
+                <label>thrown</label>.
+            </li>
+            <li>Your code can catch this exception using <label>catch</label> and handle it in some
+                rational manner.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is wrong with this fragment?</h2>
+        <code>//...<br/>
+            &nbsp;vals[18] = 10;<br/>
+            &nbsp;catch (ArrayIndexOutOfBoundsException exc) {<br/>
+            &nbsp; &nbsp; // handle error<br/>
+            &nbsp;}
+        </code>
         <ul>
-            <li>Answer</li>
+            <li>There is no <label>try</label> block.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What happens if an exception is not caught?</h2>
         <ul>
-            <li>Answer</li>
+            <li>In general, if your program does not catch an exception, then it will be caught by
+                the JVM.
+            </li>
+            <li>The trouble is that the JVM's default exception handler terminates execution and
+                displays a stack trace and error message.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is wrong with this fragment?</h2>
+        <code><br/>
+            class A extends Exception { ... }<br/>
+            class B extends A { ... }<br/>
+            //...<br/>
+            try {...}<br/>
+            catch (A exc) {...}<br/>
+            catch (B exc) {...}</code>
         <ul>
-            <li>Answer</li>
+            <li>A <label>catch</label> clause for a superclass (i.e. A) will also match any of its
+                subclasses (i.e. B). Therefore the second catch block is unreachable.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can an inner <b>catch</b> rethrow an exception to an outer <b>catch</b>?</h2>
         <ul>
-            <li>Answer</li>
+            <li>An exception caught by one <label>catch</label> statement can be rethrown so that it
+                can be caught by an outer <label>catch</label>.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>The <b>finally</b> block is the last bit of code excecuted before your program ends.
+        True or False?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The <b>finally</b> block will be executed whenever execution leaves a
+                <b>try/catch</b> block, no matter what conditions cause it.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What type of exceptions must be explicitly declared in a <b>throws</b> clause of a
+        method?</h2>
         <ul>
-            <li>Answer</li>
+            <li>If the method generates an exception that it does not handle, it must declare that
+                exception in a <label>throws</label> clause.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is wrong with this fragment</h2><code><br/>
+        class MyClass {...}<br/>
+        // ...
+        throw new MyClass();
+    </code>
         <ul>
-            <li>Answer</li>
+            <li>MyClass must extend <label>Exception</label>.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>In question 3 of the Chapter 6 Self Test, you created a <b>Stack</b> class. Add custom
+        exceptions to your class that report stack full and stack empty conditions.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="StackDemo.java">StackDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What are the three ways that an exception can be generated?</h2>
+        <ol>
+            <li>The Java Virtual Machine can generate an <label>Error</label> in response to some
+                internal error which is beyond your control.
+            </li>
+            <li>Standard exceptions, such as those corresponding to divide-by-zero or array index
+                out-of-bounds, are generated by errors in program code.
+            </li>
+            <li>Manually throw an exception by using the <label>throw</label> statement.</li>
+        </ol>
+    </li>
+    <li><h2>What are the two direct subclasses of <b>Throwable</b>?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Exceptions of type <label>Error</label> are related to errors that occur in the Java
+                Virtual Machine itself, and not in your program.
+            </li>
+            <li>Exceptions of type <label>Exception</label> are errors that result from program
+                activity.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is the multi-catch feature?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>Multi-catch</label> allows two or more exceptions to be caught by the same
+                <b>catch</b> clause.
+            </li>
+            <li>Seperate each exception type with the OR (|) operator:<code>catch (Exception1 |
+                Exception2 e) {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Should your code typically catch exceptions of type <b>Error</b>?</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li>No. These types of exceptions are beyond your control, and your program will not
+                usually deal with them.
+            </li>
         </ul>
     </li>
 </ol>
