@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 11: Multithreaded Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: Thread, Runnable, thread priorities, thread ends, thread synchronization,
+synchronized methods, synchronized blocks, communicate between threads, suspend, resume, stop,
+thread-based multitasking, process-based multitasking, running, ready to run, suspended, resumed,
+blocked, terminated, synchronization, java.lang, sleep, getName, setName, extending thread, isAlive,
+join, MIN_PRIORITY, MAX_PRIORITY, NORM_PRIORITY, synchronization, monitor, lock, static, notify,
+wait, notifyAll, main thread
+</ul>
+<h1>Examples</h1>
+<ul>
+    <li>Page 376-: <a href="Example.java">Example.java</a></li>
+</ul>
+<h1>Try This</h1>
+<ul>
+    <li>11-1 (Page 383): <a href="ExtendThread.java">ExtendThread.java</a></li>
+    <li>11-2 (Page 413): <a href="UseMain.java">UseMain.java</a></li>
+</ul>
+<h1>Chapter 11 Self Test (p 414)</h1>
+<ol>
+    <li><h2>How does Java's multithreading capability enable you to write more efficient
+        programs?</h2>
+        <ul>
+            <li>Multithreading lets you utilize the idle time that is present in most programs.</li>
+        </ul>
+    </li>
+    <li><h2>Multithreading is supported by the <u><b>Thread</b></u> class and the <u><b>Runnable</b></u>
+        interface.</h2></li>
+    <li><h2>When creating a runnable object, why might you want to extend <b>Thread</b> rather than
+        implement <b>Runnable</b>?</h2>
+        <ul>
+            <li>When extending <label>Thread</label> it is possible to include the ability to create
+                and start a thread using a <label>static</label> factory method.
+            </li>
+        </ul>
+    </li>
+    <li><h2>Show how to use <b>join()</b> to wait for a thread object called <b>myThrd</b> to end.
+    </h2>
+        <ul>
+            <li><code>myThrd.join();</code></li>
+        </ul>
+    </li>
+    <li><h2>Show how to set a thread called <b>myThread</b> to three levels above normal priority.
+    </h2>
+        <ul>
+            <li><code>myThread.setPriority(Thread.NORM_PRIORITY+3);</code></li>
+        </ul>
+    </li>
+    <li><h2>What is the effect of adding the <b>synchronized</b> keyword to a method?</h2>
+        <ul>
+            <li>When the method is called, the calling thread enters the object's
+                <label>monitor</label>, which then locks the object.
+            </li>
+            <li>While locked, no other thread can enter the method, or enter any other synchronized
+                method defined by the object's class
+            </li>
+            <li>When the thread returns from the method, the monitor unlocks the object, allowing it
+                to be used by the next thread.
+            </li>
+        </ul>
+    </li>
+    <li><h2>The <b>wait()</b> and <b>notify()</b> methods are used to perform <b><u>interthread
+        communication</u></b>.</h2></li>
+    <li><h2>Change the <b>TickTock</b> class so that it actually keeps time. That is, have each tick
+        take one half second, and each tock take one half second. Thus, each tick-tock will take one
+        second.</h2>
+        <ul>
+            <li><a href="TickTockDemo.java">TickTockDemo.java</a></li>
+        </ul>
+    </li>
+    <li><h2>Why can't you use <b>suspend(), resume(),</b> and <b>stop()</b> for new programs?</h2>
+        <ul>
+            <li>These Thread methods were deprecated in Java 2, because they can create deadlocks.
+            </li>
+        </ul>
+    </li>
+    <li><h2>What method defined in <b>Thread</b> obtains the name of a thread?</h2>
+        <ul>
+            <li><code>thread.getName();</code></li>
+        </ul>
+    </li>
+    <li><h2>What does <b>isAlive()</b> return?</h2>
+        <ul>
+            <li>The <code>isAlive()</code> method returns true if the thread upon which it is called
+                is still running.
+            </li>
+        </ul>
+    </li>
+    <li><h2>On your own, try adding synchronization to the Queue class developed in previous
+        chapters so it is safe for multithreaded use.</h2>
+        <ul>
+            <li><a href="QDemo.java">QDemo.java</a></li>
+        </ul>
+    </li>
+</ol>
+</body>
+</html>
