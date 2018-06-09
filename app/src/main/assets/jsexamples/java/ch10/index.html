@@ -19,78 +19,95 @@ Integer, Short, Byte
 <h1>Try This</h1>
 <ul>
     <li>10-1 (Page 351): <a href="CompFiles.java">CompFiles.java</a></li>
-    <li>10-2 (Page 366): <a href="Help.java">Help.java</a></li>
+    <li>10-2 (Page 366): <a href="FileHelp.java">FileHelp.java</a> | <a href="helpfile.txt">helpfile.txt</a>
+    </li>
 </ul>
 <h1>Chapter 10 Self Test (p 372)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>Why does Java define both byte and character streams?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Byte streams provide a convenient means for handling input and output of bytes. They
+                are used, for example, when reading or writing binary data.
+            </li>
+            <li>Character streams are designed for handling the input and output of characters. Thy
+                use Unicode and, therefore, can be internationalized.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Even though console input and output is text-based, why does Java still use byte streams
+        for this purpose?</h2>
         <ul>
-            <li>Answer</li>
+            <li>At the lowest level, all I/O is still byte-oriented. (The original version of Java
+                defined only the byte stream.)
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to open a file for reading bytes.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>FileInputStream fin = new FileInputStream("input.txt");</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to open a file for reading characters.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>BufferedReader br = new BufferedReader(new FileReader("input.txt");</code>
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to open a file for random-access I/O.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>RandomAccessFile raf = new RandomAccessFile("input.txt", "rw");</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>How can you convert a numeric string such as "123.23" into its binary equivalent?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>System.out.println(Long.toBinaryString(Double.doubleToRawLongBits(Double.parseDouble("123.23"))));</code>
+            </li>
+            <li><code>// 100000001011110110011101011100001010001111010111000010100011111</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Write a program that copes a text file. In the process, have it convert all spaces into
+        hyphens. Use the byte stream file classes. Use the traditional approach to closing a file by
+        explicitly calling <b>close()</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="HyphenCopy.java">HyphenCopy.java</a> | <a href="h-in.txt">h-in.txt</a> | <a
+                    href="h-out.txt">h-out.txt</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Rewrite the program described in question 7 so that it uses the character stream
+        classes. This time, use the <b>try</b>-with-resources statement to automatically close the
+        file.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="HyphenCharCopy.java">HyphenCharCopy.java</a> | <a
+                    href="h-in.txt">hc-in.txt</a> | <a href="hc-out.txt">h-out.txt</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What type of stream is <b>System.in</b>?</h2>
         <ul>
-            <li>Answer</li>
+            <li>System.in is a byte stream.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What does the <b>read()</b> method of <b>InputStream</b> return when an attempt is made
+        to read at the end of the stream?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>-1</label> is returned when the end of file has been reached.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What type of stream is used to read binary data?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>Byte streams</label> are used when reading binary data.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
+    <li><h2><b>Reader</b> and <b>Writer</b> are at the top of the <u><b>Character Stream</b></u>
+        class hierarchies.</h2>
     </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
+    <li><h2>The <b>try</b>-with resources statement is used for <u><b>Automatic Resource
+        Management</b></u>.</h2>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>If you are using the traditional method of closing a file, then closing a file within a
+        <b>finally</b> block is generally a good approach.</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>True</label></li>
+            <li>False</li>
         </ul>
     </li>
 </ol>

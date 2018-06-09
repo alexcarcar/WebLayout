@@ -150,6 +150,167 @@ class Example {
         // Reading 90.28
     }
 
+    static void randomAccessDemo() {
+        double data[] = {19.4, 10.1, 123.54, 33.0, 87.9, 74.25};
+        double d;
+
+        try (RandomAccessFile raf = new RandomAccessFile("random.dat", "rw")) {
+            for (int i = 0; i < data.length; i++) {
+                raf.writeDouble(data[i]);
+            }
+            raf.seek(0);
+            d = raf.readDouble();
+            System.out.println("First value is " + d); // 19.4
+
+            raf.seek(8);
+            d = raf.readDouble();
+            System.out.println("Second value is " + d); // 10.1
+
+            raf.seek(8 * 3);
+            d = raf.readDouble();
+            System.out.println("Fourth value is " + d); // 33.0
+
+            System.out.println();
+            for (int i = 0; i < data.length; i += 2) {
+                raf.seek(8 * i);
+                d = raf.readDouble();
+                System.out.print(d + " "); // 19.4. 123.54 87.9
+            }
+            System.out.println();
+        } catch (IOException e) {
+            System.out.println("I/O Error: " + e);
+        }
+    }
+
+    static void readChars() throws IOException {
+        char c;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter characters, period to quit.");
+        do {
+            c = (char) br.read();
+            System.out.println(c);
+        } while (c != '.');
+        // Enter characters, period to quit.
+        // One Two.
+        // O
+        // n
+        // e
+
+        // T
+        // w
+        // o
+        // .
+    }
+
+    // Read a string from console using a BufferedReader.
+    static void readLines() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str;
+        System.out.println("Enter lines of text.");
+        System.out.println("Enter 'stop' to quit.");
+        do {
+            str = br.readLine();
+            System.out.println(str);
+        } while (!str.equals("stop"));
+        // Enter lines of text.
+        // Enter 'stop' to quit.
+        // This is a test.
+        // This is a test.
+        // another line
+        // another line
+        // stop
+        // stop
+    }
+
+    static void printWriterDemo() {
+        PrintWriter pw = new PrintWriter(System.out, true);
+        int i = 10;
+        double d = 123.65;
+        pw.println("Using a PrintWriter.");
+        pw.println(i);
+        pw.println(d);
+        pw.println(i + " + " + d + " is " + (i + d));
+        // 10 + 123.65 is 133.65
+    }
+
+    static void kToD() {
+        String str;
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Enter text ('stop' to quit).");
+        try (FileWriter fw = new FileWriter("kToD.txt")) {
+            do {
+                System.out.print(": ");
+                str = br.readLine();
+                if (str.compareTo("stop") == 0) break;
+                str = str + "\r\n"; // add newline
+                fw.write(str);
+            } while (str.compareTo("stop") != 0);
+        } catch (IOException e) {
+            System.out.println("I/O Error: " + e);
+        }
+        // Enter text ('stop' to quit).
+        // : This is a test
+        // : Here is another line
+        // : stop
+
+        // % type kToD.txt
+        // This is a test
+        // Here is another line
+    }
+
+    static void dToS() {
+        String s;
+        try (BufferedReader br = new BufferedReader(new FileReader("kToD.txt"))) {
+            while ((s = br.readLine()) != null) {
+                System.out.println(s);
+            }
+        } catch (Exception e) {
+            System.out.println("I/O Error: " + e);
+        }
+        // This is a test
+        // Here is another line
+    }
+
+    static void avgNums() throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str;
+        int n;
+        double sum = 0.0;
+        double avg, t;
+
+        System.out.print("How many numbers will you enter: ");
+        str = br.readLine();
+        try {
+            n = Integer.parseInt(str);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid format");
+            n = 0;
+        }
+
+        System.out.println("Enter " + n + " values.");
+        for (int i = 0; i < n; i++) {
+            System.out.print(": ");
+            str = br.readLine();
+            try {
+                t = Double.parseDouble(str);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid format");
+                t = 0.0;
+            }
+            sum += t;
+        }
+        avg = sum / n;
+        System.out.println("Average is " + avg);
+        // How many numbers will you enter: 5
+        // Enter 5 values.
+        // : 1.1
+        // : 2.2
+        // : 3.3
+        // : 4.4
+        // : 5.5
+        // Average is 3.3
+    }
+
     public static void main(String[] args) throws IOException {
         // readBytes();
         // writeDemo();
@@ -157,5 +318,15 @@ class Example {
         // copyFile();
         copyFileWithResources();
         rwData();
+        randomAccessDemo();
+        // readChars();
+        // readLines();
+        printWriterDemo();
+        // kToD();
+        dToS();
+        // avgNums();
+
+        System.out.println(Long.toBinaryString(Double.doubleToRawLongBits(Double.parseDouble("123.23"))));
+        // 100000001011110110011101011100001010001111010111000010100011111
     }
 }
