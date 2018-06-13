@@ -47,18 +47,19 @@ Sample Output
 1 4
 1 2*/
 
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Scanner;
 
 public class Solution {
 
-	public static int closestIndexWithoutGoingOver(int[] array, int x) {
+    public static int closestIndexWithoutGoingOver(int[] array, int x) {
         int left = 0;
         int right = array.length - 1;
         return closestIndexWithoutGoingOver(array, x, left, right);
     }
 
-	public static int closestIndexWithoutGoingOver(int[] array, int x, int left, int right) {
+    public static int closestIndexWithoutGoingOver(int[] array, int x, int left, int right) {
         int mid = -1;
         while (left <= right) {
             mid = left + ((right - left) / 2);
@@ -70,27 +71,51 @@ public class Solution {
                 left = mid + 1;
             }
         }
-        if (mid>-1 && array[mid] >= x) mid--;
+        if (mid > -1 && array[mid] >= x) mid--;
         return mid;
     }
 
     // Complete the solve function below.
-    static void solve(int[] arr, int money) {
-    	int n = arr.length;
-    	int[] sortedArray = Arrays.copyOf(arr, n);
-    	Arrays.sort(sortedArray);
+    static void solve(int[] cost, int money) {
+        int n = cost.length;
+        int[] sortedArray = Arrays.copyOf(cost, n);
+        Arrays.sort(sortedArray);
 
         System.out.println(Arrays.toString(sortedArray));
-        int max = closestIndexWithoutGoingOver(sortedArray, money);
-        if (max<0) return;
-        System.out.println(max + " -> " + sortedArray[max]);
+        int maxIndex = closestIndexWithoutGoingOver(sortedArray, money);
+        int max = sortedArray[maxIndex];
+        HashMap<Integer, Integer> m = new HashMap<>();
+        for (int i = 0; i < cost.length; i++) {
+            if (cost[i] <= max) {
+                m.put(cost[i], i);
+            }
+        }
+        if (maxIndex < 0) return;
+        int search = -1;
+        System.out.println("max: " + max);
+        for (; maxIndex >= 1; maxIndex--) {
+            int need = money - sortedArray[maxIndex];
+            search = Arrays.binarySearch(sortedArray, 0, maxIndex, need);
+            if (search >= 0) break;
+        }
+        System.out.println(search + " " + maxIndex);
+        // System.out.println(sortedArray[search] + " " + sortedArray[maxIndex]);
+        // System.out.println(m.get(sortedArray[search]) + " " + m.get(sortedArray[maxIndex]));
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-    	int arr[] = {1, 2, 5, 6, 7, 12, 51, 90, 125, 700, 800, 5900, 55155};
-    	solve(arr, 11);
+        // int arr[] = {1, 2, 5, 6, 7, 12, 51, 90, 125, 700, 800, 5900, 55155};
+        // solve(arr, 11);
+        // solve(arr, 13);
+
+        // int arr2[] = {1, 2, 3, 4, 5};
+        // solve(arr2, 4);
+
+        int arr3[] = {2, 2, 3, 4};
+        solve(arr3, 4);
+
     	/*
         int t = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
