@@ -1,3 +1,7 @@
+// Using static imports (p 438)
+import static java.lang.Math.sqrt;
+import static java.lang.Math.pow;
+
 // Autoboxing/unboxing takes place with method parameters and return values
 class AutoBox {
     // This method has an Integer parameter.
@@ -189,7 +193,42 @@ class Example {
         // The same expression is evaluated, but the resultj is not reboxed
         i = iOb + (iOb / 3);
         System.out.println("i after expression: " + i); // 146
+    }
 
+    static void quadratic() {
+    	double a, b, c, x1, x2;
+    	// solve 4x^2 + x - 3 = 0, for x
+    	a = 4;
+    	b = 1;
+    	c = -3;
+    	x1 = (-b+Math.sqrt(Math.pow(b,2)-4*a*c)) / (2*a);
+    	x2 = (-b-Math.sqrt(Math.pow(b,2)-4*a*c)) / (2*a);
+    	System.out.println("Solutions: " + x1 + " " + x2);
+    	// Solutions: 0.75 -1.0
+    }
+
+    static void staticQuadratic() {
+    	double a, b, c, x1, x2;
+    	// solve 4x^2 + x - 3 = 0, for x
+    	a = 4;
+    	b = 1;
+    	c = -3;
+    	x1 = (-b+sqrt(pow(b,2)-4*a*c)) / (2*a);
+    	x2 = (-b-sqrt(pow(b,2)-4*a*c)) / (2*a);
+    	System.out.println("Solutions: " + x1 + " " + x2);
+    	// Solutions: 0.75 -1.0
+    }
+
+    // A simple annotation type.
+    @interface MyAnno {
+    	String str();
+    	int val();
+    }
+
+    // Annotate a method
+    @MyAnno(str="Annotation Example", val=100)
+    public static void myMeth() {
+    	System.out.println("this is a test");
     }
 
     public static void main(String[] args) {
@@ -200,5 +239,8 @@ class Example {
         autoBox();
         AutoBox.run();
         autoBox3();
+        quadratic();
+        staticQuadratic();
+        myMeth();
     }
 }
