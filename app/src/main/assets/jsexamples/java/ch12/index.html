@@ -21,64 +21,93 @@ enum switch, final,
 </ul>
 <h1>Chapter 12 Self Test (p 443)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>Enumeration constants are said to <i>self-typed.</i> What does this mean?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The enumeration constants' type is the type of the enumeration in which the
+                constants are declared.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What class do all enumerations automatically inherit?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>java.lang.Enum</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Given the following enumeration, write a program that uses <b>values()</b> to show a
+        list of the constants and their ordinal values.</h2>
         <ul>
-            <li>Answer</li>
+            <li>
+                <code>enum Tools {<br/>
+                    &nbsp; &nbsp; &nbsp;SCREWDRIVER, WRENCH, HAMMER, PLIERS<br/>
+                    &nbsp;}</code></li>
+            <li><a href="ToolsDemo.java">ToolsDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>In Try This 12-1, each color change is controlled by hard coded values in <b>run()</b>.
+        Change this so that the duration of each color is stored by the constants in <b>TrafficLightColor</b>.
+    </h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="TrafficLightDemo.java">TrafficLightDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Define boxing and autoboxing. How does autoboxing/unboxing affect these actions?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>Autoboxing</label> is the process by which a primitive type is automatically
+                encapsulated (boxed) into its equivalent type wrapper whenever an object of that
+                type is needed.
+            </li>
+            <li><label>Boxing</label> is the process by which a primitive type is encapsulated
+                (boxed) into its equivalent type wrapper by an explicitly cast.
+            </li>
+            <li>Autoboxing and auto-unboxing greatly streamlines the coding by removing the tedium
+                of manually boxing and unboxing values.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Change the following fragment so that it uses autoboxing.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>Double val = Double.valueOf(123.0);</code></li>
+            <li><code>Double val = 123.0;</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>In your own words, what does static import do?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Adds static methods into your class, as if they are part of your class, i.e.:</li>
+            <li><code>import static java.lang.Math.sqrt;</code></li>
+            <li><code>x = sqrt(9);</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What does this statment do?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>import static java.lang.Integer.parseInt;</code></li>
+            <li>&nbsp;When using <label>static import</label>, it is possible to refer to static
+                members directly by their names, without having to qualify them with the name of
+                their class:
+            </li>
+            <li><code>int i = parseInt("3");</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Is static import designed for special-case situations, or is it good practice to bring
+        all static members of all classes into view?</h2>
         <ul>
-            <li>Answer</li>
+            <li>It should be used in special-case situations, when a static member is used
+                repeatedly.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>An annotation is syntactically based on a/an <b><u>interface</u></b>.</h2>
+    </li>
+    <li><h2>What is a marker annotation?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Annotations that don't have paramaters are called <label>marker annotations.</label>
+            </li>
+            <li>These are specified without passing any arguments and without using parenthesis, for
+                example:<code>@Override</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>An annotation can be appled only to methods. True or False?</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li>False</li>
         </ul>
     </li>
 </ol>
