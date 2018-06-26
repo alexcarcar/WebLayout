@@ -27,14 +27,23 @@ public class Solution {
     static int maxRegion(int[][] grid) {
     	int n = grid.length;
     	int m = grid[0].length;
+
+    	boolean[][] visited = new boolean[n][m];
     	
     	System.out.println(n + "x" + m);
+    	int max = 0;
 
     	for (int i=0; i<n; i++) {
     		for (int j=0; j<m; j++) {
-    			System.out.print(grid[i][j]);
+    			if (grid[i][j] == 0 || visited[i][j]) {
+	    			visited[i][j] = true;
+    				continue;
+    			}
+    			visited[i][j] = true;
+    			System.out.println(i + "," + j);
+    			// c = count(i,j);
+    			// if (c>max) max = c;
     		}
-    		System.out.println();
     	}
     	return 5;
     }
