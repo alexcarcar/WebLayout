@@ -1,14 +1,8 @@
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.regex.*;
+import java.io.IOException;
+import java.util.Scanner;
 
 /*
 Sample Input
-
 4
 4
 1 1 0 0
@@ -17,35 +11,80 @@ Sample Input
 1 0 0 0
 
 Sample Output
-
 5
+
+Sample Input
+5
+4
+0 0 1 1
+0 0 1 0
+0 1 1 0
+0 1 0 0
+1 1 0 0
+
+Sample Output
+8
+
+Sample Input
+5
+5
+0 1 1 1 1
+1 0 0 0 1
+1 1 0 1 0
+0 1 0 1 1
+0 1 1 1 0
+
+Sample Output
+15
+
  */
 
 public class Solution {
 
-    // Complete the maxRegion function below.
+    static int countRegion(int i, int j, int[][] grid, boolean[][] visited, int n, int m) {
+        if (i < 0 || i >= n || j < 0 || j >= m) return 0;
+        if (visited[i][j]) return 0;
+
+        visited[i][j] = true;
+        if (grid[i][j] == 0) return 0;
+        // System.out.println(i + "," + j);
+        int count = 1;
+
+        // row above
+        count += countRegion(i - 1, j + 1, grid, visited, n, m);
+        count += countRegion(i, j + 1, grid, visited, n, m);
+        count += countRegion(i + 1, j + 1, grid, visited, n, m);
+
+        // same row
+        count += countRegion(i - 1, j, grid, visited, n, m);
+        count += countRegion(i + 1, j, grid, visited, n, m);
+
+        // row below
+        count += countRegion(i - 1, j - 1, grid, visited, n, m);
+        count += countRegion(i, j - 1, grid, visited, n, m);
+        count += countRegion(i + 1, j - 1, grid, visited, n, m);
+
+        return count;
+    }
+
     static int maxRegion(int[][] grid) {
-    	int n = grid.length;
-    	int m = grid[0].length;
+        int n = grid.length;
+        int m = grid[0].length;
 
-    	boolean[][] visited = new boolean[n][m];
-    	
-    	System.out.println(n + "x" + m);
-    	int max = 0;
-
-    	for (int i=0; i<n; i++) {
-    		for (int j=0; j<m; j++) {
-    			if (grid[i][j] == 0 || visited[i][j]) {
-	    			visited[i][j] = true;
-    				continue;
-    			}
-    			visited[i][j] = true;
-    			System.out.println(i + "," + j);
-    			// c = count(i,j);
-    			// if (c>max) max = c;
-    		}
-    	}
-    	return 5;
+        boolean[][] visited = new boolean[n][m];
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == 0 || visited[i][j]) {
+                    visited[i][j] = true;
+                    continue;
+                }
+                int c = countRegion(i, j, grid, visited, n, m);
+                // if (c > 0) System.out.println("c=" + c);
+                if (c > max) max = c;
+            }
+        }
+        return max;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
