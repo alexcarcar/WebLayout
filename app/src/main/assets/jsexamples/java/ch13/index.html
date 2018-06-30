@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 13: Generics</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: generics, parameterized types, generic class, generic method, type safety,
+type parameter, bounded types, superclass, superclass, subclass, raw type, unchecked warnings,
+diamond operator, erasure, ambiguity errors, generic restrictions
+<h1>Notes</h1>
+<ul>
+    <li><label>Paramterized types (generics)</label> enable you to create classes, interfaces, and
+        methods in which the type of data upon which they operate is specified as a parameter.
+    </li>
+    <li>In the following, <label>T</label> is a <label>type parameter</label>: <code>class Gen&lt;T&gt;{...}</code>
+    </li>
+    <li>Here, <label>Integer</label> is called a <label>type argument</label>: <code>Gen&lt;Integer&gt;
+        iOb;</code></li>
+    <li><label>Generics</label> work only with <label>reference types</label> (that is classes, not
+        <label>primitive types</label> like <b>int, double, ...</b>)
+    </li>
+    <li>You can declare more than one type parameter in a generic type: <code>class TwoGen&lt;T, V&gt;{...}</code>
+    </li>
+    <li><label>Bounded types</label> (using <label>extends</label>) limit the types that can be
+        passed to a <label>type parameter</label>: <code>class NumericClass&lt;T extends
+            Number&gt;</code></li>
+    <li>To establish an <label>upper bound</label> for a <label>wildcard</label> use: <code>&lt;?
+        extends superclass&gt;</code></li>
+    <li>To establish a <label>lower bound</label> for a <label>wildcard</label> use: <code>&lt;?
+        super subclass&gt;</code></li>
+    <li>It is possible to declare a <label>generic method</label> that uses one or more <label>type
+        parameters</label> of its own.
+    </li>
+    <li><label>Type parameters</label> are declared <label>before</label> the return type of the
+        <label>generic method</label>: <code>static &lt;T, V&gt; boolean genericMethod(T[] x, V[] y,
+            int z);</code></li>
+    <li>A <label>constructor</label> can be generic, even if its class is not: <code>&lt;T extends
+        Number&gt; Summation(T arg) {...}</code></li>
+</ul>
+<h1>Examples</h1>
+<ul>
+    <li>Page 447-: <a href="Example.java">Example.java</a></li>
+</ul>
+<h1>Try This</h1>
+<ul>
+    <li>13-1 (Page 469): <a href="GenQDemo.java">GenQDemo.java</a></li>
+</ul>
+<h1>Chapter 13 Self Test (p 481)</h1>
+<ol>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+</ol>
+</body>
+</html>
