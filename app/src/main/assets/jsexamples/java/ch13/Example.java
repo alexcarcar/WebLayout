@@ -258,6 +258,33 @@ class MyClass<T> implements Containment<T> {
 		// Example.java:257: error: incompatible types: double cannot be converted to Integer
 	}
 	
+	}
+
+// Demonstrate a raw type. (p 473)
+class GenRaw<T> {
+	T ob;
+	GenRaw(T o) {
+		ob = o;
+	}
+
+	T getob() {
+		return ob;
+	}
+
+	public static void demo() {
+		GenRaw<Integer> iOb = new GenRaw<Integer>(88);
+		GenRaw<String> strOb = new GenRaw<String>("Generics Test");
+		// When no type argument is supplied, a raw type is created.
+		GenRaw raw = new GenRaw(98.6);
+		double d = (Double) raw.getob();
+		System.out.println("value: "+d); // value: 98.6
+		strOb = raw;
+		raw = iOb; // 88
+		System.out.println(raw.getob());
+		// System.out.println(strOb.getob());
+		// Exception in thread "main" java.lang.ClassCastException: java.lang.Double cannot
+ 		// be cast to java.lang.String
+	}
 }
 
 class Example {
@@ -270,5 +297,6 @@ class Example {
 		GenericMethodDemo.demo();
 		Summation.demo();
 		MyClass.demo();
+		GenRaw.demo();
 	}
 }

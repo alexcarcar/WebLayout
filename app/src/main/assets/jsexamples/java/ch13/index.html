@@ -39,6 +39,25 @@ diamond operator, erasure, ambiguity errors, generic restrictions
             int z);</code></li>
     <li>A <label>constructor</label> can be generic, even if its class is not: <code>&lt;T extends
         Number&gt; Summation(T arg) {...}</code></li>
+    <li>A <label>diamond operator</label> <code>&lt;&gt;</code> reduces the length of a declaration:
+        <code>TwoGen&lt;Integer,String&gt; tgOb = new TwoGen&lt;&gt;(42, "testing");</code></li>
+    <li>When Java code is compiled, all type information in generics are erased using an <label>erasure.</label>
+    </li>
+    <li><label>Erasures</label> replace type parameters with their bound type, which is <label>Object</label>
+        if no explicit bound is specified.
+    </li>
+    <li><label>Ambiguity errors</label> occure when erasures causes two seemingly distinct generic
+        declarations to resolve to the same erased type.
+    </li>
+    <li>It is not possible to create an instance of a type parameter: <code>ob = new T(); //
+        Illegal</code></li>
+    <li>No <label>static</label> member can use a <label>type parameter</label> declared by the
+        enclosing class: <code>static T ob; // Illegal</code></li>
+    <li>Cannot create an array of <label>type parameters</label>: <code>vals = new T[10];</code>
+    </li>
+    <li>A generic class cannot extend <label>Throwable</label>, which means you cannot create
+        generic exception classes.
+    </li>
 </ul>
 <h1>Examples</h1>
 <ul>
@@ -50,74 +69,102 @@ diamond operator, erasure, ambiguity errors, generic restrictions
 </ul>
 <h1>Chapter 13 Self Test (p 481)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>Generics are important to Java because they enable the creation of code that is</h2>
         <ul>
-            <li>Answer</li>
+            <li>A. Type-safe</li>
+            <li>B. Reusable</li>
+            <li>C. Reliable</li>
+            <li><label>D. All of the above</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can a primitive type be used as a type argument?</h2>
         <ul>
-            <li>Answer</li>
+            <li>No, <label>generics</label> work only with <label>reference types</label> (that is
+                classes, not <label>primitive types</label> like <b>int, double, ...</b>)
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to declare a class called <b>FlightSched</b> that takes two generic parameters.
+    </h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class FlightSched &lt;A, B&gt; {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Beginning with your answer to question 3, change <b>FlightSched</b>'s second type
+        parameter so that it must extend <b>Thread</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class FlightSched &lt;A, B extends Thread&gt; {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Now, change <b>FlightSched</b> so that its second type parameter must be a subclass of
+        its first type parameter.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class FlightSched &lt;A super B, B extends Thread&gt; {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>As it relates to generics, what is the <b>?</b> and what does it do?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The <label>wildcard argument</label> specified by <label>?</label> represents an
+                unknown type.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can the wildcard argument be bounded?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Wildcard argments can be <label>bounded</label> in the same way that a type
+                parameter can be bounded: <code>&lt;? extends superclass&gt;</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>A generic method called <b>myGen()</b> has one type parameter. Furthermore,
+        <b>MyGen()</b> has one parameter whose type is that of the type parameter. It also returns
+        an object of that type parameter. Show how to declare <b>myGen()</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>&lt;T&gt; T myGen(T t) {...}</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li>
+        <h2>Given this generic interface: <p>
+            <code>interface IGenIF&lt;T, V extends T&gt; { // ...}</code>
+        </p>show the declaration of a class called <b>MyClass</b> that implements <b>IGenIF</b>.
+        </h2>
         <ul>
-            <li>Answer</li>
+            <li><code>class &lt;T, V extends T&gt; MyClass implements IGenIF &lt;&gt; {...}</code>
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Given a generic class called <b>Counter&lt;T&gt;</b>, show how to create an object of
+        its raw type.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>Counter&lt;Integer&gt; iOb = new Counter&lt;&gt;();</code></li>
+            <li><code>Counter raw = new Counter();</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Do type parameters exist at run time?</h2>
         <ul>
-            <li>Answer</li>
+            <li>At run time an <label>erasure</label> replaces type parameters with their bounded
+                classes or <label>Object.</label></li>
+            <li>No <label>type parameters</label> exist at run time--they are simply a <label>source-code
+                mechanism.</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Convert your solution to question 10 of the Self Test for chapter 9 so that it is
+        generic. In the process, create a stace interface called <b>IGenStack</b> that generically
+        defines the operations <b>push()</b> and <b>pop()</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="StackDemo.java">StackDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is &lt;&gt;?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The <label>diamond operator</label> <b>&lt;&gt;</b> is a code shortcut: <code>TwoGen&lt;Integer,String&gt;
+                tgOb = new TwoGen&lt;&gt;(42, "testing");</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li>
+        <h2>How can the following be simplified?<p><code>MyClass&lt;Double,String&gt; obj = new
+            MyClass&lt;Double,String&gt;(1.1,"Hi");</code></p></h2>
         <ul>
-            <li>Answer</li>
+            <li><code>MyClass&lt;Double,String&gt; obj = new MyClass&lt;&gt;(1.1,"Hi");</code></li>
         </ul>
     </li>
 </ol>
