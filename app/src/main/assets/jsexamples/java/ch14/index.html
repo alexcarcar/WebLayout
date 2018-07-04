@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 14: Lambda Expressions and Method References</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: lambda expression, interface, java.util.function, closures, functional
+interface, target type, SAM, Single Abstract Method, lambda operator, arrow operator, lambda body,
+block lambda expressions, expression bodies, expression lambdas, block body, block lambdas, variable
+capture, effectively final, :: operator, method references, instance methods, constructor
+references, predefined functional interfaces
+<h1>Notes</h1>
+<ul>
+    <li>A prior example of a lambda expression is the <label>default</label> behavior in an <label>interface</label>
+        method.
+    </li>
+    <li>A <label>lambda expression</label> is an anonymous (unnamed) method.</li>
+    <li>A lambda expression (also called a <label>closure</label>) is used to implement a method
+        defined by a <label>functional interface.</label></li>
+    <li>A <label>functional interface</label> is an interface that contains <label>one</label> and
+        only one abstract method.
+    </li>
+    <li>A functional interface, also called a <label>Single Abstract Method (SAM),</label> defines
+        the <label>target type</label> of a lambda expression.
+    </li>
+    <li>The <label>lambda operator</label> or <label>arrow operator</label> is<code>-&gt;</code>
+        divides <label>parameters</label> on the left side and the <label>lambda body</label> on the
+        right side:
+        <ul>
+            <li><code>() -> 98.6</code></li>
+            <li><code>() -> Math.random() * 100</code></li>
+            <li><code>(n) -> 1.0 / n</code></li>
+            <li><code>(n) -> (n % 2)==0</code></li>
+            <li><code>n -> (n % 2)==0</code></li>
+        </ul>
+    </li>
+    <li>A <label>functional interface</label> can include <label>default, static,</label> or <label>private
+        methods</label>, but in all cases it must have <label>one</label> and only one <label>abstract
+        method</label>.
+    </li>
+    <li>A lambda expression forms the <label>implementation</label> of the <label>abstract
+        method</label> defined by the functional interface.
+    </li>
+    <li>A lambda expression can be specified only in a context in which a <label>target type</label>
+        is defined:
+        <ul>
+            <li><code>MyValue myVal; // MyValue implements a functional interface</code></li>
+            <li><code>myVal = () -> 98.6;</code></li>
+        </ul>
+    </li>
+</ul>
+<h1>Examples</h1>
+<ul>
+    <li>Page 488-: <a href="Example.java">Example.java</a></li>
+</ul>
+<h1>Try This</h1>
+<ul>
+    <li>14-1 (Page 497): <a href="GenQDemo.java">GenQDemo.java</a></li>
+</ul>
+<h1>Chapter 14 Self Test (p 515)</h1>
+<ol>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+</ol>
+</body>
+</html>
