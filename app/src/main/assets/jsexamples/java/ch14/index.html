@@ -51,6 +51,15 @@ references, predefined functional interfaces
             <li><code>myVal = () -> 98.6;</code></li>
         </ul>
     </li>
+    <li>Variables defined by the <label>enclosing scope</label> of a lambda expression are accessible within the lambda expression.</li>
+    <li><label>Variable capture</label> occurs when a lambda expression uses a local variable (that is <label>effectively final</label>) from its enclosing scope.</li>
+    <li>A <label>method reference</label> provides a way to refer to a method without executing it.
+        <ul>
+            <li>A method reference to a <label>static method:</label> <code>ClassName::methodName</code></li>
+            <li>A method reference to an <label>instance method:</label> <code>objRef::methodName</code></li>
+        </ul>
+    </li>
+
 </ul>
 <h1>Examples</h1>
 <ul>
@@ -58,7 +67,7 @@ references, predefined functional interfaces
 </ul>
 <h1>Try This</h1>
 <ul>
-    <li>14-1 (Page 497): <a href="GenQDemo.java">GenQDemo.java</a></li>
+    <li>14-1 (Page 497): <a href="LambdaArgumentDemo.java">LambdaArgumentDemo.java</a></li>
 </ul>
 <h1>Chapter 14 Self Test (p 515)</h1>
 <ol>

@@ -1,3 +1,6 @@
+import java.io.*;
+import java.util.Arrays;
+
 // Demonstrate two simple lambda expressions.
 
 // A functional interface.
@@ -23,6 +26,66 @@ interface StringTest {
 // A block lambda that finds the smallest positive factor of an int value.
 interface NumericFunc {
 	int func(int n);
+}
+
+// Use a generic functional interface.
+interface SomeTest<T> {
+	boolean test(T n, T m);
+}
+
+// An example of capturing a local variable from the enclosing scope.
+interface MyFunc {
+	int func(int n);
+}
+
+interface MyIOAction {
+	boolean ioAction(Reader rdr) throws IOException;
+}
+
+interface MyTransform<T> {
+	void transform(T[] a);
+}
+
+class MyIntPredicates {
+	// Demonstrate a method reference for a static method.
+	interface IntPredicate {
+		boolean test(int n);
+	}
+
+	static boolean isPrime(int n) {
+		if (n<2) return false;
+		for (int i=2; i<n/i; i++) {
+			if((n%i)==0) return false;
+		}
+		return true;
+	}
+
+	static boolean isEven(int n) {
+		return (n%2) == 0;
+	}
+
+	static boolean isPositive(int n) {
+		return n>0;
+	}
+
+	static boolean numTest(IntPredicate p, int v) {
+		return p.test(v);
+	}
+
+	static void demo() {
+		boolean result;
+		result = numTest(MyIntPredicates::isPrime, 17);
+		if(result) System.out.println("17 is prime.");
+		// 17 is prime.
+
+		result = numTest(MyIntPredicates::isEven, 12);
+		if(result) System.out.println("12 is even.");
+		// 12 is even.
+
+		result = numTest(MyIntPredicates::isPositive, 10);
+		if(result) System.out.println("10 is positive.");
+		// 10 is positive.
+	}
 }
 
 class Example {
@@ -87,10 +150,81 @@ class Example {
 		// Smallest factor of 11 is 1
 	}
 
-	public static void main(String[] args) {
+	public static void genericFunctionalInterfaceDemo() {
+		SomeTest<Integer> isFactor = (n,d) -> (n%d) == 0;
+		if (isFactor.test(10,2)) {
+			System.out.println("2 is a factor of 10");
+		}
+		// 2 is a factor of 10
+
+		SomeTest<Double> isFactorD = (n,d) -> (n%d) == 0;
+		if (isFactorD.test(212.0,4.0)) {
+			System.out.println("4.0 is a factor of 212.0");
+		}
+		// 4.0 is a factor of 212.0
+
+		SomeTest<String> isIn = (a,b) -> a.indexOf(b) != -1;
+		String str = "Generic Functional Interface";
+		System.out.println("Testing string: " + str);
+		if (isIn.test(str, "face")) {
+			System.out.println("'face' is found.");
+		} else {
+			System.out.println("'face' not found.");
+		}
+		// Testing string: Generic Functional Interface
+		// 'face' is found.
+	}
+
+	static void varCapture() {
+		int num = 10; // A local variable that can be captured.
+		MyFunc myLambda = (n) -> {
+			// This use of num is OK.  It does not modify num.
+			int v = num + n;
+			// However, the following is illegal because it attempts to modify the value of num.
+
+			/** local variables referenced from a lambda expression must be final or effectively final
+			num++; */
+
+			return v;
+		};
+		System.out.println(myLambda.func(8));
+
+		/** local variables referenced from a lambda expression must be final or effectively final
+		num = 9; */
+	}
+
+	static void lambdaExceptionDemo() throws Exception {
+		// This block lambda could throw an IOException.  Thus, IOException must be specified in a
+		// throws clase of ioAction() in MyIOAction.
+		MyIOAction myIO = (rdr) -> {
+			int ch = rdr.read(); // could throw IOException
+			// ...
+			return true;
+		};
+		System.out.println(myIO.ioAction(new InputStreamReader(System.in)));
+	}
+
+	static void transformDemo() {
+		MyTransform<Double> sqrts = (v) -> {
+			for (int i=0; i<v.length; i++) {
+				v[i] = Math.sqrt(v[i]);
+			}
+		};
+		Double doubles[] = {1.2, 4.3, 9.5, 12.4};
+		sqrts.transform(doubles);
+		System.out.println(Arrays.toString(doubles));
+		// [1.0954451150103321, 2.073644135332772, 3.082207001484488, 3.521363372331802]
+	}
+
+	public static void main(String[] args) throws Exception {
 		lambdaDemo();
 		lambdaDemo2();
 		lambdaDemo3();
 		blockLambdaDemo();
+		genericFunctionalInterfaceDemo();
+		varCapture();
+		// lambdaExceptionDemo();
+		transformDemo();
+		MyIntPredicates.demo();
 	}
 }
