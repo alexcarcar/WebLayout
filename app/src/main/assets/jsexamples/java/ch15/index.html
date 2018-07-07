@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 15: Modules</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../javaexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: module, requires, exports, module-info.java, javac, java, java.base,
+pre-module legacy code, module declaration, module descriptor, restricted keywords, depends,
+platform modules, java.desktop, java.xml, unnamed module, multimodule mode, implied dependence,
+implied readability, transitive, services, plug-in, service provider, java.util, provides, uses,
+with, open, opens, requires static, jlink, JAR, Java ARchive, module graph, appstart, appfuncs
+<h1>Notes</h1>
+<ul>
+    <li><label>Modules</label> give you a way to describe the relationships and dependencies of the
+        code that comprises an application.
+    </li>
+    <li>A <label>module</label> is a grouping of packages and resources that can be collectively
+        referred to by the module's name.
+    </li>
+    <li>A <label>module declaration</label> specifies the name of a module and defines the
+        relationship a module and its packages have to other modules.
+    </li>
+    <li>A <label>module declaration</label> is contained in a <label>module descriptor</label> file
+        <label>module-info.java:</label><br/><code><br/>
+            module moduleName {<br/>
+            &nbsp; &nbsp;//module definition<br/>
+            }</code></li>
+</ul>
+<h1>Example</h1>
+&nbsp; &nbsp; &nbsp; &nbsp; <textarea cols=50 rows=18>
+% tree /f /a
+|
+\---mymodapp
+    \---appsrc
+        +---appfuncs
+        |   |   module-info.java
+        |   |
+        |   \---appfuncs
+        |       \---simplefuncs
+        |               SimpleMathFuncs.java
+        |
+        \---appstart
+            |   module-info.java
+            |
+            \---appstart
+                \---mymodappdemo
+                        MyModAppDemo.java
+</textarea>
+<ul>
+    <li>Page 522- (mymodapp\appsrc\appfuncs\appfuncs\simplefuncs): <a
+            href="mymodapp\appsrc\appfuncs\appfuncs\simplefuncs\SimpleMathFuncs.java">SimpleMathFuncs.java</a>
+    </li>
+    <li>Page 523- (mymodapp\appsrc\appstart\appstart\mymodappdemo): <a
+            href="mymodapp\appsrc\appstart\appstart\mymodappdemo\MyModAppDemo.java">MyModAppDemo.java</a>
+    </li>
+    <li>Page 523- (mymodapp\appsrc\appfuncs): <a href="mymodapp\appsrc\appfuncs\module-info.java">module-info.java</a>
+    </li>
+    <li>Page 524- (mymodapp\appsrc\appstart): <a href="mymodapp\appsrc\appstart\module-info.java">module-info.java</a>
+    </li>
+</ul>
+&nbsp; &nbsp; &nbsp; &nbsp; <textarea cols=160 rows=11>
+% cd mymodapp
+% mkdir appmodules\appfuncs
+% javac -d appmodules\appfuncs appsrc\appfuncs\appfuncs\simplefuncs\SimpleMathFuncs.java 
+% javac -d appmodules\appfuncs appsrc\appfuncs\module-info.java 
+% mkdir appmodules\appstart
+% javac --module-path appmodules -d appmodules\appstart appsrc\appstart\module-info.java appsrc\appstart\appstart\mymodappdemo\MyModAppDemo.java 
+% java --module-path appmodules -m appstart/appstart.mymodappdemo.MyModAppDemo 
+
+2 is a factor 10
+lcf(35, 105) is 5
+gcf(35, 105) is 7
+</textarea>
+<h1>More Notes</h1>
+<ul>
+    <li>When you use code that is not part of a named module, it automatically becomes part of the
+        <label>unnamed module.</label></li>
+    <li>Modules have the greatest benefit when creating <label>commercial programs</label>.</li>
+</ul>
+<h1>Chapter 15 Self Test (p 545)</h1>
+<ol>
+    <li><h2>In general terms, modules give you a way to specify when one unit of code depends on
+        another.</h2>
+        <ul>
+            <li><label>True</label></li>
+            <li>False</li>
+        </ul>
+    </li>
+    <li><h2>A module is declared using what keyword?</h2>
+        <ul>
+            <li><code>module moduleName {...}</code></li>
+        </ul>
+    </li>
+    <li><h2>The keywords that support modules are context sensitive. Explain what this means.</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+    <li><h2>Question</h2>
+        <ul>
+            <li>Answer</li>
+        </ul>
+    </li>
+</ol>
+</body>
+</html>
