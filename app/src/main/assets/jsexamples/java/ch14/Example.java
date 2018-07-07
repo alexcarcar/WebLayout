@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 // Demonstrate two simple lambda expressions.
 
@@ -85,6 +86,115 @@ class MyIntPredicates {
 		result = numTest(MyIntPredicates::isPositive, 10);
 		if(result) System.out.println("10 is positive.");
 		// 10 is positive.
+	}
+}
+
+// Use a method reference to an instance method.
+class MyIntNum {
+	interface IntPredicate {
+		boolean test(int n);
+	}
+
+	private int v;
+	MyIntNum(int x) {
+		v = x;
+	}
+
+	int getNum() {
+		return v;
+	}
+
+	boolean isFactor(int n) {
+		return (v%n) == 0;
+	}
+
+	static void demo() {
+		boolean result;
+		MyIntNum myNum = new MyIntNum(12);
+		MyIntNum myNum2 = new MyIntNum(16);
+		IntPredicate ip = myNum::isFactor;
+		result = ip.test(3);
+		if (result) System.out.println("3 is a factor of " + myNum.getNum());
+		// 3 is a factor of 12
+
+		ip = myNum2::isFactor;
+		result = ip.test(3);
+		if (!result) System.out.println("3 is not a factor of " + myNum2.getNum());
+		// 3 is not a factor of 16
+	}
+
+	// Use an instance method reference to refer to any instance.
+	interface MyIntNumPredicate {
+		boolean test(MyIntNum mv, int n);
+	}
+
+	static void demo2() {
+		boolean result;
+		MyIntNum myNum = new MyIntNum(12);
+		MyIntNum myNum2 = new MyIntNum(16);
+		MyIntNumPredicate inp = MyIntNum::isFactor;
+		result = inp.test(myNum, 3);
+		if (result) System.out.println("3 is a factor of " + myNum.getNum());
+		// 3 is a factor of 12
+		result = inp.test(myNum2, 3);
+		if (!result) System.out.println("3 is not a factor of " + myNum2.getNum());
+		// 3 is not a factor of 16
+	}
+}
+
+class MyGenericReference {
+	interface SomeTest<T> {
+		boolean test(T n, T m);
+	}
+
+	static <T> boolean myGenMeth(T x, T y) {
+		boolean result = false;
+		return x.equals(y);
+	}
+
+	static void main() {
+		SomeTest<Integer> mRef = MyGenericReference::<Integer>myGenMeth;
+		System.out.println(mRef.test(12, 12)); // true
+		System.out.println(mRef.test(12, 13)); // false
+	}
+}
+
+// Demonstrate a Constructor reference.
+class ConstructorReferences {
+	interface MyFunc {
+		ConstructorReferences func(String s);
+	}
+
+	private String str;
+	ConstructorReferences(String s) {
+		str = s;
+	}
+
+	// Default constructor
+	ConstructorReferences() {
+		str = "";
+	}
+
+	String getStr() {
+		return str;
+	}
+
+	static void demo() {
+		MyFunc myClassCons = ConstructorReferences::new;
+		ConstructorReferences mc = myClassCons.func("Testing");
+		System.out.println("str in mc is " + mc.getStr());
+		// str in mc is Testing
+	}
+}
+
+
+class UsePredicateInterface {
+	public static void demo() {
+		Predicate<Integer> isEven = (n) -> (n%2) == 0;
+		if (isEven.test(4)) System.out.println("4 is even");
+		if (!isEven.test(5)) System.out.println("5 is odd");
+		// 4 is even
+		// 5 is odd
 	}
 }
 
@@ -226,5 +336,10 @@ class Example {
 		// lambdaExceptionDemo();
 		transformDemo();
 		MyIntPredicates.demo();
+		MyIntNum.demo();
+		MyIntNum.demo2();
+		MyGenericReference.main();
+		ConstructorReferences.demo();
+		UsePredicateInterface.demo();
 	}
 }

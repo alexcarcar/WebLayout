@@ -50,5 +50,10 @@ class LambdaArgumentDemo {
 		}, inStr);
 		System.out.println("The string in reversed case: " + outStr);
 		// The string in reversed case: lAMBDA eXPRESSIONS eXPAND jAVA
+
+		// Solution to Chapter 14 Self Test (Question #9)
+		outStr = changeStr((str) -> str.replaceAll(" ", ""), inStr);
+		System.out.println("The string without spaces: " + outStr);
+		// The string without spaces: LambdaExpressionsExpandJava
 	}
 }

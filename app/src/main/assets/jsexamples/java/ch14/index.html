@@ -57,6 +57,9 @@ references, predefined functional interfaces
         <ul>
             <li>A method reference to a <label>static method:</label> <code>ClassName::methodName</code></li>
             <li>A method reference to an <label>instance method:</label> <code>objRef::methodName</code></li>
+            <li>A method reference to an <label>super method:</label> <code>super::methodName</code>
+            </li>
+            <li>A constructor reference: <code>classname::new</code></li>
         </ul>
     </li>
 
@@ -71,94 +74,130 @@ references, predefined functional interfaces
 </ul>
 <h1>Chapter 14 Self Test (p 515)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>What is the lambda operator?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The <label>lambda operator</label> or <label>arrow operator</label> is
+                <code>-></code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is a functional interface?</h2>
         <ul>
-            <li>Answer</li>
+            <li>A <label>functional interface</label> is an interface that contains
+                <label>one</label> and only one abstract method.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>How do functional interfaces and lambda expressions relate?</h2>
         <ul>
-            <li>Answer</li>
+            <li>A <label>functional interface</label> defines the <label>target type</label> of a
+                lambda expression.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What are the two general types of lambda expressions?</h2>
         <ul>
-            <li>Answer</li>
+            <li>single expression</li>
+            <li>block of code</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show a lambda expression that returns <b>true</b> if a number is between 10 and 20,
+        inclusive.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>(n) -> n >= 10 && n &lt;= 20</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Create a functional interface that can support the lambda expression you created in
+        question 5. Call the interface <b>MyTest</b> and its abstract method <b>testing()</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li>
+                <code>interface MyTest {<br/>
+                    &nbsp; &nbsp;boolean testing(int n);<br/>
+                    &nbsp;}
+                </code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Create a block lambda expression that computes the factorial of an integer value.
+        Demonstrate its use. Use <b>NumericFunc</b>, shown in this chapter, for the functional
+        interface.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="FactorialDemo.java">FactorialDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Create a generic functional interface called <b>MyFunc&lt;T></b>. Call its abstract
+        method <b>func()</b>. Have <b>func()</b> return a reference type <b>T</b>. Have it take a
+        parameter of type <b>T</b>. (Thus, <b>MyFunc</b> will be a generic version of
+        <b>NumericFunc</b> shown in the chapter.) Demonstrate its use by rewriting your answer to
+        question 7 so it uses <b>MyFunc&lt;T></b> rather than<b>NumericFunc</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="FactorialGeneric.java">FactorialGeneric.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Using the program shown in Try This 14-1, create a lambda expression that removes all
+        spaces from a string and returns the result. Demonstrate this method by passing it to <b>changeStr()</b>.
+    </h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="LambdaArgumentDemo.java">LambdaArgumentDemo.java</a></li>
+            <li><code>
+                outStr = changeStr((str) -> str.replaceAll(" ", ""), inStr);<br/>
+                &nbsp;System.out.println("The string without spaces: " + outStr);<br/>
+                &nbsp;// The string without spaces: LambdaExpressionsExpandJava
+            </code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can a lambda expression use a local variable? If so, what constraint must be met?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Yes, if the local variable is <label>effectively final.</label></li>
+            <li>When a <label>lambda expression</label> accesses a local variable defined in its
+                <label>enclosing scope,</label> it is referred to as <label>variable
+                    capture.</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>If a lambda expression throws a checked exception, the abstract method in the functional
+        interface must have a <b>throw</b> clause that includes that exception.</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>True</label></li>
+            <li>False</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is a method reference?</h2>
         <ul>
-            <li>Answer</li>
+            <li>A <label>method reference</label> provides a way to refer to a method without
+                executing it: <code>ClassName::methodName</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>When evaluated, a method reference creates an instance of the <b><u>functional
+        interface</u></b> supplied by its target context.</h2>
+    </li>
+    <li><h2>Given a class called <b>MyClass</b> that contains a <b>static</b> method called <b>myStaticMethod()</b>,
+        show how to specify a method reference to <b>myStaticMethod()</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>MyClass::myStaticMethod</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Given a class called <b>MyClass</b> that contains an instance method called <b>myInstMethod()</b>
+        and assuming an object of <b>MyClass</b> called <b>mcObj</b>, show how to create a method
+        reference to <b>myInstMethod()</b> on <b>mcObj</b>.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>mcObj::myInstMethod</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>To the <b>MethodRefDemo</b> program, add a new method to <b>MyIntNum</b> called <b>hasCommonFactor()</b>.
+        Have it return <b>true</b> if its <b>int</b> argument and the value stored in the invoking
+        <b>MyIntNum</b> object have at least one factor in common. For example, 9 and 12 have a
+        common factor, which is 3, but 9 and 16 have no common factor. Demonstrate <b>hasCommonFactor()</b>
+        via a method reference.</h2>
         <ul>
-            <li>Answer</li>
+            <li><a href="MethodRefDemo.java">MethodRefDemo.java</a></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>How is a constructor reference specified?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>ClassName::new</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Java defines several predefined functional interfaces in what package?</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li><code>java.util.function</code></li>
         </ul>
     </li>
 </ol>
