@@ -96,72 +96,98 @@ gcf(35, 105) is 7
     </li>
     <li><h2>The keywords that support modules are context sensitive. Explain what this means.</h2>
         <ul>
-            <li>Answer</li>
+            <li>These keywords are recognized as keywords only in the context of a <label>module
+                declaration.</label> Otherwise, they are interpreted as identifiers in other
+                situations.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is <b>module-info.java</b> and why is it important?</h2>
         <ul>
-            <li>Answer</li>
+            <li>A module declaration is contained in a file called <label>module-info.java</label>
+            </li>
+            <li>This file is compiled by <label>javac</label> into a class file known as a <label>module
+                descriptor</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>To declare that one module depends on another module, what keyword do you use?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>requires moduleName;</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>To make the public members of a package accessible outside the module in which it is
+        contained, it must be specified in an <u><b>exports</b></u> statement.</h2>
+    </li>
+    <li><h2>When compiling or running a module-based application, why is the module path
+        important?</h2>
         <ul>
-            <li>Answer</li>
+            <li>The module path specifies where the modules for the application will be found.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What does <b>requires transitive</b> do?</h2>
         <ul>
-            <li>Answer</li>
+            <li>By using <label>requires transitive</label> you enable one module to pass along its
+                dependence on another module.
+            </li>
+            <li>Any module the relies on the current module also relies on the one specified in the
+                <label>requires transitive</label> statement.
+            </li>
+            <li>This is called <label>implied dependence</label> or <label>implied
+                readability.</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Does an <b>exports</b> statement export another module, or does it export a package?
+    </h2>
         <ul>
-            <li>Answer</li>
+            <li>An <label>exports</label> statement exports a package.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li>
+        <h2>In the first module example, if you remove<p><code>exports appfuncs.simplefuncs;</code>
+        </p> from the <b>appfuncs</b> module-info file and then attempt to compile the program, what
+            error do you see?
+        </h2>
         <ul>
-            <li>Answer</li>
+            <li>The compiler will report that the <label>SimpleMathFuncs</label> package does not
+                exist.
+            </li>
+            <li>Since this package is required by <label>MyModAppDemo</label>, it will not compile.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Module-based services are supported by what keywords?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>provides, uses,</label> and <label>with.</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>A service specifies the general form of a unit of program functionality using either an
+        interface or abstract class.</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>True</label></li>
+            <li>False</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>A service provide <b><u>implements</u></b> a service.</h2>
+    </li>
+    <li><h2>To load a service, what class do you use?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>ServiceLoader</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can a module dependency be made optional at run time? If so how?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Yes, by using an <label>exports static</label> statement.</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Briefly describe what <b>open</b> and <b>opens</b> do.</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li>Modifying a module declaration with the keyword <label>open</label> enables access
+                to its packages at run time, including by reflection, whether or not they have been
+                exported.
+            </li>
+            <li>An <label>opens</label> statement enables run-time access to a package, including
+                for purposes of reflection.
+            </li>
         </ul>
     </li>
 </ol>
