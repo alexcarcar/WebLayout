@@ -32,74 +32,88 @@ lambda expressions
 </ul>
 <h1>Chapter 16 Self Test (p 582)</h1>
 <ol>
-    <li><h2>Question</h2>
+    <li><h2>In general, AWT components are heavyweight and Swing components are
+        <b><u>lightweight.</u></b></h2>
+    <li><h2>Can the look and feel of a Swing component be changed? If so, what feature enables
+        this?</h2>
         <ul>
-            <li>Answer</li>
+            <li>It is possible to "plug in" a new <label>look and feel</label> for any given
+                component (i.e. metal, Nimbus.)
+            </li>
+            <li>Swing uses a modified version of <label>MVC (Model View Controller)</label> called
+                <label>model-delegate</label>.
+            </li>
+            <li>The <label>UI delegate</label> combines the <label>view</label> and <label>controller</label>
+                into a <label>single logical unit</label>.
+            </li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is the most commonly used top-level container for an application?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>JFrame</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Top-level containers have several panes. To what pane are components added?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>JRootPane</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to construct a label that contains the message "Select any entry from the
+        list".</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>JLabel label = new JLabel("Select any entry from the list");</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>All interaction with GUI components must take place on what thread?</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>event-dispatching thread</label></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What is the default action command associated with a <b>JButton</b>? How can the action
+        command by changed?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>void actionPerformed(ActionEvent ae)</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What event is generated when a push button is pressed?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>ActionEvent</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Show how to create a text field that has 32 columns.</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>JTextField = new JTextField(32);</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>Can a <b>JTextField</b> have its action command set? If so, how?</h2>
         <ul>
-            <li>Answer</li>
+            <li>Yes: <code>jtf.addActionListener(this);</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What Swing component creates a checkbox? What event is generated when a check box is
+        selected or deselected?</h2>
         <ul>
-            <li>Answer</li>
+            <li><code>JCheckBox</code></li>
+            <li><code>ItemEvent</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2><b>JList</b> displays a list of items from which the user can select.</h2>
         <ul>
-            <li>Answer</li>
+            <li><label>True</label></li>
+            <li>False</li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What event is generated when the user selects or deselects an item in a <b>JList</b>?
+    </h2>
         <ul>
-            <li>Answer</li>
+            <li><code>ListSelectionEvent</code></li>
         </ul>
     </li>
-    <li><h2>Question</h2>
+    <li><h2>What method sets the selection mode of a <b>JList</b>? What method obtains the index of
+        the first selected item?</h2>
         <ul>
-            <li>Answer</li>
-        </ul>
-    </li>
-    <li><h2>Question</h2>
-        <ul>
-            <li>Answer</li>
+            <li><code>void setSelectionMode(int mode)</code></li>
+            <li><code>int getSelectedIndex()</code></li>
         </ul>
     </li>
     <li><h2>Question</h2>
