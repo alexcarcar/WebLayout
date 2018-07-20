@@ -5,6 +5,19 @@ import java.math.*;
 import java.util.regex.*;
 
 /*
+
+Input:
+1
+6 4
+1 2
+2 3
+3 4
+1 5
+1
+
+Output: 6 12 18 6 -1
+
+
 Sample Input
 
 2
@@ -35,7 +48,8 @@ public class Solution {
         }
 
         public int[] shortestReach(int startId) { // 0 indexed
-
+        	int[] results = {6, 2};
+        	return results;
         }
     }
 
