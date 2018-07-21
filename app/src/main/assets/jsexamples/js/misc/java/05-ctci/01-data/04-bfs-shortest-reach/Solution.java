@@ -37,19 +37,68 @@ Sample Output
  */
 public class Solution {
     public static class Graph {
+        private int size = 0;
+        private HashMap<Integer, Node> nodeLookup = new HashMap<Integer, Node>();
 
-
-        public Graph(int size) {
-
+        public Graph(int s) {
+            size = s;
         }
 
-        public void addEdge(int first, int second) {
+        public static class Node {
+            private int id;
+            LinkedList<Node> adjacent = new LinkedList<Node>();
+            private Node(int id) {
+                this.id = id;
+            }
+        }
 
+        private Node getNode(int id) {
+            Node n = nodeLookup.get(id);
+            if (n != null) return n;
+            n = new Node(id);
+            nodeLookup.put(id, n);
+            return n;
+        }
+
+        public void addEdge(int source, int destination) {
+            Node s = getNode(source);
+            Node d = getNode(destination);
+            s.adjacent.add(d);
         }
 
         public int[] shortestReach(int startId) { // 0 indexed
+            for (int i=0; i<this.size; i++) {
+                if (i != startId) {
+                    System.out.print("Distance from "+(startId+1)+" to "+(i+1)+": ");
+                    System.out.println(hasPathBFS(startId, i));
+                }
+            }
         	int[] results = {6, 2};
         	return results;
+        }
+
+        public boolean hasPathBFS(int source, int destination) {
+            return hasPathBFS(getNode(source), getNode(destination));
+        }
+
+        private boolean hasPathBFS(Node source, Node destination) {
+            LinkedList<Node> nextToVisit = new LinkedList<Node>();
+            HashSet<Integer> visited = new HashSet<Integer>();
+            nextToVisit.add(source);
+            while(!nextToVisit.isEmpty()) {
+                Node node = nextToVisit.remove();
+                if (node == destination) {
+                    return true;
+                }
+                if (visited.contains(node.id)) {
+                    continue;
+                }
+                visited.add(node.id);
+                for (Node child: node.adjacent) {
+                    nextToVisit.add(child);
+                }
+            }
+            return false;
         }
     }
 
