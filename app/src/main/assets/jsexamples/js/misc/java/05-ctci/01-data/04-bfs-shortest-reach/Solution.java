@@ -34,6 +34,19 @@ Sample Output
 6 6 -1
 -1 6
 
+Input:
+1
+7 4
+1 2
+1 3
+3 4
+2 5
+2
+
+Output:
+6 12 18 6 -1 -1
+
+
  */
 public class Solution {
     public static class Graph {
@@ -67,26 +80,31 @@ public class Solution {
         }
 
         public int[] shortestReach(int startId) { // 0 indexed
+            int[] results = new int[this.size];
             for (int i=0; i<this.size; i++) {
                 if (i != startId) {
-                    System.out.print("Distance from "+(startId+1)+" to "+(i+1)+": ");
-                    System.out.println(hasPathBFS(startId, i));
+                    results[i] = hasPathBFS(startId, i);
                 }
             }
-        	int[] results = {6, 2};
         	return results;
         }
 
-        public boolean hasPathBFS(int source, int destination) {
-            return hasPathBFS(getNode(source), getNode(destination));
+        public int hasPathBFS(int source, int destination) {
+            hasPathBFS(getNode(source), getNode(destination));
+            return d;
         }
+
+        private int d = 0;
 
         private boolean hasPathBFS(Node source, Node destination) {
             LinkedList<Node> nextToVisit = new LinkedList<Node>();
+            LinkedList<Integer> distances = new LinkedList<Integer>();
             HashSet<Integer> visited = new HashSet<Integer>();
             nextToVisit.add(source);
+            distances.add(0);
             while(!nextToVisit.isEmpty()) {
                 Node node = nextToVisit.remove();
+                d = distances.remove();
                 if (node == destination) {
                     return true;
                 }
@@ -96,8 +114,10 @@ public class Solution {
                 visited.add(node.id);
                 for (Node child: node.adjacent) {
                     nextToVisit.add(child);
+                    distances.add(d+6);
                 }
             }
+            d = -1;
             return false;
         }
     }
