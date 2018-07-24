@@ -1,9 +1,3 @@
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-
 /*
 
 Input:
@@ -48,6 +42,12 @@ Output:
 
 
  */
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Scanner;
+
 public class Solution {
     public static class Graph {
         private int size = 0;
@@ -60,6 +60,7 @@ public class Solution {
         public static class Node {
             private int id;
             LinkedList<Node> adjacent = new LinkedList<Node>();
+
             private Node(int id) {
                 this.id = id;
             }
@@ -77,16 +78,17 @@ public class Solution {
             Node s = getNode(source);
             Node d = getNode(destination);
             s.adjacent.add(d);
+            d.adjacent.add(s);
         }
 
         public int[] shortestReach(int startId) { // 0 indexed
             int[] results = new int[this.size];
-            for (int i=0; i<this.size; i++) {
+            for (int i = 0; i < this.size; i++) {
                 if (i != startId) {
                     results[i] = hasPathBFS(startId, i);
                 }
             }
-        	return results;
+            return results;
         }
 
         public int hasPathBFS(int source, int destination) {
@@ -102,7 +104,7 @@ public class Solution {
             HashSet<Integer> visited = new HashSet<Integer>();
             nextToVisit.add(source);
             distances.add(0);
-            while(!nextToVisit.isEmpty()) {
+            while (!nextToVisit.isEmpty()) {
                 Node node = nextToVisit.remove();
                 d = distances.remove();
                 if (node == destination) {
@@ -112,9 +114,9 @@ public class Solution {
                     continue;
                 }
                 visited.add(node.id);
-                for (Node child: node.adjacent) {
+                for (Node child : node.adjacent) {
                     nextToVisit.add(child);
-                    distances.add(d+6);
+                    distances.add(d + 6);
                 }
             }
             d = -1;
