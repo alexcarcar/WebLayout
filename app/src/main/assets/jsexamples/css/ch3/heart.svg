@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" height="20px" width="20px">
+    <title>Heart</title>
+    <path fill="red" d="M 10,6
+			Q 10,0 15,0
+			T 20,6
+			Q 20,10 15,14
+			T 10,20
+			Q 10,18 5,14
+			T 0,6
+			Q 0,0 5,0
+			T 10,6
+			Z" />
+</svg>

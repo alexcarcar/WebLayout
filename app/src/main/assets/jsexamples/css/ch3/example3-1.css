@@ -1,0 +1,15 @@
+* {
+	fill: inherit;
+	stroke: inherit;
+	stroke-width: inherit;
+}
+g.lights {
+	fill: lightgray;
+	stroke: dimgray;
+	stroke-width: 1;
+}
+rect {
+	fill: none;
+	stroke: black;
+	stroke-width: 2;
+}
