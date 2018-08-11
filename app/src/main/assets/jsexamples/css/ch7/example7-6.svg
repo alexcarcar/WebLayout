@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" viewBox="0 0 216 175">
+    <style>
+        @font-face {
+        font-family: 'SequentialistsBB';
+        src: url('SequentialistBB.woff2') format('woff2'),
+        url('SequentialistBB.woff') format('woff');
+        font-style: normal;
+        font-weight: 400;
+        }
+        path {
+        fill: #fff;
+        stroke: #000;
+        stroke-width: 2;
+        }
+        text {
+        font-size: 18px;
+        font-family: SequentialistBB, cursive;
+        }
+        .shatner {
+        font-style: italic;
+        font-weight: bolder;
+        font-size: 24px;
+        }
+    </style>
+    <path d="M45,5 l20,20 c60-5 120,-5 125 40
+		     s-70,28 -80,30 -100,0 -100-30 10,-40 35-40Z" />
+    <text x="20" y="50" dy="0 0 0 0 -5 5 5 0 0 -5 5 0 0 0 -3 5 0 3 -3 -3 3 3 -2">...TALKING... LIKE
+        <tspan x="30" y="80" class="shatner">SHATNER...</tspan>
+    </text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" viewBox="0 0 216 175">
+    <style>
+        @font-face {
+        font-family: 'SequentialistsBB';
+        src: url('SequentialistBB.woff2') format('woff2'),
+        url('SequentialistBB.woff') format('woff');
+        font-style: normal;
+        font-weight: 400;
+        }
+        path {
+        fill: #fff;
+        stroke: #000;
+        stroke-width: 2;
+        }
+        text {
+        font-family: SequentialistBB, cursive;
+        }
+        .gasp-lines {
+        stroke: #000;
+        stroke-width: 1px;
+        }
+    </style>
+    <path d="M45,5 l20,20 c60-5 120,-5 125 40
+		     s-70,28 -80,30 -100,0 -100-30 10,-40 35-40Z" />
+    <text font-size="24" y="70" x="100" text-anchor="middle">
+        Fe
+        <tspan font-style="italic">Fi</tspan>
+        Fo
+        <tspan font-weight="bold">Fum
+            <tspan font-style="italic">!</tspan>
+        </tspan>
+    </text>
+</svg>

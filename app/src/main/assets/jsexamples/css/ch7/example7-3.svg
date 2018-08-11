@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="1000px" height="586px" id="lynskey"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Lynskey 2017 Viale Technical Details</title>
+    <style>
+        svg text {
+        font 20px sans-serif;
+        fill: darkBlue;
+        }
+    </style>
+    <image width="100%" height="100%" xlink:href="viale.jpg" />
+    <text x="360" y="540">DTSwiss TK540/X.9 Wheelset</text>
+    <text x="90" y="105">Selle Italia X1 Flow Saddle</text>
+    <text x="460" y="210">Titanium frame</text>
+    <text x="70" y="586">SRAM Apex rear derailleur</text>
+</svg>

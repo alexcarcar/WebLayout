@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" width="550" height="80">
+    <title>Sample SVG Text, styled with CSS</title>
+    <style>
+        text {
+        /*
+        font-weight: bold;
+        font-size: 64px;
+        font-family: Brush Script MT, Brush Script, Segoe Script, cursive;
+        */
+        font: bold 64px Brush Script MT, Brush Script, Segoe Script, cursive;
+        fill: red; stroke: black; strong-width: 2px;
+        }
+    </style>
+    <text x="1em" y="60">Some Test SVG text</text>
+</svg>
