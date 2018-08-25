@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en"
+	height="100px" width="100px" viewBox="0 0 20 20">
+	<title>Card Suits</title>
+	<style type="text/css">
+		svg > svg:not(:target) {
+			/*display: none;*/
+		}
+	</style>
+
+	<svg id="diamond">
+		<title>Diamond</title>
+		<path fill="red"
+			d= "M3,10 L10,0 17,10 10,20Z
+				M9,11 L10,18 V10 H15 L11,9 10,2 V10 H5 Z"/>
+	</svg>
+	<svg id="club">
+		<title>Club</title>
+		<path fill="black"
+			d= "M9,15.5 A5,5 0 1 1 5.5,7.5
+				A5,5 0 1 1 14.5, 7.5A5,5 0 1 1 11,15.5
+				Q11,20 13,20 H7 Q9,20 9,15.5 Z"/>
+	</svg>
+	<svg id="spade">
+		<title>Spade</title>
+		<path fill="black"
+			d= "M9,15 C9,20 0,21 0,16 S6,9 10,0 C14,9 20,11 20,16
+				S11,20 11,15 Q11,20 13,20 H7 Q9,20 9,15 Z"/>
+	</svg>
+	<svg id="heart">
+		<title>Heart</title>
+		<path fill="red"
+			d= "M10,6 Q10,0 15,0 T20,6 Q20,10 15,14
+				T10,20 Q10,18 5,14 T0,6 Q0,0 5,0 T10,6 Z"/>
+	</svg>
+</svg>

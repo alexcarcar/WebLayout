@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Different views of an SVG</title>
+	<style type="text/css">
+		img, iframe, object {
+			display: block;
+			width: 90%;
+			height: 80px;
+			margin: 10px auto;
+			background-color: lightgreen;
+		}
+		h2 { margin: 0.3em 0 0; }
+		a { display: block; }
+	</style>
+</head>
+<body>
+	<h2><code>img</code></h2>
+	<img src="club-alternate-views.svg#padding" />
+	<img src="club-alternate-views.svg#stretch" />
+	
+	<h2><code>iframe</code></h2>
+	<iframe name="frame1" src="club-alternate-views.svg">
+	</iframe>
+	<a href="club-alternate-views.svg#padding" target="frame1">padding in iframe</a>
+	<a href="club-alternate-views.svg#stretch" target="frame1">stretch in iframe</a>
+	
+	<h2><code>object</code></h2>
+	<object name="object1" type="image/svg+xml" data="club-alternate-views.svg"></object>
+	<a href="club-alternate-views.svg#padding" target="object1">padding in object</a>
+	<a href="club-alternate-views.svg#stretch" target="object1">stretch in object</a>
+</body>
+</html>
