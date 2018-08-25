@@ -30,11 +30,14 @@ meet, slice, cover, contain, background-position, background-size, css padding
     <li><strong>Example 8-2.</strong> Using viewBox to scale a graphic to fit: p. 271 (<a
             href="example8-2.html">example8-2.html</a>, <a href="example8-2.css">example8-2.css</a>)
     </li>
-    <li><strong>Example 8-3.</strong> Using an HTML element with padding-controlled aspect ratio to
-        scale an SVG evenly in both directions: p. 289 (<a
-                href="example8-3.html">example8-3.html</a>, <a
-                href="example8-3.css">example8-3.css</a>)
-    </li>
+    <li><strong>Example 8-3.</strong> Using an HTML element with padding-controlled aspect ratio to scale an SVG evenly in both directions: p. 289 (<a href="example8-3.html">example8-3.html</a>, <a href="example8-3.css">example8-3.css</a>)</li>
+    <li><strong>Example 8-4.</strong> Using sliced SVG scaling, visible overflow, and padding-controlled aspect ratio to scale an SVG evenly in both directions: p. 291 (<a href="example8-4.html">example8-4.html</a>, <a href="example8-4.css">example8-4.css</a>)</li>
+</ul>
+<h1>Summary: Defining Coordinate Systems</h1>
+<ul>
+	<li>Controlling the <label>coordinate system</label> is essential for controlling how <label>SVG</label> appears.</li>
+	<li><label>viewBox</label> establishes a coordinate system with <label>offset x,y</label> relative to the <label>top-left</label> corner with <label>height and width h,w</label>:<code>viewBox="x,y h,w"</code></li>
+	<li><label>preserveAspectRatio</label> attribute controls whether the graphic scales to match the <label>too-small</label>, <label>too-large</label> dimension, or <label>stretch to fit</label> in each direction.</li>
 </ul>
 </body>
 </html>

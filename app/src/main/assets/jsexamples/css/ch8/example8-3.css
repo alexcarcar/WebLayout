@@ -17,11 +17,11 @@ path { fill: currentColor; }
 	margin: 0;
 	padding: 0;
 }
-.svg-wrapper .square {
+.svg-wrapper.square {
 	padding-bottom: 100%;
 	padding-bottom: calc(100% - 1px);
 }
-.svg-wrapper .ratio-2-1 {
+.svg-wrapper.ratio-2-1 {
 	padding-bottom: 50%;
 	padding-bottom: calc(50% - 1px);
 }
