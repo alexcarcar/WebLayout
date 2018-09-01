@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="400px" height="200px" viewBox="-50 -20 100 40">
+    <title>Reflections using scale transformations</title>
+    <style type="text/css">
+        text {
+        font: bold 18px "Times New Roman", serif;
+        text-decoration: underline;
+        stroke-width: 0.5px;
+        }
+    </style>
+    <g fill="lightBlue" stroke="blueViolet">
+        <text id="t" x="0" y="-5">ALEX</text>
+    </g>
+    <g aria-hidden="true">
+        <use xlink:href="#t" transform="scale(-1,1)" fill="springGreen" stroke="darkSlateGray" />
+        <use xlink:href="#t" transform="scale(1,-1)" fill="blueViolet" stroke="lightBlue" />
+        <use xlink:href="#t" transform="scale(-1,-1)" fill="darkSlateGray" stroke="springGreen" />
+    </g>
+</svg>
