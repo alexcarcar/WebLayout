@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink"
+    height="400px" width="400px" viewBox="0 0 20 20">
+    <title>fill-opacity versus (and with) Semi-Transparent Fill</title>
+    <use xlink:href="..\ch10\suits-symbols.svg#heart" width="10" height="10" />
+    <use xlink:href="..\ch10\suits-symbols.svg#heart" width="10" height="10" x="10" />
+    <use xlink:href="..\ch10\suits-symbols.svg#heart" width="10" height="10" y="10" />
+    <use xlink:href="..\ch10\suits-symbols.svg#heart" width="10" height="10" x="10" y="10" />
+    <style>
+        [*|href$='#heart'] { fill: magenta; }
+        [x='10'] { fill-opacity: 0.6; }
+        [y='10'] { fill: rgba(100%, 0%, 100%, 0.6); }
+    </style>
+</svg>	
