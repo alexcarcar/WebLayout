@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 16: Playing with Pixels</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../cssexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: filters, GPU, graphical processing unit (GPU) chips, Gaussian blur, stdDeviation attribute, motion blur, drop-shadow, text-shadow, chain filter, mixing, merging, source graphic, feBlend, feComposite, filter region, half-and-half effects, filter primitive regions, backdrop, blend modes, premade mixes, isolation group
+<ul>
+    <li><label>Filters</label> are instructions for modifying a rendering layer of a graphic or web page by performing calculations on its individual pixel values.</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+    <li><strong>Example 16-1.</strong> Using clipping paths to draw a patterned Venn diagram: p. 600
+        (<a href="example16-1.svg">example16-1.svg</a>)
+    </li>
+    <li><strong>Example 16-2.</strong> Creating a blurred shadow by merging filter layers: p. 613
+        (<a href="example16-2.svg">example16-2.svg</a>, <a href="suits-symbols.svg">suits-symbols.svg</a>)
+    </li>
+    <li><strong>Example 16-3.</strong> Creating a golden glow by compositing a flood color on a shadow layer: p. 614 (<a href="example16-3.svg">example16-3.svg</a>)</li>
+    <li><strong>Example 16-4.</strong> Blurring colors but not edges: p. 617 (<a href="example16-4.svg">example16-4.svg</a>)</li>
+    <li><strong>Example 16-5.</strong> Creating a group outline with &lt;feMorphology&gt;: p. 620 (<a href="example16-5.svg">example16-5.svg</a>)</li>
+    <li><strong>Example 16-6.</strong> Creating a group outline with &lt;feMorphology&gt;: p. 623 (<a href="example16-6.svg">example16-6.svg</a>)</li>
+    <li><strong>Example 16-7.</strong> Creating a group outline with &lt;feMorphology&gt;: p. 625 (<a href="example16-7.svg">example16-7.svg</a>)</li>
+    <li><strong>Example 16-8.</strong> Applying filter effects to a subregion of the element: p. 629 (<a href="example16-8.svg">example16-8.svg</a>)</li>
+    <li><strong>Example 16-9.</strong> Blending a vector graphic onto a photo, with filters: p. 637 (<a href="example16-9.svg">example16-9.svg</a>)</li>
+    <li><strong>Example 16-10.</strong> Blending a vector graphic onto a photo, with mix-blend-mode: p. 641 (<a href="example16-10.svg">example16-10.svg</a>)</li>
+    <li><strong>Example 16-11.</strong> Using isolation to limit the impact of blend modes: p. 644 (<a href="example16-11.svg">example16-11.svg</a>)</li>
+</ul>
+<h1>Summary: Clipping and Masking</h1>
+<ul>
+    <li>The set of filter primitives are very extensive, although have three issues:
+        <ol>
+            <li><label>Fading</label> has a lack of support</li>
+            <li>Rendering filters is <label>expensive</label></li>
+            <li>Using filter syntax is <label>complex</label></li>
+        </ol>
+    </li>
+</ul>
+</body>
+</html>
