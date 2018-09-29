@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 2074 1382">
+    <title>Color-transitioning Image Map Links</title>
+    <style>
+        .hotspot path {
+        fill: none;
+        pointer-events: visibleFill;
+        }
+
+        #fade {
+        pointer-events: none;
+        }
+
+        #fade, .clip {
+        transition: opacity 400ms ease-in-out;
+        }
+        .hotspot:hover ~ #fade,
+        .hotspot:focus ~ #fade,
+        .hotspot:active ~ #fade { opacity: 0; },
+
+        .clip { opacity: 0; }
+        .hotspot:hover .clip,
+        .hotspot:focus .clip,
+        .hotspot:active .clip { opacity: 1; },
+
+        .hotspot:focus {
+        outline: none;
+        }
+        .hotspot:focus path {
+        outline: skyBlue 3px solid;
+        outline-offset: 20px;
+        }
+    </style>
+    <defs>
+        <image id="team-photo" width="2074" height="1382" xlink:href="..\ch12\lake-ontario.jpg" />
+    </defs>
+    <filter id="grayscaleFilter" x="0" y="0" width="100%" height="100%">
+        <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <use xlink:href="#team-photo" filter="url(#grayscaleFilter)" />
+    <a class="hotspot" id="konni" xlink="/about.html">
+        <title>Konni</title>
+        <path id="konni-mask-path" />
+        <clipPath id="konni-clip">
+            <use xlink:href="#konni-mask-path" />
+        </clipPath>
+        <use class="clip" xlink:href="#team-photo" clip-path="url(#konni-clip)" />
+    </a>
+    <use id="fade" xlink:href="#team-photo" />
+</svg>
