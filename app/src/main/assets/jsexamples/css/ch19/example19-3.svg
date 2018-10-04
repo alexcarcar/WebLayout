@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="4in" height="1.6in" viewBox="0 0 400 160">
+    <title>Motion on a Path, with &lt;animateMotion&gt;</title>
+    <defs>
+        <polygon id="bead" points="-8,0 0,-8 8,0 0,8" stroke-width="2" />
+    </defs>
+    <path id="track" fill="none" stroke="dimGray"
+        d="M200,80 C-50,280 -50,-120 200,80 C450,280 450,-120 200,80Z" />
+    <use xlink:href="#bead" fill="orchid" stroke="indigo">
+        <animateMotion dur="5s" repeatDur="indefinite" rotate="auto">
+            <mpath xlink:href="#track" />
+        </animateMotion>
+    </use>
+    <use xlink:href="#bead" fill="gold" stroke="tomato">
+        <animateMotion dur="5s" repeatDur="indefinite" rotate="auto" begin="-1s">
+            <mpath xlink:href="#track" />
+        </animateMotion>
+    </use>
+    <use xlink:href="#bead" fill="springGreen" stroke="seaGreen">
+        <animateMotion dur="5s" repeatDur="indefinite" rotate="auto" begin="-2s">
+            <mpath xlink:href="#track" />
+        </animateMotion>
+    </use>
+    <use xlink:href="#bead" fill="skyBlue" stroke="mediumBlue">
+        <animateMotion dur="5s" repeatDur="indefinite" rotate="auto" begin="-3s">
+            <mpath xlink:href="#track" />
+        </animateMotion>
+    </use>
+    <use xlink:href="#bead" fill="indianRed" stroke="firebrick">
+        <animateMotion dur="5s" repeatDur="indefinite" rotate="auto" begin="-4s">
+            <mpath xlink:href="#track" />
+        </animateMotion>
+    </use>
+</svg>
