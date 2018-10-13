@@ -15,16 +15,72 @@ android.app.IntentService, startService(), android.content.BroadcastReceiver,
 android.app.Application
 <h1>Notes</h1>
 <ul>
-    <li><label>Android</label> is an <label>operating system (OS)</label> that runs on phones,
-        tables, and other devices (such as TVs).
-    </li>
-    <li>Each version of <label>Android</label> includes an <label>application programming interface
-        (API) level</label> that refers to developer features introduced
-    </li>
-    <li><label>Lollipop</label> also known as <label>Android 5.0</label> has <label>API level
-        21.</label></li>
-    <li>Earlier versions of Android include: <label>Cupcake, Donut, Eclair, Froyo, Gingerbread, Ice
-        Cream,</label> and <label>KitKat.</label></li>
+    <li><label>Android</label> is an <label>operating system (OS)</label> that runs on phones, tables, and other devices (such as TVs).</li>
+    <li>Each version of <label>Android</label> includes an <label>application programming interface (API) level</label> that refers to developer features introduced</li>
+    <li><label>Lollipop</label> also known as <label>Android 5.0</label> has <label>API level 21.</label></li>
+    <li>Earlier versions of Android include: <label>Cupcake, Donut, Eclair, Froyo, Gingerbread, Ice Cream,</label> and <label>KitKat.</label></li>
+    <li><label>Classes</label> includes <label>fields</label> that are <u>properties</u> of the class, and <label>methods</label> that are <u>operations</u> that the class can perform.</li>
+    <li>You commonly <label>override</label> the methods of a class to specify what you want your <label>implementation</label> to do.</li>
+    <li>An <label>Application</label><code>(android.app.Application)</code>can be used to maintain <label>global application state.</label></li>
+</ul>
+<h1>Activities</h1>
+<ul>
+	<li>An <label>Activity</label><code>(android.app.Activity)</code>is the core class of the <label>Android platform.</label></li>
+	<li>An <label>activity</label> is <u>typically</u> associated with a <label>screen</label> in the application.</li>
+	<li>Most activities start and show a <label>user interface.</label></li>
+	<li>When an <label>Android app</label> starts, a <label>launch activity</label> specified in the <label>AndroidManifest.xml</label> is launched.</li>
+	<li>All <label>activities</label> must be specified in <label>AndroidManifest.xml.</label></li>
+	<li>To start an activity use:<code>startActivity(Intent myIntent).</code></li>
+	<li>It is in the<code>onCreate()</code>method that you specify <u>what should be done when your activity is created.</u></li>
+</ul>
+
+<h1>Intents</h1>
+<ul>
+	<li>An <label>Intent</label><code>(android.content.Intent)</code>is used to make a <label>request</label> to the Android operating system.</li>
+	<li>An <label>Intent</label> contains <u>all the information needed to start a task.</u></li>
+	<li>The <label>intent action</label> is matched and launched.</li>
+	<li>For instance, a <label>specific intent</label> (or <label>explicity intent</label>) matches and launches a specific activity.</li>
+	<li>An <label>implicit intent</label> presents <u>a list of applications</u> that can handle the task.</li>
+	<li>To add extra pieces of data with your intent use:<code>putExtra("variable name", value);</code></li>
+</ul>
+<h2>An intent that launches an activity named <u>HelpActivity</u>:</h2>
+&nbsp; <code>Intent intent = new Intent(getApplicationContext(), HelpActivity.class);</code><br/>
+&nbsp; <code>intent.putExtra("com.example.LEVEL", 23);</code><br/>
+&nbsp; <code>startActivity(intent);</code><br/>
+<h2>To retrieve the intent from inside <u>HelpActivity</u>:</h2>
+&nbsp; <code>Intent receiveIntent = getIntent();</code><br/>
+&nbsp; <code>int helpLevel = receiveIntent.getIntExtra("com.example.LEVEL", 1);</code><br/>
+<h1>IntentServices</h1>
+<ul>
+	<li>A <label>service</label> is a task that runs <u>independently</u> of an activity.</li>
+	<li>A <label>Service</label><code>(android.app.Service)</code>can be launched from an <label>activity</label> and <u>work in the background.</u></li>
+	<li>Efficient and <label>responsive apps</label> use <u>background processing</u> to move work off the <label>UI thread.</label></li>
+	<li>An <label>IntentService</label><code>(android.app.IntentService)</code>must also be defined in the <label>manifest file.</label></li>
+	<li>An <label>IntentService</label> is launched with:<code>startService(Intent intent);</code></li>
+	<li>The<code>onHandleIntent(Intent intent)</code>method processes the request for the <label>IntentService.</label></li>
+</ul>
+<h1>BroadcastReceivers</h1>
+<ul>
+	<li>An <label>IntentService</label> can send a <u>broadcast</u> with:<code>sendBroadcast(Intent intent);</code></li>
+	<li>A <label>BroadcastReceiver</label><code>(android.content.BroadcastReceiver)</code> <u>receives and acts on an intent</u> from<code>sendBroadcast().</code></li>
+	<li><label>Intent services</label> and <label>broadcast receivers</label> form a <label>"publish and subscribe"</label> system.</li>
+	<li>The<code>onReceive(Intent intent)</code>method processes the broadcast from the <label>IntentService.</label></li>
+</ul>
+<h1>Context</h1>
+<ul>
+	<li>Both <label>Application</label> and <label>Activity</label> are extended from<code>(android.content.Context).</code></li>
+	<li><label>Context</label> contains <u>global information</u> about an application environment.</li>
+	<li>To retrieve <label>application context</label> for the <u>current process</u>:<code>Context context = getApplicationContext();</code></li>
+</ul>
+<h1>Reference</h1>
+<ul>
+	<li><a href="http://developer.android.com/reference/android/app/Activity">http://developer.android.com/reference/android/app/Activity</a></li>
+	<li><a href="http://developer.android.com/reference/android/content/Intent">http://developer.android.com/reference/android/content/Intent</a></li>
+	<li><a href="http://developer.android.com/reference/android/app/Service">http://developer.android.com/reference/android/app/Service</a></li>
+	<li><a href="http://developer.android.com/reference/android/app/IntentService">http://developer.android.com/reference/android/app/IntentService</a></li>
+	<li><a href="http://developer.android.com/reference/android/content/BroadcastReceiver">http://developer.android.com/reference/android/content/BroadcastReceiver</a></li>
+	<li><a href="http://developer.android.com/reference/android/app/Application">http://developer.android.com/reference/android/app/Application</a></li>
+	<li><a href="http://developer.android.com/reference/android/content/Context">http://developer.android.com/reference/android/content/Context</a></li>
 </ul>
 </body>
 </html>
