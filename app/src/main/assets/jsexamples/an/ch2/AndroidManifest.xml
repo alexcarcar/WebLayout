@@ -1,0 +1,10 @@
+<Activity
+    android:name=".SecondaryActivity"
+    android:label="@string/title_Activity_secondary">
+
+    <Intent-filter>
+        <action android:name="android.Intent.action.SEND" />
+        <category android:name="android.Intent.category.DEFAULT" />
+        <data android:mimeType="text/plain" />
+    </Intent-filter>
+</Activity>
