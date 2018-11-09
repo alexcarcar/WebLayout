@@ -125,3 +125,57 @@ console.log(a4.length); // 3
 const arr = [1, 2, 'c', 4, 5];
 arr[2] = 3;
 console.log(arr); // [ 1, 2, 3, 4, 5 ]
+
+// Dates p. 51
+const now = new Date();
+console.log(now); // 2018-11-09T13:45:06.171Z
+const halloween = new Date(2018, 9, 31); // zero based: 9=October
+const halloweenParty = new Date(2018, 9, 31, 19, 0); // 19:00 = 7:00 pm
+console.log(halloweenParty.getFullYear());  // 2018
+console.log(halloweenParty.getMonth()); // 9
+console.log(halloweenParty.getDate()); // 31
+console.log(halloweenParty.getDay()); // 3 (Wed; 0:Sun)
+console.log(halloweenParty.getHours()); // 19
+console.log(halloweenParty.getMinutes()); // 0
+console.log(halloweenParty.getSeconds()); // 0
+console.log(halloweenParty.getMilliseconds()); // 0
+
+// Regular Expressions p. 52
+// extremely simple email recognizer
+const email = /\b[a-z0-9._-]+@[a-z_-]+(?:\.[a-z]+)+\b/;
+const testEmail = "alex@mycompany.com";
+const testEmail2 = "alex-notemail-mycompany.com";
+console.log(testEmail.match(email) != null); // true
+console.log(testEmail2.match(email) != null); // false
+
+// US phone number recognizer
+const phone = /(:?\+1)?(:?\(\d{3}\)\s?|\d{3}[\s-]?)\d{3}[\s-]?\d{4}/;
+const testPhone = "1-415-123-1234";
+const testPhone2 = "1-415-123-a12345";
+console.log(testPhone.match(phone) != null); // true
+console.log(testPhone2.match(phone) != null); // false
+
+// Converting to Numbers
+const numStr = "33.3";
+const num = Number(numStr); // this creates a number value, *not* an instance of the Number object
+console.log(num); // 33.3
+const nanStr = "thisIsNotANumber";
+console.log(Number(nanStr)); // NaN
+
+// volts is ignored, 16 is parsed in base 10 (radix)
+console.log(parseInt("16 volts", 10)); // 16
+
+console.log(parseInt("3a", 16)); // 58 (=3x16+10)
+console.log(parseFloat("15.5 kph")); // 15.5
+
+const d = new Date(); // valueOf() gets milliseconds since midnight, January 1, 1970 UTC
+console.log(d.valueOf()); // 1541774463327
+
+const arr2 = ["1", true, "hello"];
+console.log(arr2.toString()); // 1,true,hello
+const n = 0; // "falsy" value
+const b1 = !!n; // false
+const b2 = Boolean(n); // false
+console.log(n + "," + b1 + "," + b2); // 0,false,false
+console.log(n===false); // false
+console.log(n==false); // true
