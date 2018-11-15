@@ -28,10 +28,31 @@ class genericsExample<T>(input:T) {
 		println("I am get called with the value "+input)
 	}
 }
+// =========================================
+// When we want to assign the generic type to any of its super type, then
+// we use "out" keyword.  When we want to assign the generic type to any of
+// its sub-type, then we need to use "in" keyword.
+fun example3() {
+	var o1 = gExample<Int>(10)
+	var o2 = gExample<Double>(10.00)
+	println(o1)
+	println(o2)
+	// I am getting called with the value 10
+	// I am getting called with the value 10.0
+	// gExample@677327b6
+	// gExample@14ae5a5
+}
+
+class gExample<out T>(input:T) {
+	init {
+		println("I am getting called with the value " + input)
+	}
+}
 
 // =========================================
 fun main(args:Array<String>) {
 	example1()
 	example2()
+	example3()
 }
 	
