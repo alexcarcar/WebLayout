@@ -76,4 +76,80 @@ function passNothing(x) {
 	return `in f: x=${x}`;
 }
 console.log(passNothing()); // in f: x=undefined
-	
+
+//------------------------------------------------
+// Destructuring Arguments (p 108)
+function getSentence({subject, verb, object}) {
+	return `${subject} ${verb} ${object}`;
+}
+const oSentence = {subject:"I", verb:"love", object:"JavaScript", extra:72};
+console.log(getSentence(oSentence)); // I love JavaScript
+
+// Using the spread operator(...) to collect additional arguments
+function addPrefix(prefix, ...words) {
+	const prefixedWords = [];
+	for (let i=0; i<words.length; i++) {
+		prefixedWords[i] = prefix + words[i];
+	}
+	return prefixedWords;
+}
+console.log(addPrefix("con", "verse", "vex")); // [ 'converse', 'convex' ]
+
+//------------------------------------------------
+// Default Arguments (p 109)
+function fDefault(a, b = "default", c = 3) {
+	return `${a} - ${b} - ${c}`;
+}
+console.log(fDefault(5, 6 , 7)); // 5 - 6 - 7
+console.log(fDefault(5, 6)); // 5 - 6 - 3
+console.log(fDefault(5)); // 5 - default - 3
+console.log(fDefault()); // undefined - default - 3
+
+//------------------------------------------------
+// Functions as Properties of Objects
+const OWallace = {
+	name: "Wallace", // primitive property
+	bark: function() {return "Woof!";},
+}
+console.log(OWallace.bark()); // Woof!
+
+//------------------------------------------------
+// The this Keyword (p 110)
+OWallace.speak = function() {
+	return `My name is ${this.name}!`;
+}
+console.log(OWallace.speak()); // My name is Wallace!
+
+// "this" is bound according to how the funciton is called,
+// not where the function is declared.
+const speak = OWallace.speak;
+console.log(speak === OWallace.speak); // true; both variables refer to the same function
+console.log(speak()); // My name is undefined!
+
+//------------------------------------------------
+// nested functions and the "this" variable (p 111)
+const oAlex = {
+	name: 'Alex',
+	greetBackwards: function() {
+		const self = this; // self preserves "this" in the scope
+		function getReversedName() {
+			let nameBackwards = '';
+			// this is not bound to the object oAlex
+			// we get around this by using the "self" variable
+			for (let i=self.name.length-1; i>=0; i--) {
+				nameBackwards += self.name[i];
+			}
+			return nameBackwards;
+		}
+		return `${getReversedName()}`;
+	}
+}
+console.log(oAlex.greetBackwards()); // xelA
+
+//-----------------------------------------------
+// assigned name takes precedence (p 113)
+const gAssigned = function fFunnyName(stop) {
+	if (stop) console.log('fFunnyName stopped');
+};
+gAssigned(true); // fFunnyName stopped
+// fFunnyName(true); // fFunnyName is undefined

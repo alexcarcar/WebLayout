@@ -15,7 +15,19 @@
 	<li>However, it is possible to modify an <label>object type</label> in a function.</li>
 	<li><label>Primitives</label> are considered <label>value types.</label></li>
 	<li><label>Objects</label> are called <label>reference types.</label></li>
-	<li>When you call a function with 0 or 1 or 10 arguments, you're calling the same function.</li>
+	<li>When you call a <label>function</label> with 0 or 1 or 10 <label>arguments</label>, you're calling the same <label>function</label>.</li>
+	<li>The term <label>method</label> is a <label>function</label> that is a <label>property</label> of an object, and designed to be called from an <label>object instance</label>:<code>o.method();</code></li>
+	<li><label>function declarations</label> give a function both a <label>body</label> and an <label>identifier</label>.</li>
+	<li><label>anonymous functions</label> do not give a function an <label>identifier</label>.</li>
+	<li>A <label>function expression</label> is simply a way to declare a (possibly unnamed) function.</li>
+</ul>
+<h1>The this Keyword</h1>
+<ul>
+	<li>Inside a <label>function body</label>, a special read-only value called <label>this</label> is available.</li>
+	<li>Normally, the <label>this</label> keyword relates to functions that are properties of objects.</li>
+	<li>The <label>this</label> is bound to how the function is <label>called</label>, not where the function is <label>declared</label>.</li>
+	<li>One detail about the <label>this</label> variable that often trips people up is when you need to access it in a <label>nested function</label>.</li>
+	<li>A <label>nested function</label> is not <label>bound</label> to the outer function's <label>parent object</label>.</li>
 </ul>
 <h1>Examples</h1>
 <ul>
