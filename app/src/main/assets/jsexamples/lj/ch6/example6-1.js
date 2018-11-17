@@ -153,3 +153,97 @@ const gAssigned = function fFunnyName(stop) {
 };
 gAssigned(true); // fFunnyName stopped
 // fFunnyName(true); // fFunnyName is undefined
+
+//----------------------------------------------
+// Arrow Notation
+const noArrow = function() {return "hello!";}
+const arrow1 = () => "hello!";
+console.log(noArrow()); // hello!
+console.log(arrow1()); // hello!
+const arrow2 = name => `Hello, ${name}!`;
+console.log(arrow2("Alex")); // Hello, Alex!
+const arrow3 = (a,b) => a+b;
+console.log(arrow3(2,9)); // 11
+
+//----------------------------------------------
+// Arrow (and inner methods)
+const oArrowAlex = {
+	name: 'Alex',
+	greetBackwards: function() {
+		const getReversedName = () => {
+			let nameBackwards = '';
+			for (var i = this.name.length - 1; i >= 0; i--) {
+				nameBackwards += this.name[i];
+			}
+			return nameBackwards;
+		};
+		return `Hello ${getReversedName()}`;
+	}
+};
+console.log(oArrowAlex.greetBackwards()); // Hello xelA
+
+//----------------------------------------------
+// call, apply, and bind
+// - JavaScript allows you to specify what "this" is
+// bound to no matter how the function is called
+const bruce = {name: "Bruce"};
+const madeline = {name: "Madeline"};
+
+// this function isn't associated with any object,
+// yet it's using 'this'!
+function greet() {
+	return `Hello, I'm ${this.name}!`;
+}
+console.log(greet()); // Hello, I'm undefined!
+console.log(greet.call(bruce)); // Hello, I'm Bruce!
+console.log(greet.call(madeline)); // Hello, I'm Madeline!
+
+//----------------------------------------------
+// - the first argument to "call" is the value you want
+// this to be bound to
+// - the remaining arguments become arguments in your function 
+function update(birthYear, occupation) {
+	this.birthYear = birthYear;
+	this.occupation = occupation;
+}
+
+update.call(bruce, 1949, 'singer');
+update.call(madeline, 1942, 'actress');
+console.log(bruce); // { name: 'Bruce', birthYear: 1949, occupation: 'singer' }
+console.log(madeline); // { name: 'Madeline', birthYear: 1942, occupation: 'actress' }
+
+//----------------------------------------------
+// apply is identical to call, but apply takes arguments as an array
+update.apply(bruce, [1955, "actor"]);
+update.apply(madeline, [1918, "writer"])
+console.log(bruce); // { name: 'Bruce', birthYear: 1955, occupation: 'actor' }
+console.log(madeline); // { name: 'Madeline', birthYear: 1918, occupation: 'writer' }
+
+//----------------------------------------------
+// using apply to built in Math.min and Math.max functions
+const applyArray = [2, 3, -5, 15, 7];
+console.log(Math.min.apply(null, applyArray)); // -5
+console.log(Math.max.apply(null, applyArray)); // 15
+
+//----------------------------------------------
+// with ES6 spread argument you can accomplish the same result as apply
+const newBruce = [1940, "martial artist"];
+update.call(bruce, ...newBruce);
+console.log(bruce); // { name: 'Bruce', birthYear: 1940, occupation: 'martial artist' }
+console.log(Math.min(...applyArray)); // -5
+console.log(Math.max(...applyArray)); // 15
+
+//----------------------------------------------
+// bind allows you to permanently associate a value for "this" with the a function
+const updateBruce = update.bind(bruce);
+updateBruce(1904, "actor");
+console.log(bruce); // { name: 'Bruce', birthYear: 1904, occupation: 'actor' }
+updateBruce.call(madeline, 1274, "king");
+console.log(bruce); // { name: 'Bruce', birthYear: 1274, occupation: 'king' }
+console.log(madeline); // { name: 'Madeline', birthYear: 1918, occupation: 'writer' }
+
+//----------------------------------------------
+// bind also allows you to permanently bind other arguments
+const updateBruce1949 = update.bind(bruce, 1949);
+updateBruce1949("singer");
+console.log(bruce); // { name: 'Bruce', birthYear: 1949, occupation: 'singer' }
