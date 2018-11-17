@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Chapter 7: Functions</title>
+	<link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../ljexamples.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: scope, declaration, definition, identifier, let, const, var, undefined, visibility, execution context, garbage collection, lexical structure, dynamic scoping, global scope, block scope, function scope, variable masking, functions, closures, lexical scope, immediately invoked function expressions, IIFE, hoisting, temporal dead zone, TDZ, typeof, strict mode, implicit globals, use strict
+<h1>Notes</h1>
+<ul>
+	<li><label>Scope</label> determines when and where <label>variables</label>, <label>constants</label>, and <label>arguments</label> are considered defined.</li>
+	<li>The <label>formal arguments</label> in the function body don't exist is called, thereby becoming <label>actual arguments</label>.</li>
+	<li>Each time a function is called, its arguments <label>come into existence</label> and then <label>go out of scope</label> when the function returns.</li>
+	<li><label>Declaring</label> a variable means that your announcing its existence by giving it an <label>identfier</label>.</li>
+	<li><label>Defining</label> a variable means <label>declaring</label> it and giving it a <label>value</label>.</li>
+	<li><label>Lexical scoping</label> means <label>variables</label> are in <label>scope</label> based on where they are <label>defined</label> (as opposed to where they are <label>called</label>.)</li>
+	<li>A <label>closure</label> intentional closes a <label>scope</label> around a function.</li>
+</ul>
+<h1>Scope Versus Existence</h1>
+<ul>
+	<li><label>Scope</label> (or <label>visibility</label>) refers to <label>identifiers</label> currently visible and accessible by the <label>execution context</label>.</li>
+	<li><label>Existence</label>, refers to <label>identifiers</label> that hold something for which memory has been <label>allocated</label>.</li>
+	<li>Memory is periodically reclaimed in a process called <label>garbage collection</label>.</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li><a href="example7-1.js">example7-1.js</a> - examples from chapter 7</li>
+</ul>
+</body>
+</html>
