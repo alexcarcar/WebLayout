@@ -41,5 +41,28 @@ function reviewOfArrays() {
 	console.log(arr7); // [ ,  ]
 	console.log(arr8); // [ '2' ]
 }
+//=====================================
+
+function addingOrRemoving() {
+	const arr = ["b", "c", "d"];
+	// push and pop operate on the end of the array
+	console.log(arr.push("e"), arr); // 4 [ 'b', 'c', 'd', 'e' ]
+	console.log(arr.pop(), arr); // e [ 'b', 'c', 'd' ]
+	// unshift and shift operate on the front of the array
+	console.log(arr.unshift("a"), arr); // 4 [ 'a', 'b', 'c', 'd' ]
+	console.log(arr.shift(), arr); // a [ 'b', 'c', 'd' ]
+}
+
+function addingMultipleElements() {
+	const arr  = [1, 2, 3];
+
+	// returns concatenated arr, but does not modify original array
+	console.log(arr.concat(4, 5, 6), arr); // [ 1, 2, 3, 4, 5, 6 ] [ 1, 2, 3 ]
+	console.log(arr.concat([4, 5, 6]), arr); // [ 1, 2, 3, 4, 5, 6 ] [ 1, 2, 3 ]
+	console.log(arr.concat([4, 5], 6), arr); // [ 1, 2, 3, 4, 5, 6 ] [ 1, 2, 3 ]
+	console.log(arr.concat(4, [5, 6]), arr); // [ 1, 2, 3, 4, 5, 6 ] [ 1, 2, 3 ]
+}
 
 reviewOfArrays();
+addingOrRemoving();
+addingMultipleElements();
