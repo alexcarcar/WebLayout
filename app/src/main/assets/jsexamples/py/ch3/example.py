@@ -1,5 +1,8 @@
 # Function Calls (page 23)
 print(type(32)) # <type 'int'>
+
+# ==================================================================================
+# Type Conversion Functions
 print(int('32')) # 32
 # print (int('Hello'))
 # ValueError: invalid literal for int() with base 10: 'Hello'
@@ -7,6 +10,7 @@ print(int(3.99999), round(3.99999), int(-2.3)) # (3, 4.0, -2)
 print(float(32), float('3.14159')) # (32.0, 3.14159)
 print(str(32), str(3.14159), str(7)+":"+str(32)) # ('32', '3.14159', '7:32')
 
+# ==================================================================================
 # Math Functions (page 24)
 import math
 print math # <module 'math' (built-in)>
@@ -21,6 +25,7 @@ degrees = 45; radians = degrees / 360.0 * 2 * math.pi
 print math.sin(radians); # 0.707106781187
 print math.sqrt(2) / 2.0; # 0.707106781187
 
+# ==================================================================================
 # Adding New Functions (page 25)
 def print_lyrics():
 	print "I'm a lumberjack, and I'm okay."
@@ -65,6 +70,7 @@ result = print_twice('Bing')
 print(result) # None
 print(type(None)) # <type 'NoneType'>
 
+# ======================================================================
 # Importing with "from"
 from math import pi
 print pi # 3.14159265359
