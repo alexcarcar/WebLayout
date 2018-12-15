@@ -15,62 +15,48 @@ android.app.IntentService, startService(), android.content.BroadcastReceiver,
 android.app.Application
 <h1>Notes</h1>
 <ul>
-    <li><label>Android</label> is an <label>operating system (OS)</label> that runs on phones, tables, and other devices (such as TVs).</li>
-    <li>Each version of <label>Android</label> includes an <label>application programming interface (API) level</label> that refers to developer features introduced</li>
-    <li><label>Lollipop</label> also known as <label>Android 5.0</label> has <label>API level 21.</label></li>
-    <li>Earlier versions of Android include: <label>Cupcake, Donut, Eclair, Froyo, Gingerbread, Ice Cream,</label> and <label>KitKat.</label></li>
-    <li><label>Classes</label> includes <label>fields</label> that are <u>properties</u> of the class, and <label>methods</label> that are <u>operations</u> that the class can perform.</li>
-    <li>You commonly <label>override</label> the methods of a class to specify what you want your <label>implementation</label> to do.</li>
-    <li>An <label>Application</label><code>(android.app.Application)</code>can be used to maintain <label>global application state.</label></li>
+    <li>Each <label>Android</label> version includes an API (Application Programming Interface) level: <label>Lollipop</label> has API level <label>21</label></li>
+   	<li>Earlier versions of include: <tt>Cupcake, Donut, Eclair, Froyo, Gingerbread, Ice Cream</tt> and <tt>KitKat</tt></li>
+    <li><label>Classes</label> includes <label>fields</label> that are <tt>properties</tt> and <label>methods</label> that are <tt>operations</tt></li>
+    <li><code>@Override</code>is used to <label>override</label> a superclass method with a custom implementation</li>
+    <li><code>android.app.Application</code>can be used to maintain global <label>application state</label></li>
+	<li><code>android.app.Activity</code>is the <label>core class</label> of the Android platform</li>
+	<li><code>android.content.Intent</code>is used to make a <label>request</label> by matching and launching an <label>intent action</label></li>
+	<li><code>android.app.Service</code>works in the <label>background</label> (off the <label>UI thread</label>) making an application <label>responsive</label></li>
+	<li>Both <label>Application</label> and <label>Activity</label> are extended from<code>(android.content.Context)</code></li>
+	<li><label>Context</label> contains <u>global information</u> about an application environment</li>
+	<li>To retrieve <label>application context</label> for the <u>current process</u>:<code>Context context = getApplicationContext();</code></li>
 </ul>
-<h1>Activities</h1>
+<h1>android.app.Activity</h1>
 <ul>
-	<li>An <label>Activity</label><code>(android.app.Activity)</code>is the core class of the <label>Android platform.</label></li>
-	<li>An <label>activity</label> is <u>typically</u> associated with a <label>screen</label> in the application.</li>
-	<li>Most activities start and show a <label>user interface.</label></li>
-	<li>When an <label>Android app</label> starts, a <label>launch activity</label> specified in the <label>AndroidManifest.xml</label> is launched.</li>
-	<li>All <label>activities</label> must be specified in <label>AndroidManifest.xml.</label></li>
-	<li>To start an activity use:<code>startActivity(Intent myIntent).</code></li>
-	<li>It is in the<code>onCreate()</code>method that you specify <u>what should be done when your activity is created.</u></li>
+	<li>An <code>Activity</code> is typically associated with a screen</li>
+	<li>A special <label>launch activity</label> (specified in <tt>AndroidManifest.xml</tt>) starts when an Android App begins</li>
+	<li><code>startActivity(Intent myIntent)</code>begins a new Activity and executes it's <code>onCreate()</code>method</li>
 </ul>
 
-<h1>Intents</h1>
+<h1>android.content.Intent</h1>
 <ul>
-	<li>An <label>Intent</label><code>(android.content.Intent)</code>is used to make a <label>request</label> to the Android operating system.</li>
-	<li>An <label>Intent</label> contains <u>all the information needed to start a task.</u></li>
-	<li>The <label>intent action</label> is matched and launched.</li>
-	<li>For instance, a <label>specific intent</label> (or <label>explicity intent</label>) matches and launches a specific activity.</li>
-	<li>An <label>implicit intent</label> presents <u>a list of applications</u> that can handle the task.</li>
-	<li>To add extra pieces of data with your intent use:<code>putExtra("variable name", value);</code></li>
-</ul>
-<h2>An intent that launches an activity named <u>HelpActivity</u>:</h2>
+	<li>An <code>Intent</code> can be <label>explicit</label> matching a specific <code>Activity</code> or <label>implicit</label> presenting a list of applications</li>
+	<li><label>putExtra</label> is used to add data to an intent:<code>intent.putExtra("variable name", value);</code></li>
+	<li>Launching an Activity<br/>
 &nbsp; <code>Intent intent = new Intent(getApplicationContext(), HelpActivity.class);</code><br/>
 &nbsp; <code>intent.putExtra("com.example.LEVEL", 23);</code><br/>
-&nbsp; <code>startActivity(intent);</code><br/>
-<h2>To retrieve the intent from inside <u>HelpActivity</u>:</h2>
+&nbsp; <code>startActivity(intent);</code><br/></li>
+	<li>Retrieving an Intent<br/>
 &nbsp; <code>Intent receiveIntent = getIntent();</code><br/>
-&nbsp; <code>int helpLevel = receiveIntent.getIntExtra("com.example.LEVEL", 1);</code><br/>
-<h1>IntentServices</h1>
-<ul>
-	<li>A <label>service</label> is a task that runs <u>independently</u> of an activity.</li>
-	<li>A <label>Service</label><code>(android.app.Service)</code>can be launched from an <label>activity</label> and <u>work in the background.</u></li>
-	<li>Efficient and <label>responsive apps</label> use <u>background processing</u> to move work off the <label>UI thread.</label></li>
-	<li>An <label>IntentService</label><code>(android.app.IntentService)</code>must also be defined in the <label>manifest file.</label></li>
-	<li>An <label>IntentService</label> is launched with:<code>startService(Intent intent);</code></li>
-	<li>The<code>onHandleIntent(Intent intent)</code>method processes the request for the <label>IntentService.</label></li>
+&nbsp; <code>int helpLevel = receiveIntent.getIntExtra("com.example.LEVEL", 1);</code><br/></li>
 </ul>
-<h1>BroadcastReceivers</h1>
+<h1>android.app.IntentService</h1>
 <ul>
-	<li>An <label>IntentService</label> can send a <u>broadcast</u> with:<code>sendBroadcast(Intent intent);</code></li>
-	<li>A <label>BroadcastReceiver</label><code>(android.content.BroadcastReceiver)</code> <u>receives and acts on an intent</u> from<code>sendBroadcast().</code></li>
-	<li><label>Intent services</label> and <label>broadcast receivers</label> form a <label>"publish and subscribe"</label> system.</li>
-	<li>The<code>onReceive(Intent intent)</code>method processes the broadcast from the <label>IntentService.</label></li>
+	<li>An <code>IntentService</code>(defined in the <tt>AndroidManifest.xml</tt>) is launched with<code>startService(Intent intent)</code></li>
+	<li>The<code>onHandleIntent(Intent intent)</code>method processes the request</li>
+	<li>An <code>IntentService</code> sends a <label>broadcast</label> with<code>sendBroadcast(Intent intent)</code></li>
 </ul>
-<h1>Context</h1>
+<h1>android.content.BroadcastReceiver</h1>
 <ul>
-	<li>Both <label>Application</label> and <label>Activity</label> are extended from<code>(android.content.Context).</code></li>
-	<li><label>Context</label> contains <u>global information</u> about an application environment.</li>
-	<li>To retrieve <label>application context</label> for the <u>current process</u>:<code>Context context = getApplicationContext();</code></li>
+	<li>A <code>BroadcastReceiver</code> receives and acts on an intent from<code>sendBroadcast()</code></li>
+	<li><label>Intent services</label> and <label>broadcast receivers</label> form a <label>"publish and subscribe"</label> system</li>
+	<li>The<code>onReceive(Intent intent)</code>method processes the broadcast from the <label>IntentService</label></li>
 </ul>
 <h1>Reference</h1>
 <ul>
