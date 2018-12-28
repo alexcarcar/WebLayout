@@ -13,3 +13,7 @@ java -jar hello.jar
 # https://www.tutorialspoint.com/kotlin/kotlin_useful_resources.htm
 # https://en.wikipedia.org/wiki/Kotlin_(programming_language)
 # https://kotlinlang.org/
+
+# ==== Books
+# https://www.imel.ba/edukacija/
+# https://www.imel.ba/edukacija/reactnativecookbook_lebensold.pdf
