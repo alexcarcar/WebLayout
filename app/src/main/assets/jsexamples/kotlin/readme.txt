@@ -8,3 +8,8 @@ kotlinc hello.kt -include-runtime -d hello.jar
 
 # To run:
 java -jar hello.jar
+
+
+# https://www.tutorialspoint.com/kotlin/kotlin_useful_resources.htm
+# https://en.wikipedia.org/wiki/Kotlin_(programming_language)
+# https://kotlinlang.org/
