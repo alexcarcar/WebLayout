@@ -158,7 +158,7 @@ tahoeList()
 function tahoeListArrow() {
 	var tahoe = {
 		resorts: ["Kirkwood","Squaw","Alpine","Heavenly","Northstar"],
-		print: function(delay=200) {
+		print: function(delay=0) {
 			setTimeout(() => {
 				console.log(this.resorts.join(", "))
 			}, delay)
@@ -168,3 +168,190 @@ function tahoeListArrow() {
 	// Kirkwood, Squaw, Alpine, Heavenly, Northstar
 }
 tahoeListArrow()
+
+// The destructuring assignment allows you to locally scope fields within an object and
+// to declare which values will be used.
+function destructuringAssignment() {
+	var sandwich = {
+		bread: "dutch crunch",
+		meat: "tuna",
+		cheese: "swiss",
+		toppings: ["lettuce", "tomato", "mustard"]
+	}
+	var {bread, meat} = sandwich
+	console.log(bread, meat) // dutch crunch tuna
+
+	var lordify = regularPerson => {
+		console.log(`${regularPerson.firstname} of Canterbury`)
+	}
+	var regularPerson = {
+		firstname: "Alex",
+		lastname: "Carcar"
+	}
+	lordify(regularPerson) // Alex of Canterbury
+
+	var structify = ({firstname}) => {
+		console.log(`${firstname} of Canterbury`)
+	}
+	structify(regularPerson) // Alex of Canterbury
+
+	// Values can also be destructured from arrays. Imagine that we wanted to assign the
+	// first value of an array to a variable name:
+	var [firstResort] = ["Kirkwood", "Squaw", "Alpine"]
+	console.log(firstResort) // Kirkwood
+	var [,,thirdResort] = ["Kirkwood", "Squaw", "Alpine"]
+	console.log(thirdResort) // Alpine
+}
+destructuringAssignment()
+
+// Object literal enhancement is the opposite of destructuring. It is the process of restructuring
+// or putting back together. With object literal enhancement, we can grab variables
+// from the global scope and turn them into an object
+function objectLiteralEnhancement() {
+	var name = "Tallac"
+	var elevation = 9738
+	var funHike = {name,elevation}
+	console.log(funHike) // {name: "Tallac", elevation: 9738}
+}
+objectLiteralEnhancement()
+
+// We can also create object methods with object literal enhancement or restructuring
+function objectMethod() {
+	var name = "Tallac"
+	var elevation = 9738
+	var print = function() {
+		console.log(`Mt. ${this.name} is ${this.elevation} feet tall`)
+	}
+	var funHike = {name,elevation,print}
+	funHike.print() // Mt. Tallac is 9738 feet tall
+}
+objectMethod()
+
+// When defining object methods, it is no longer necessary to use the function keyword
+function definingObjectMethods() {
+	const name = "George"
+	const sound = "wow"
+	const skier = {
+		name,
+		sound,
+		powderYell() {
+			let yell = this.sound.toUpperCase()
+			console.log(`${yell} ${yell} ${yell}!!!`)
+		},
+		speed(mph) {
+			this.speed = mph
+			console.log('speed:', mph)
+		}
+	}
+	skier.powderYell() // WOW WOW WOW!!!
+	skier.speed(65) // speed: 65
+}
+definingObjectMethods()
+
+// The spread operator (...)
+// ------------------------------------------------------------------------------------------------
+//
+// The spread operator is three dots (...) that perform several different tasks. First, the
+// spread operator allows us to combine the contents of arrays.
+function combineContents() {
+	var peaks = ["Tallac", "Ralston", "Rose"]
+	var canyons = ["Ward", "Blackwood"]
+	var tahoe = [...peaks, ...canyons]
+	console.log(tahoe.join(', ')) // Tallac, Ralston, Rose, Ward, Blackwood
+}
+combineContents()
+
+// In a world with the spread operator, we don’t have to mutate the original array; we
+// can create a copy of the array and then reverse it
+function reverseCopy() {
+	var peaks = ["Tallac", "Ralston", "Rose"]
+	var [last] = [...peaks].reverse()
+	console.log(last) // Rose
+	console.log(peaks.join(', ')) // Tallac, Ralston, Rose
+}
+reverseCopy()
+
+// The spread operator can also be used to get some, or the rest, of the items in the array
+function getTheRest() {
+	var lakes = ["Donner", "Marlette", "Fallen Leaf", "Cascade"]
+	var [, ...rest] = lakes
+	console.log(rest.join(", ")) // "Marlette, Fallen Leaf, Cascade"
+}
+getTheRest()
+
+// We can also use the spread operator to collect function arguments as an array. Here,
+// we build a function that takes in n number of arguments using the spread operator,
+// and then uses those arguments to print some console messages:
+function collectArguments() {
+	const directions = function directions(...args) {
+		var [start, ...remaining] = args
+		var [finish, ...stops] = remaining.reverse()
+		console.log(`drive through ${args.length} towns`)
+		console.log(`start in ${start}`)
+		console.log(`the destination is ${finish}`)
+		console.log(`stopping ${stops.length} times in between`)
+	}
+	directions(
+		"Truckee",
+		"Tahoe City",
+		"Sunnyside",
+		"Homewood",
+		"Tahoma"
+	)
+	// drive through 5 towns
+	// start in Truckee
+	// the destination is Tahoma
+	// stopping 3 times in between
+}
+collectArguments()
+
+// Using the spread operator with objects is similar to using it with arrays. In this example,
+// we’ll use it the same way we combined two arrays into a third array, but instead of arrays,
+// we’ll use objects:
+function combiningObjects() {
+	var morning = {
+		breakfast: "oatmeal",
+		lunch: "peanut butter and jelly"
+	}
+	var dinner = "mac and cheese"
+	var backpackingMeals = {
+		// ...morning
+		breakfast: morning.breakfast,
+		lunch: morning.lunch,
+		dinner
+	}
+	console.log(backpackingMeals)
+	// { breakfast: 'oatmeal',
+	// lunch: 'peanut butter and jelly',
+	// dinner: 'mac and cheese' }
+}
+combiningObjects()
+
+// Promises
+// -------------------------------------------------------------------------------------------
+
+// The promise makes a request to the API. If the promise is successful, the data will load.
+// If the promise is unsuccessful, an error will occur:
+function makingPromises() {
+	const getFakeMembers = count => new Promise((resolves, rejects) => {
+		const api = `https://api.randomuser.me/?nat=US&results=${count}`
+		const request = new XMLHttpRequest()
+		request.open('GET', api)
+		request.onload = () =>
+			(request.status === 200) ?
+			resolves(JSON.parse(request.response).results) :
+			reject(Error(request.statusText))
+		request.onerror = (err) => rejects(err)
+		request.send()
+	})
+
+	// The then function can be chained on to do something once the promise has been fulfilled.
+	// This is called composition. We’ll also use an additional callback that handles errors:
+	getFakeMembers(5).then(
+		members => console.log(members),
+		err => console.error(
+		new Error("cannot load members from randomuser.me"))
+	)
+	// Error: cannot load members from randomuser.me
+}
+makingPromises()
