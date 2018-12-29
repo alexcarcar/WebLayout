@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Article Example</title>
+</head>
+<body>&nbsp;</body>
+	<script type="text/javascript">
+		const article = {
+			title: "How to create React applications",
+			body: "Here are all the details..."
+		}
+		document.body.innerHTML = `
+		<section>
+			<header>
+				<h1>The HTML5 Blog</h1>
+			</header>
+			<article>
+				<h2>${article.title}</h2>
+				${article.body}
+			</article>
+			<footer>
+				<p>copyright ${new Date().getFullYear()} | The HTML5 Blog</p>
+			</footer>
+		</section>
+		`
+	</script>
+</html>
+
+<!--
+The HTML5 Blog
+How to create React applications
+Here are all the details...
+
+copyright 2018 | The HTML5 Blog
+ -->
