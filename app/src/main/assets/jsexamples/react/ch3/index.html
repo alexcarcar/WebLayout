@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chapter 3: Functional Programming with JavaScript</title>
+    <link rel="stylesheet" type="text/css" href="../../js/common.css">
+</head>
+<body>
+<a href="../../react.html">GO BACK</a>
+<br/> &nbsp; <br/>
+<label>Keywords</label>: React programming, functional programming, functional JavaScript code, map, reduce, functional programmer, React, Flux, Redux, functional JavaScript paradigm, lambda calculus, functions, higher-order functions
+<h1>Notes</h1>
+<ul>
+	<li>The invention of <label>lambda calculus</label>, or <label>&lambda;-calculus</label> was in the <label>1930s</label></li>
+	<li><label>Functions</label> have been a part of <label>calculus</label> since it emerged in the <label>17th century</label></li>
+	<li>In the <label>1930s</label>, <label>Alonzo Church</label> was at <label>Princeton</label> experimenting with <label>higher-order functions</label> when he invented <label>lambda calculus</label></li>
+	<li>In the late <label>1950s</label>, <label>John McCarthy</label> took the concepts derived from <label>&lambda;-calculus</label> and applied them to a new programming language called <label>Lisp</label></li>
+	<li>A function is considered a <label>first-class member</label> when it can be declared as a <label>variable</label> and sent to functions as an <label>argument</label></li>
+	<li><label>ES6</label> adds language improvements that can beef up your functional programming techniques, including <label>arrow functions</label>, <label>promises</label>, and the <label>spread operator</label></li>
+	<li><label>Declarative programming</label> is a style of programming where applications are structured in a way that <label>prioritizes describing what should happen</label> over defining how it should happen</li>
+	<li><label>Imperative programming</label> is a style of programming that is only concerned with <label>how to achieve results</label> with code</li>
+	<li>Here we are using <label>string.replace</label> along with a <label>regular expression</label> to replace all instances of spaces with hyphens:<code>string.replace(/ /g, "-")</code></li>
+</ul>
+<code>
+<h1>Construct a DOM declaratively using a React component</h1>
+const { render } = ReactDOM<br/>
+const Welcome = () => (<br/>
+&nbsp; &lt;div id="welcome"><br/>
+&nbsp; &lt;h1>Hello World&lt;/h1><br/>
+&nbsp; &lt;/div><br/>
+)<br/>
+render(<br/>
+&nbsp; &lt;Welcome />,<br/>
+&nbsp; document.getElementById('target')<br/>
+)</code>
+<h1>Functional Concepts</h1>
+<ul>
+	<li>In a functional program, data is <label>immutable</label>. It never changes.</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li><a href="examples.js">examples.js</a></li>
+</ul>
+</body>
+</html>
