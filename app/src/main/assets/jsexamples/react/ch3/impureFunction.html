@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>An impure function that mutates the DOM</title>
+	<style type="text/css">
+		tt {
+			font-size: 14pt;
+			color: blue;
+		}
+		p {
+			font-size: 14pt;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+function Header(text) {
+	let h1 = document.createElement('h1');
+	h1.innerText = text;
+	document.body.appendChild(h1);
+}
+Header("Header() caused side effects");
+</script>
+<tt>
+function Header(text) {<br/>
+&nbsp; &nbsp;let h1 = document.createElement('h1');<br/>
+&nbsp; &nbsp;h1.innerText = text;<br/>
+&nbsp; &nbsp;document.body.appendChild(h1);<br/>
+}<br/>
+</tt>
+<ul>
+<li>The Header function creates a heading--one element with specific text and adds it to the DOM.</li>
+<li>This function is impure.</li>
+<li>It does not return a function or a value, and it causes side effects: a changed DOM.</li>
+</ul>
+<br/>
+In React, the UI is expressed with pure functions. In the following sample,
+<ul>
+<li>Header is a pure function that can be used to create heading--one element just like in the previous example.</li>
+<li>However, this function on its own does not cause side effects because it does not mutate the DOM.</li>
+<li>This function will create a heading-one element, and it is up to some other part of the application to use that element to change the DOM:</li>
+</ul>
+<tt>
+const Header = (props) => &lt;h1>{props.title}&lt;/h1>
+</tt>
+<br/>
+<br/>
+<button onclick="goBack()">Go Back</button>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script> 
+</body>
+</html>

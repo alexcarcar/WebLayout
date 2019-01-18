@@ -35,10 +35,16 @@ render(<br/>
 <h1>Functional Concepts</h1>
 <ul>
 	<li>In a functional program, data is <label>immutable</label>. It never changes.</li>
+	<li><label>Pure functions</label> do not cause side effects, set global variables, or change anything about application state. They treat their arguments as immutable data.</li>
+	<li><label>Pure functions</label> are naturally <label>testable.</label> They do not change anything about their environment or "world," and therefore do not require a complicated <label>test setup</label> or <label>teardown.</label></li>
+	<li>When it is time to remove an item from an array we should use <label>Array.filter</label> over <label>Array.pop</label> or <label>Array.splice</label> because <label>Array.filter</label> is immutable.</li>
+	<li><label>Array.reduceRight</label> works the same way as <label>Array.reduce</label>; the difference is that it starts reducing from the end of the array rather than the beginning.</li>
 </ul>
 <h1>Examples</h1>
 <ul>
 	<li><a href="example.js">example.js</a></li>
+	<li><a href="pureFunctions.js">pureFunctions.js</a>, <a href="impureFunction.html">impureFunction.html</a></li>
+	<li><a href="dataTransformations.js">dataTransformations.js</a></li>
 </ul>
 </body>
 </html>

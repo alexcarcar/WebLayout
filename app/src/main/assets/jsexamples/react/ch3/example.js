@@ -79,4 +79,72 @@ function functionalConcepts() {
 		color: "#00FF00",
 		rating: 0
 	}
+
+	const rateColor = function(color, rating) {
+		color.rating = rating
+		return color
+	}
+
+	// In JavaScript, function arguments are references to the actual data. Setting the color's
+	// rating like this is bad because it changes or mutates the original color object.
+	console.log(rateColor(color_lawn, 5).rating) // 5
+	console.log(color_lawn.rating) // 5
+
+	const rateColorCopyObject = function(color, rating) {
+		return Object.assign({}, color, {rating:rating})
+		// Object.assign is the copy machine; it takes a blank object, copies the color to that object,
+		// and overwrites the rating on the copy.
+	}
+	color_lawn.rating = 4
+	console.log(rateColorCopyObject(color_lawn, 5).rating) // 5
+	console.log(color_lawn.rating) // 4
+
+	// The Object.assign() method is used to copy the values of all enumerable own properties from
+	//  one or more source objects to a target object. It will return the target object.
+	let cat = {cat:"meow"}
+	let obj = Object.assign({}, cat, {dog:"bark"}, {duck:"quack"})
+	console.log(obj) // { cat: 'meow', dog: 'bark', duck: 'quack' }
+	console.log(cat) // { cat: 'meow' }
 }
+functionalConcepts()
+
+function arrayOfColors() { // p 38
+	let list = [
+		{ title: "Rad Red"},
+		{ title: "Lawn"},
+		{ title: "Party Pink"}
+	]
+
+	let addColor = function(title, colors) {
+		// We could create a function that will add colors to that array using Array.push:
+		colors.push({ title: title})
+		return colors
+	}
+	console.log(addColor("Glam Green", list).length) // 4
+	console.log(list, list.length)
+	// [ { title: 'Rad Red' },
+	//   { title: 'Lawn' },
+	//   { title: 'Party Pink' },
+	//   { title: 'Glam Green' } ] 4
+
+	// However, Array.push is not an immutable function. This addColor function changes
+	// the original array by adding another field to it. In order to keep the colors array
+	// immutable, we must use Array.concat instead:
+
+	list = [
+		{ title: "Rad Red"},
+		{ title: "Lawn"},
+		{ title: "Party Pink"}
+	]
+
+	addColor = (title, array) => array.concat({title})
+	console.log(addColor("Glam Green", list).length) // 4
+	console.log(list, list.length)
+	// [ { title: 'Rad Red' },
+	//   { title: 'Lawn' },
+	//   { title: 'Party Pink' } ] 3
+	
+	// Array.concat concatenates arrays. In this case, it takes a new object, with a new color
+	// title, and adds it to a copy of the original array.
+}
+arrayOfColors()
